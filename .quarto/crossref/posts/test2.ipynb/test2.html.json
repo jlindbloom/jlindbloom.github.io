@@ -1,1 +1,1 @@
-{"entries":[{"order":{"section":[0,0,0,0,0,0,0],"number":2},"caption":"A line plot on a polar axis","key":"fig-polar2"},{"order":{"section":[0,0,0,0,0,0,0],"number":1},"caption":"A line plot on a polar axis","key":"fig-polar"}],"headings":["does-this-work"]}
+{"headings":["does-this-work"],"entries":[{"order":{"number":1,"section":[0,0,0,0,0,0,0]},"caption":"A line plot on a polar axis","key":"fig-polar"},{"order":{"number":2,"section":[0,0,0,0,0,0,0]},"caption":"A line plot on a polar axis","key":"fig-polar2"}]}
