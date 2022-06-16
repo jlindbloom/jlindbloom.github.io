@@ -5,10 +5,10 @@ project:
 website:
   title: "Jonathan Lindbloom"
   navbar:
+    search: false
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      # - href: about.qmd
+      #   text: Home
       - research.qmd
       - blog.qmd
   # twitter-card:

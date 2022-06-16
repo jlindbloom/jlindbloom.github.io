@@ -11,14 +11,14 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Notebook test\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\nPost description\n\n\n\n\n\n\nMay 22, 2021\n\n\n\n\n\n\nNo matching items"
+    "text": "No matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "mysite",
+    "title": "Jonathan Lindbloom",
     "section": "",
-    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "I am an applied mathematics PhD student at Dartmouth College, originally from Dallas, Texas. I like learning about computational methods for solving (inverse) problems and quantifying uncertainty."
   },
   {
     "objectID": "posts/test.html",
@@ -28,17 +28,38 @@
     "text": "I think it does."
   },
   {
-    "objectID": "posts/test2.html",
-    "href": "posts/test2.html",
-    "title": "Quarto Basics",
-    "section": "",
-    "text": "Code\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\nFigure 1: A line plot on a polar axis\n\n\n\n\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\nFigure 2: A line plot on a polar axis\n\n\n\n\nFor a demonstration of a line plot on a polar axis, see Figure 1.\n\nDoes this work?"
-  },
-  {
     "objectID": "research.html",
     "href": "research.html",
     "title": "Research",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "Jonathan Lindbloom",
+    "section": "Education",
+    "text": "Education\nDartmouth College | Hanover, NH PhD in Mathematics | Sept 2021 - Present\nSouthern Methodist University | St. Paul MA B.A in Economics | Aug 2017 - May 2021"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "About",
+    "section": "Experience",
+    "text": "Experience\nWengo Analytics | Head Data Scientist | April 2018 - present\nGeoScynce | Chief Analyst | Spet 2012 - April 2018"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Jonathan Lindbloom",
+    "section": "Education",
+    "text": "Education\nDartmouth College | Hanover, NH\nPhD in Mathematics\nSept 2021 - Present\nSouthern Methodist University | Dallas, TX\nBS in Mathematics, BBA in Finance\nAug 2017 - May 2021"
+  },
+  {
+    "objectID": "posts/test2.html",
+    "href": "posts/test2.html",
+    "title": "Sampling a Cauchy Markov Random Field Prior",
+    "section": "",
+    "text": "Code\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\nFigure 1: A line plot on a polar axis\n\n\n\n\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\nFigure 2: A line plot on a polar axis\n\n\n\n\nFor a demonstration of a line plot on a polar axis, see Figure 1.\n\nDoes this work?"
   }
 ]

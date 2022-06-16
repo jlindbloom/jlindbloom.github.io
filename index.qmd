@@ -1,7 +1,28 @@
 ---
-title: "mysite"
+title: "Jonathan Lindbloom"
+image: profile.jpg
+about:
+  template: trestles
+  image-shape: round
+  image-width: 20em
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/qed404
+    - icon: github
+      text: Github
+      href: https://github.com/jlindbloom
+    # (additional links excluded for brevity)
 ---
 
-This is a Quarto website.
+I am an applied mathematics PhD student at Dartmouth College, originally from Dallas, Texas. I like learning about computational methods for solving (inverse) problems and quantifying uncertainty.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+## Education
+
+Dartmouth College | Hanover, NH  
+PhD in Mathematics  
+Sept 2021 - Present
+
+Southern Methodist University | Dallas, TX  
+BS in Mathematics, BBA in Finance  
+Aug 2017 - May 2021
