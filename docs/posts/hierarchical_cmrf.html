@@ -815,13 +815,13 @@ D_2 &amp;= D \otimes I_M,
 H \, | \, \lambda_1, \ldots, \lambda_{2N^2} &amp;= \text{diag}(\lambda_1, \ldots, \lambda_{2N^2}) \\
 x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( F^T H F \right)^{-1} \right).
 \end{align*}\]</span> Let’s try sampling this.</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="21">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> gamma</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>M, N <span class="op">=</span> <span class="dv">200</span>, <span class="dv">200</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="fl">1.0</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Build D matrices</span></span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>d_mat_vert <span class="op">=</span> sp.eye(M)</span>
@@ -837,7 +837,7 @@ x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( F^T H F \right)^{-1}
 <span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>d_mat <span class="op">=</span> sp.vstack([d_mat_one, d_mat_two])</span>
 <span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample hyperparamters</span></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>h_mat <span class="op">=</span> gamma.rvs(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, scale<span class="op">=</span>(s<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span><span class="dv">2</span>, size<span class="op">=</span><span class="dv">2</span><span class="op">*</span>M<span class="op">*</span>N)</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>h_mat <span class="op">=</span> gamma.rvs(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, scale<span class="op">=</span><span class="dv">1</span><span class="op">/</span>((s<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span><span class="dv">2</span>), size<span class="op">=</span><span class="dv">2</span><span class="op">*</span>M<span class="op">*</span>N)</span>
 <span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>h_mat <span class="op">=</span> sp.diags(h_mat)</span>
 <span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Build precision</span></span>
@@ -885,7 +885,7 @@ x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( F^T H F \right)^{-1}
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n_samples):</span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sample hyperparamters</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    h_mat <span class="op">=</span> gamma.rvs(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, scale<span class="op">=</span>(s<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span><span class="dv">2</span>, size<span class="op">=</span><span class="dv">2</span><span class="op">*</span>M<span class="op">*</span>N)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    h_mat <span class="op">=</span> gamma.rvs(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, scale<span class="op">=</span><span class="dv">1</span><span class="op">/</span>((s<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span><span class="dv">2</span>), size<span class="op">=</span><span class="dv">2</span><span class="op">*</span>M<span class="op">*</span>N)</span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    h_mat <span class="op">=</span> sp.diags(h_mat)</span>
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Build precision</span></span>
