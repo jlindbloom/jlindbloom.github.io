@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.577">
+<meta name="generator" content="quarto-0.9.587">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -328,7 +328,7 @@ x = \mu + L z
 </div>
 </div>
 <p>Easy enough. However, a central concern when working with GMRFs is how well the method scales with the dimension <span class="math inline">\(N\)</span>. Now let’s do a naive experiment where we time how long it takes to compute a single sample as we increase <span class="math inline">\(N\)</span>.</p>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="3">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
@@ -387,7 +387,7 @@ x = \mu + L z
 </div>
 </div>
 </div>
-<p>Generating a sample appears to cost <span class="math inline">\(\mathcal{O}(N^\alpha)\)</span> with <span class="math inline">\(\alpha \approx 2\)</span>. The bottleneck in this method comes from the matrix inverse and Cholesky factorizations, which since the covariance is dense we should each expect to cost <span class="math inline">\(\mathcal{O}(N^3)\)</span> – for whatever reason it seems we manage to do better than this though.</p>
+<p>Generating a sample appears to cost <span class="math inline">\(\mathcal{O}(N^\alpha)\)</span> with <span class="math inline">\(\alpha \approx 2.4\)</span>. The bottleneck in this method comes from the matrix inverse and Cholesky factorizations, which since the covariance is dense we should each expect to cost <span class="math inline">\(\mathcal{O}(N^3)\)</span> – for whatever reason it seems we manage to do better than this though.</p>
 <p>We can do better than this by instead using the “precision method” that takes advantage of the sparsity of <span class="math inline">\(Q\)</span>. Inserting the Cholesky factorization <span class="math inline">\(Q = L L ^T\)</span> into the previous covariance method, the precision method is to compute a sample via</p>
 <p><span class="math display">\[
 x = \mu + L^{-T} z
