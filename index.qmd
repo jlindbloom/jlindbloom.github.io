@@ -4,7 +4,7 @@ image: profile.jpg
 about:
   template: trestles
   image-shape: round
-  image-width: 20em
+  image-width: 12em
   links:
     - icon: twitter
       text: Twitter
