@@ -80,6 +80,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -238,7 +257,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[
 y = A x.
 \]</span></p>
-<p>Note that the blurring is a linear operator and thus can be represented by a matrix <span class="math inline">\(A\)</span>, even though we never actually form the matrix <span class="math inline">\(A\)</span>. Note that we have also used the <code>mode = 'wrap'</code> option, which specifies a periodic boundary condition for the blurring. We choose this because this choice makes <span class="math inline">\(A\)</span> a block circulant with circulant blocks (BCCB) matrix, which have several nice properties. One such property is that we can diagonalize the matrix <span class="math inline">\(A\)</span> via the two-dimensional discrete Fourier transform, i.e.,</p>
+<p>Note that the blurring is a linear operator and thus can be represented by a matrix <span class="math inline">\(A\)</span>, even though we never actually form the matrix <span class="math inline">\(A\)</span>. Note that we have also used the <code>mode = 'wrap'</code> option, which specifies a periodic boundary condition for the blurring. We choose this because this choice makes <span class="math inline">\(A\)</span> a block circulant with circulant blocks (BCCB) matrix, which have several nice properties (see <span class="citation" data-cites="Hansen2008">[<a href="#ref-Hansen2008" role="doc-biblioref">1</a>]</span> for a nice overview of structured matrices and image de-blurring). One such property is that we can diagonalize the matrix <span class="math inline">\(A\)</span> via the two-dimensional discrete Fourier transform, i.e.,</p>
 <p><span class="math display">\[
 A = F^H  \Lambda  F
 \]</span></p>
@@ -428,11 +447,63 @@ x &amp;= \left( A^T A + \gamma L^T L \right)^{-1} A^T y \\
 </details>
 <p><img src="regularized_deblurred_grand_canyon.jpg" class="img-fluid"></p>
 <p>This is much better than what we got by instead computing <span class="math inline">\(x = A^{-1} y\)</span>. In the next post, we’ll use <a href="https://cupy.dev/"><code>CuPy</code></a> to approach this same problem but with a different form of the regularizer <span class="math inline">\(\mathcal{R}(x)\)</span>.</p>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>capture</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.sparse <span class="im">as</span> sp</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># First we need to construct our L matrix</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct our L matrix</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>d_mat_vert <span class="op">=</span> sp.eye(N)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>d_mat_vert.setdiag(<span class="op">-</span><span class="dv">1</span>,k<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>d_mat_vert <span class="op">=</span> sp.csc_matrix(d_mat_vert)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>d_mat_vert[<span class="dv">0</span>,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="co"># For periodic BCs</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>eye_horiz <span class="op">=</span> sp.eye(M)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>d_mat_one <span class="op">=</span> sp.kron(eye_horiz, d_mat_vert)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>d_mat_horiz <span class="op">=</span> sp.eye(M)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>d_mat_horiz.setdiag(<span class="op">-</span><span class="dv">1</span>,k<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>d_mat_horiz <span class="op">=</span> sp.csc_matrix(d_mat_horiz)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>d_mat_horiz[<span class="dv">0</span>,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="co"># For periodic BCs</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>eye_vert <span class="op">=</span> sp.eye(N)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>d_mat_two <span class="op">=</span> sp.kron(d_mat_horiz, eye_vert)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>d_mat <span class="op">=</span> sp.vstack([d_mat_one, d_mat_two])</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>L_mat <span class="op">=</span> d_mat.T <span class="op">@</span> d_mat</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Next, we need to compute $\Pi$ like we did earlier with $\Lambda$.</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>rand_img <span class="op">=</span> np.random.randn(M,N)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>mat_prod_rand_img <span class="op">=</span> np.fft.fft2( (L_mat <span class="op">@</span> np.fft.ifft2(rand_img, norm<span class="op">=</span><span class="st">'ortho'</span>).flatten() ).reshape((M,N)), norm<span class="op">=</span><span class="st">'ortho'</span>)</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> mat_prod_rand_img<span class="op">/</span>rand_img</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> np.real(pi) <span class="co"># We know it should be real</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>pi_inv <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>pi</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Now compute the regularized solution</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>M</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>soln <span class="op">=</span> np.fft.fft2(noisy_blurred_img, norm<span class="op">=</span><span class="st">'ortho'</span>)</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>soln <span class="op">*=</span> lam</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>soln <span class="op">*=</span> <span class="dv">1</span><span class="op">/</span>( (lam<span class="op">**</span><span class="dv">2</span>) <span class="op">+</span> (gamma<span class="op">*</span>(pi<span class="op">**</span><span class="dv">2</span>)) )</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>soln <span class="op">=</span> np.fft.ifft2(soln, norm<span class="op">=</span><span class="st">'ortho'</span>)</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>soln <span class="op">=</span> np.real(soln)</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the solution</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> Image.fromarray(<span class="dv">255</span><span class="op">*</span>soln)</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> im.convert(<span class="st">'RGB'</span>)</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>im.save(<span class="st">"regularized_deblurred_grand_canyon.jpg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-Hansen2008" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline"><span class="smallcaps">Hansen</span>, P. C., <span class="smallcaps">Nagy</span>, J. G., <span class="smallcaps">O’Leary</span>, D. P. and <span class="smallcaps">Miller</span>, R. L. (2008). Deblurring images: Matrices, spectra and filtering.</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const icon = "";
