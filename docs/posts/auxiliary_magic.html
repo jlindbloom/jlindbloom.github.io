@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2022-07-07">
-<meta name="description" content="Hierarchical regularization via a trick.">
+<meta name="description" content="Hierarchical regularization via an auxiliary variable magic trick.">
 
 <title>Jonathan Lindbloom - Auxiliary Magic</title>
 <style>
@@ -17,69 +17,25 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
 }
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -119,6 +75,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -154,7 +111,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#probabilistic-inverse-problems" id="toc-probabilistic-inverse-problems" class="nav-link active" data-scroll-target="#probabilistic-inverse-problems">Probabilistic inverse problems</a></li>
+  <li><a href="#a-hierarchical-prior" id="toc-a-hierarchical-prior" class="nav-link" data-scroll-target="#a-hierarchical-prior">A hierarchical prior</a></li>
+  <li><a href="#the-new-posterior" id="toc-the-new-posterior" class="nav-link" data-scroll-target="#the-new-posterior">The new posterior</a></li>
+  <li><a href="#an-inconvenience" id="toc-an-inconvenience" class="nav-link" data-scroll-target="#an-inconvenience">An inconvenience</a></li>
+  <li><a href="#an-auxiliary-variable-magic-trick" id="toc-an-auxiliary-variable-magic-trick" class="nav-link" data-scroll-target="#an-auxiliary-variable-magic-trick">An auxiliary variable magic trick</a></li>
+  <li><a href="#the-augmented-hierarchical-model" id="toc-the-augmented-hierarchical-model" class="nav-link" data-scroll-target="#the-augmented-hierarchical-model">The augmented hierarchical model</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -166,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div>
   <div class="description">
-    Hierarchical regularization via a trick.
+    Hierarchical regularization via an auxiliary variable magic trick.
   </div>
 </div>
 
@@ -186,25 +154,232 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>M, N <span class="op">=</span> <span class="dv">3000</span>, <span class="dv">4000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a random image</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>rand_img <span class="op">=</span> np.random.randn(M,N)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    mat_prod_rand_img <span class="op">=</span> np.fft.fft2(rand_img, norm<span class="op">=</span><span class="st">'ortho'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<p><a href="https://jlindbloom.github.io/posts/simple_image_deblurring.html">Last time</a> we looked at an image de-blurring problem, which we solved by finding</p>
+<p><span id="eq-inv_prob_obj"><span class="math display">\[
+x^\star = \text{argmin}_x \,\, \| A x - y \|_2^2 + \mathcal{R}(x)
+\tag{1}\]</span></span></p>
+<p>where the regularization term was</p>
+<p><span class="math display">\[
+\mathcal{R}(x) = \gamma \| L x \|_2^2 = \gamma x^T L^T L x.
+\]</span></p>
+<p>In this post, our goal is to: - describe a hierarchical prior and a method that can give us a better image reconstruction, - walk through a “magic” trick that will speed up our method, - and look at using <a href="https://cupy.dev/"><code>CuPy</code></a> to accelerate our reconstruction using a GPU.</p>
+<section id="probabilistic-inverse-problems" class="level1">
+<h1>Probabilistic inverse problems</h1>
+<p>While the problem posed in <a href="#eq-inv_prob_obj">Equation&nbsp;1</a> is completely deterministic, we can actually think of it as haven arisen from a probabilistic model. Suppose that</p>
+<p><span class="math display">\[
+\begin{align*}
+x &amp;\sim \mathcal{N}\left( 0, \left(\gamma L^T L \right)^{-1} \right), \\
+y \, | \, x &amp;\sim \mathcal{N}\left( A x, I \right).
+\end{align*}
+\]</span></p>
+<p>Then our corresponding density functions are</p>
+<p><span class="math display">\[
+\begin{align*}
+\pi(x) &amp;\propto \exp\left\{ - \gamma x^T L^T L  x \right\}, \\
+\pi(y \, | \, x) &amp;\propto \exp\left\{ - \| A x - y \|_2^2 \right\},
+\end{align*}
+\]</span></p>
+<p>and by Bayes’ theorem the posterior density for <span class="math inline">\(x \, | \, y\)</span> is given as</p>
+<p><span class="math display">\[
+\pi(x \, | \, y) \propto \exp\left\{ - \| A x - y \|_2^2 \right\} \times \exp\left\{ - \gamma x^T L^T L  x \right\}.
+\]</span></p>
+<p>The <a href="https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation">MAP estimate</a> of <span class="math inline">\(x\)</span> is then given as</p>
+<p><span class="math display">\[
+x^\star = \text{argmax}_x \,\, \pi(x \, | \, y),
+\]</span></p>
+<p>which is equivalent to</p>
+<p><span class="math display">\[
+\begin{align*}
+x^\star &amp;= \text{argmin}_x \,\, - \log \pi(x \, | \, y) \\
+&amp;= \text{argmin}_x \,\, \gamma \| L x \|_2^2 = \gamma x^T L^T L x,
+\end{align*}
+\]</span></p>
+<p>which is exactly <a href="#eq-inv_prob_obj">Equation&nbsp;1</a>. The role of <span class="math inline">\(\mathcal{R}(x)\)</span> can then be seen as contributing a prior of</p>
+<p><span class="math display">\[
+\pi(x) \propto \exp\left\{ - \mathcal{R}(x) \right\}
+\]</span></p>
+<p>into the inference problem.</p>
+</section>
+<section id="a-hierarchical-prior" class="level1">
+<h1>A hierarchical prior</h1>
+<p>One reason it can be useful to think probabilistically is because we can motivate different choices of the regularizer <span class="math inline">\(\mathcal{R}(x)\)</span>. If we pick</p>
+<p><span class="math display">\[
+Lx \sim \mathcal{N}\left(0, \frac{1}{\gamma} I \right)
+\]</span></p>
+<p>as our prior (which corresponds to <span class="math inline">\(\mathcal{R}(x) = \gamma x^T L^T L x\)</span>), then we are saying that we believe that the discrete gradients in our image are distributed according to zero-mean Gaussian with variance <span class="math inline">\(\gamma^{-1}\)</span>. We can tweak the strength of the prior by adjusting <span class="math inline">\(\gamma\)</span> and in turn its influence on our reconstructed image, but note that the same <span class="math inline">\(\gamma\)</span> governs of the entire discrete gradient in the image. Thus we might think to introduce a hierarchical prior on the discrete gradient that could try to (loosely) capture the fact that in some regions in an image the discrete gradient will be much larger than it is elsewhere. Define the prior</p>
+<p><span id="eq-hierarchical_prior"><span class="math display">\[
+\begin{align*}
+\beta^H_{i,j}, \beta^V_{i,j} &amp;\sim \Gamma \left( c, d \right), \\
+L x &amp;\sim \mathcal{N} \left(0, B_{\beta} \right),
+\end{align*}
+\tag{2}\]</span></span></p>
+<p>which has density</p>
+<p><span class="math display">\[
+\pi(x, \beta) = \pi(x \, | \, \beta) \pi(\beta) \propto \det \left( B_{\beta} \right)^{1/2} \exp\left\{ - x^T L^T B_{\beta} L x  \right\} \times \pi(\beta).
+\]</span></p>
+<p>Here <span class="math inline">\(\left( \cdot \right)^{V/H}\)</span> represent the fact that we are assigining two different hyper-parameter to govern the gradient in each the vertical and horizontal directions, <span class="math inline">\(\Gamma\left(c, d \right)\)</span> represents the <a href="https://en.wikipedia.org/wiki/Gamma_distribution">gamma density function</a>,</p>
+<p><span class="math display">\[
+B_{\beta} = \text{diag}\left( \beta^V_{1,1}, \ldots, \beta^V_{m,n}, \beta^H_{1,1}, \ldots, \beta^H_{m,n} \right),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\pi(\beta) \propto \left( \prod_{i,j}^{mn} \Gamma( \beta_{i,j}^H | c, d) \right) \times \left( \prod_{i,j}^{mn} \Gamma( \beta_{i,j}^V | c, d) \right)
+\]</span></p>
+<p>meaning that all hyper-parameters are assumed to be independent of one another. The reason we use a <span class="math inline">\(\Gamma\)</span> distribution for the hyper-parameter is because it is a <a href="https://en.wikipedia.org/wiki/Conjugate_prior">conjugate prior</a> for a Gaussian, meaning that we can determine certain relevant conditional distributions analytically.</p>
+</section>
+<section id="the-new-posterior" class="level1">
+<h1>The new posterior</h1>
+<p>Using our prior <a href="#eq-hierarchical_prior">Equation&nbsp;2</a>, the full posterior in our original model (with an extra factor of <span class="math inline">\(\frac{1}{2}\)</span>) is given as</p>
+<p><span class="math display">\[
+\pi(x, \beta \, | \, y) \propto \exp\left\{ - \frac{1}{2} \| A x - y \|_2^2 \right\} \times \det \left( B_{\beta} \right)^{1/2} \exp\left\{ - \frac{1}{2} x^T L^T B_{\beta} L x  \right\} \times \pi(\beta).
+\]</span>{eq-hierarchical_posterior}</p>
+<p>In the sampling setting, a common approach that could be used to draw samples from this posterior is <a href="https://en.wikipedia.org/wiki/Gibbs_sampling">Gibbs sampling</a>, which involves iteratively drawing from the conditionals of each variable in the density given all of the others. In this case, our conditionals would be</p>
+<p><span class="math display">\[
+\begin{align*}
+\pi(x \, | \, \beta, y) &amp;\propto \exp\left\{ - \| A x - y \|_2^2 \right\} \times  \exp\left\{ - x^T L^T B_{\beta} L x  \right\}, \\
+\pi(\beta \, | \, x, y) &amp;\propto \det \left( B_{\beta} \right)^{1/2} \exp\left\{ - x^T L^T B_{\beta} L x  \right\} \times \pi(\beta).
+\end{align*}
+\]</span></p>
+<p>Due to conjugacy, we can recognize the first conditional to be a Gaussian and the second to be a Gamma distribution. Specifically, we have <span class="math inline">\(x \, | \, \beta, y \sim \mathcal{N}\left(\mu_1, Q_1^{-1} \right)\)</span> with</p>
+<p><span class="math display">\[
+\begin{align*}
+Q_1 &amp;= A^T A + L^T B_{\beta} L, \\
+\mu_1 &amp;= Q_1^{-1} A^T y.
+\end{align*}
+\]</span></p>
+<p>For <span class="math inline">\(\beta \, | \, x, y\)</span> we have</p>
+<p><span class="math display">\[
+\begin{align*}
+\beta_{i,j} = \Gamma\left( \frac{1}{2} + c, \frac{1}{2}[L x]_{i,j}^2 + d \right),
+\end{align*}
+\]</span></p>
+<p>where how you deal with <span class="math inline">\(\beta^V\)</span>/<span class="math inline">\(\beta^H\)</span> becomes clear when you think about the shapes of these operations.</p>
+<p>Rather than code a Gibbs sampling algorithm, we will consider the (BCD) of <span class="citation" data-cites="Glaubitz2022">[<a href="#ref-Glaubitz2022" role="doc-biblioref">1</a>]</span>, which is essentially an optimization technique that iteratively draws from the mean of each the conditionals. We iterate</p>
+<p><span class="math display">\[
+\begin{align*}
+x^{k+1} &amp;= \mathbb{E}_{\pi}\left( x \, | \, \beta^k, y \right), \\
+\beta^{k+1} &amp;= \mathbb{E}_{\pi}\left( \beta \, | \, x^{k+1}, y \right),
+\end{align*}
+\]</span></p>
+<p>until the solution converges. One thing to note is that we will generally not settle into a global minimum, since the posterior (with no restrictions on <span class="math inline">\(c\)</span> and <span class="math inline">\(d\)</span>) is not log-concave due to the use of a Gamma hyper-prior on the <span class="math inline">\(\beta_{i,j}\)</span>.</p>
+</section>
+<section id="an-inconvenience" class="level1">
+<h1>An inconvenience</h1>
+<p>For the purposes of this post, we will assume that <span class="math inline">\(A\)</span> is a BCCB blurring matrix and that <span class="math inline">\(L\)</span> is a BCCB approximation to the discrete gradient. These were the nice assumptions in the previous post that allowed us to reduce all of our linear system solves to FFTs/IFFs and diagonal matrix operations, as well as efficiently sample in the Fourier domain.</p>
+<p>Note that while we have an analytic expression for the distribution <span class="math inline">\(x \, | \beta, y\)</span>, we can no longer use our BCCB assumptions to avoid linear system solves. Letting</p>
+<p><span class="math display">\[
+\begin{align*}
+A &amp;= F^H \Lambda F, \\
+L &amp;= F^H \Pi F,
+\end{align*}
+\]</span></p>
+<p>inserting this into <span class="math inline">\(Q_1^{-1} = \left( A^T A + L^T B_{\beta} L \right)^{-1}\)</span> we now get</p>
+<p><span class="math display">\[
+\begin{align*}
+Q_1^{-1} &amp;= \left( A^T A +  L^T B_{\beta} L \right)^{-1} \\
+&amp;= \left( F^H \Lambda F F^H \Lambda F +  F^H \Pi F B_{\beta} F^H \Pi F \right)^{-1} \\
+&amp;= F^H \left( \Lambda^2 F +  \Pi F^H B_{\beta} F \Pi \right)^{-1} F \\
+&amp;= F^H \left( \Lambda^2 +  F^H B_{\beta} F \right)^{-1} F  \\
+\end{align*}
+\]</span></p>
+<p>where unlike before we are now stuck. The problem is that <span class="math inline">\(B_{\beta}\)</span> is “sandwiched” in-between <span class="math inline">\(F^H\)</span> and <span class="math inline">\(F\)</span>, which prevents us from simplifying with <span class="math inline">\(F^H F = I\)</span>. While it is not the end of the world to have to solve a linear system using a sparse solver or some other method, we still really would like to use the BCCB assumption to our advantage if we can.</p>
+</section>
+<section id="an-auxiliary-variable-magic-trick" class="level1">
+<h1>An auxiliary variable magic trick</h1>
+<p>It turns out there is a way to get around this, via a “magic trick” of <span class="citation" data-cites="Marnissi2018">[<a href="#ref-Marnissi2018" role="doc-biblioref">2</a>]</span>. For the moment let us fix <span class="math inline">\(B_{\beta}\)</span> to be a constant matrix. Out of the blue, define a new random variable via</p>
+<p><span class="math display">\[
+\begin{align*}
+    u \, | \, x, y &amp;\sim \mathcal{N}\left( H x, Q^{-1}  \right),
+\end{align*}
+\]</span></p>
+<p>where we are free to choose <span class="math inline">\(H\)</span> and <span class="math inline">\(Q\)</span> (as long as they define a valid distribution). Then, if we consider the joint density of <span class="math inline">\(u, x \, | \, y\)</span> we have that</p>
+<p><span class="math display">\[
+\begin{align*}
+\pi(u, x \, | \, y) &amp;= \pi(u \, | \, x, y) \times \pi(x \, | \, y) \times \pi(x) \\
+&amp;\propto \exp\left\{ -\frac{1}{2} \left( H x - u \right)^T Q \left( H x - u \right)  \right\} \times \exp\left\{ -\frac{1}{2} x^T L^T B L x  \right\} \times \pi(x \, | \, y) \\
+&amp;\propto \exp\left\{ -\frac{1}{2} \left[ \left( H x - u \right)^T Q \left( H x - u \right) + x^T L^T B L x  \right] \right\} \times \pi(x \, | \, y) \\
+&amp;\propto \exp\left\{ -\frac{1}{2} \left[ x^T H^T Q H x + u^T Q u - 2 x^T H^T Q u + x^T L^T B L x  \right] \right\} \times \pi(x \, | \, y) \\
+&amp;\propto \exp\left\{ -\frac{1}{2} \left[ x^T P x + u^T Q u - 2 x^T H^T Q u  \right] \right\} \times \pi(x \, | \, y) \\
+\end{align*}
+\]</span></p>
+<p>where we have defined</p>
+<p><span class="math display">\[
+P = H^T Q H + L^T B L.
+\]</span></p>
+<p>We are free to choose <span class="math inline">\(H\)</span> and <span class="math inline">\(Q\)</span>, so let’s make the magic choice</p>
+<p><span class="math display">\[
+\begin{align*}
+H &amp;= L, \\
+Q &amp;= \frac{1}{\lambda} I  - B.
+\end{align*}
+\]</span></p>
+<p>Here <span class="math inline">\(\lambda &gt; 0\)</span> is a constant we are free to choose, so long as <span class="math inline">\(\lambda &lt; \frac{1}{\| B \|}\)</span> which makes <span class="math inline">\(Q\)</span> positive semi-definite as is required of a valid precision matrix. Inserting this choice <em>and conditioning on</em> <span class="math inline">\(u\)</span>, we obtain</p>
+<p><span class="math display">\[
+P = \frac{1}{\lambda} L^T L
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\begin{align*}
+\pi(x \, | \, u,  y) &amp;\propto \exp\left\{ -\frac{1}{2} \left[ \frac{1}{\lambda} x^T L^T L x - 2 x^T L^T Q u  \right] \right\} \times \pi(x \, | \, y). \\
+\end{align*}
+\]</span></p>
+<p>Now, we define yet another random variable</p>
+<p><span class="math display">\[
+v = Qu = \left( \frac{1}{\lambda} I  - B \right) u,
+\]</span></p>
+<p>insert into the density above to get</p>
+<p><span class="math display">\[
+\begin{align*}
+\pi(x \, | \, v,  y) &amp;\propto \exp\left\{ -\frac{1}{2} \left[ \frac{1}{\lambda} x^T L^T L x - 2 x^T L^T v \right] \right\} \times \pi(x \, | \, y), \\
+\end{align*}
+\]</span></p>
+<p>and finally complete the square in the exponential to finally arrive at</p>
+<p><span class="math display">\[
+\begin{align*}
+\pi(x \, | \, v,  y) &amp;\propto \exp\left\{ -\frac{1}{2 \lambda} \| L x - \lambda v  \|_2^2  \right\} \times \pi(x \, | \, y), \\
+\end{align*}
+\]</span></p>
+<p>which is the density of the Gaussian <span class="math inline">\(\mathcal{N}\left( \mu_2, Q_2^{-1} \right)\)</span> where</p>
+<p><span class="math display">\[
+\begin{align*}
+Q_2 &amp;= \frac{1}{\lambda} L^T L + A^T A, \\
+\mu_2 &amp;= Q_2^{-1} \left( A^T y +  L^T \left( \frac{1}{\lambda} I \right) \left( \lambda v \right)  \right) \\
+&amp;= Q_2^{-1} \left( A^T y +  L^T  v \right).
+\end{align*}
+\]</span></p>
+<p>Note that we could do this since the missing term in the square was independent of <span class="math inline">\(x\)</span>. Now we have what we wanted: <em>the matrix</em> <span class="math inline">\(B\)</span> <em>has disappeared</em> after conditioning on <span class="math inline">\(v\)</span>, and we can now take advantage of our BCCB assumption for this conditional. This is all only useful so long as the conditional distribution $v , | , x, y $ is also nice, which is the Gaussian <span class="math inline">\(\mathcal{N}\left( \mu_3, Q_3^{-1} \right)\)</span> where</p>
+<p><span class="math display">\[
+\begin{align*}
+Q_3^{-1} &amp;= B, \\
+\mu_3 &amp;= B L x,
+\end{align*}
+\]</span></p>
+<p>which is nice to work with.</p>
+</section>
+<section id="the-augmented-hierarchical-model" class="level1">
+<h1>The augmented hierarchical model</h1>
+<p>It turns out that when we allow <span class="math inline">\(B = B_{\beta}\)</span> to vary with hyper-parameters, everything we just did stays exactly the same, except we must choose a new <span class="math inline">\(\lambda= \lambda(B_{\beta})\)</span> such that <span class="math inline">\(\lambda &lt; \frac{1}{\| B_\beta \|}\)</span> for the current values of the hyper-parameters. So applying this auxiliary variable magic trick to <strong>?@eq-hierarchical_posterior</strong>, we now consider the alternative posterior with density</p>
+<p><span class="math display">\[
+\pi(x, v, \beta \, | \, y) \propto \exp\left\{ - \frac{1}{2} \left( v - B_{\beta} L x \right)^T B_{\beta}^{-1} \left( v - B_{\beta} L x \right) \right\} \times \exp\left\{ - \frac{1}{2} \| A x - y \|_2^2 \right\} \times \det \left( B_{\beta} \right)^{1/2} \exp\left\{ - \frac{1}{2} x^T L^T B_{\beta} L x  \right\} \times \pi(\beta).
+\]</span></p>
+<p>We have already discussed the conditionals <span class="math inline">\(x \, | \, v, \beta, y\)</span> and <span class="math inline">\(v \, | \, x, \beta, y\)</span> which are the same as before, but the conditional that changes is <span class="math inline">\(\beta \, | \, x, v, y\)</span> which has density</p>
+<p><span class="math display">\[
+\pi(\beta \, | \, x, v, y) \propto \exp\left\{ - \frac{1}{2} \left( v - B_{\beta} L x \right)^T B_{\beta}^{-1} \left( v - B_{\beta} L x \right) \right\} \times \det \left( B_{\beta} \right)^{1/2} \exp\left\{ - \frac{1}{2} x^T L^T B_{\beta} L x  \right\} \times \pi(\beta).
+\]</span></p>
+<p>However, we can determine this by just updating the gamma hyper-prior twice so that this conditional is</p>
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-Glaubitz2022" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline"><span class="smallcaps">Glaubitz</span>, J., <span class="smallcaps">Gelb</span>, A. and <span class="smallcaps">Song</span>, G. (2022). <a href="https://doi.org/10.48550/ARXIV.2201.07061">Generalized sparse bayesian learning and application to image reconstruction</a>.</div>
+</div>
+<div id="ref-Marnissi2018" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline"><span class="smallcaps">Marnissi</span>, Y., <span class="smallcaps">Chouzenoux</span>, E., <span class="smallcaps">Benazza-Benyahia</span>, A. and <span class="smallcaps">Pesquet</span>, J.-C. (2018). <a href="https://doi.org/10.3390/e20020110">An auxiliary variable method for markov chain monte carlo algorithms in high dimension</a>. <em>Entropy</em> <strong>20</strong>.</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const icon = "";

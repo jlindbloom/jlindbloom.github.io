@@ -48,3 +48,30 @@ lastchecked = {2022-06-15}
   author={Per Christian Hansen and James G. Nagy and Dianne P. O’Leary and Rodney L. Miller},
   year={2008}
 }
+
+
+@misc{Glaubitz2022,
+  doi = {10.48550/ARXIV.2201.07061},
+  url = {https://arxiv.org/abs/2201.07061},
+  author = {Glaubitz, Jan and Gelb, Anne and Song, Guohui},
+  keywords = {Numerical Analysis (math.NA), Optimization and Control (math.OC), FOS: Mathematics, FOS: Mathematics, 65D30, 65D32, 65D05, 42C05},
+  title = {Generalized sparse Bayesian learning and application to image reconstruction},
+  publisher = {arXiv},
+  year = {2022},
+  copyright = {arXiv.org perpetual, non-exclusive license}
+}
+
+
+@Article{Marnissi2018,
+AUTHOR = {Marnissi, Yosra and Chouzenoux, Emilie and Benazza-Benyahia, Amel and Pesquet, Jean-Christophe},
+TITLE = {An Auxiliary Variable Method for Markov Chain Monte Carlo Algorithms in High Dimension},
+JOURNAL = {Entropy},
+VOLUME = {20},
+YEAR = {2018},
+NUMBER = {2},
+ARTICLE-NUMBER = {110},
+URL = {https://www.mdpi.com/1099-4300/20/2/110},
+ISSN = {1099-4300},
+ABSTRACT = {In this paper, we are interested in Bayesian inverse problems where either the data fidelity term or the prior distribution is Gaussian or driven from a hierarchical Gaussian model. Generally, Markov chain Monte Carlo (MCMC) algorithms allow us to generate sets of samples that are employed to infer some relevant parameters of the underlying distributions. However, when the parameter space is high-dimensional, the performance of stochastic sampling algorithms is very sensitive to existing dependencies between parameters. In particular, this problem arises when one aims to sample from a high-dimensional Gaussian distribution whose covariance matrix does not present a simple structure. Another challenge is the design of Metropolis–Hastings proposals that make use of information about the local geometry of the target density in order to speed up the convergence and improve mixing properties in the parameter space, while not being too computationally expensive. These two contexts are mainly related to the presence of two heterogeneous sources of dependencies stemming either from the prior or the likelihood in the sense that the related covariance matrices cannot be diagonalized in the same basis. In this work, we address these two issues. Our contribution consists of adding auxiliary variables to the model in order to dissociate the two sources of dependencies. In the new augmented space, only one source of correlation remains directly related to the target parameters, the other sources of correlations being captured by the auxiliary variables. Experiments are conducted on two practical image restoration problems—namely the recovery of multichannel blurred images embedded in Gaussian noise and the recovery of signal corrupted by a mixed Gaussian noise. Experimental results indicate that adding the proposed auxiliary variables makes the sampling problem simpler since the new conditional distribution no longer contains highly heterogeneous correlations. Thus, the computational cost of each iteration of the Gibbs sampler is significantly reduced while ensuring good mixing properties.},
+DOI = {10.3390/e20020110}
+}
