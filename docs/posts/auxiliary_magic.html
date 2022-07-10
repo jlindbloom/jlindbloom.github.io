@@ -230,9 +230,9 @@ B_{\beta} = \text{diag}\left( \beta^V_{1,1}, \ldots, \beta^V_{m,n}, \beta^H_{1,1
 <section id="the-new-posterior" class="level1">
 <h1>The new posterior</h1>
 <p>Using our prior <a href="#eq-hierarchical_prior">Equation&nbsp;2</a>, the full posterior in our original model (with an extra factor of <span class="math inline">\(\frac{1}{2}\)</span>) is given as</p>
-<p><span class="math display">\[
+<p><span id="eq-hierarchical_posterior"><span class="math display">\[
 \pi(x, \beta \, | \, y) \propto \exp\left\{ - \frac{1}{2} \| A x - y \|_2^2 \right\} \times \det \left( B_{\beta} \right)^{1/2} \exp\left\{ - \frac{1}{2} x^T L^T B_{\beta} L x  \right\} \times \pi(\beta).
-\]</span>{eq-hierarchical_posterior}</p>
+\tag{3}\]</span></span></p>
 <p>In the sampling setting, a common approach that could be used to draw samples from this posterior is <a href="https://en.wikipedia.org/wiki/Gibbs_sampling">Gibbs sampling</a>, which involves iteratively drawing from the conditionals of each variable in the density given all of the others. In this case, our conditionals would be</p>
 <p><span class="math display">\[
 \begin{align*}
@@ -286,7 +286,7 @@ Q_1^{-1} &amp;= \left( A^T A +  L^T B_{\beta} L \right)^{-1} \\
 </section>
 <section id="an-auxiliary-variable-magic-trick" class="level1">
 <h1>An auxiliary variable magic trick</h1>
-<p>It turns out there is a way to get around this, via a “magic trick” of <span class="citation" data-cites="Marnissi2018">[<a href="#ref-Marnissi2018" role="doc-biblioref">2</a>]</span>. For the moment let us fix <span class="math inline">\(B_{\beta}\)</span> to be a constant matrix. Out of the blue, define a new random variable via</p>
+<p>It turns out there is a way to get around this, via a “magic trick” of <span class="citation" data-cites="Marnissi2018">[<a href="#ref-Marnissi2018" role="doc-biblioref">2</a>]</span>. I also discuss this in <a href="https://jlindbloom.github.io/posts/gaussian_posterior_formulas.html">this post</a> on Gaussian posterior formulas. For the moment let us fix <span class="math inline">\(B_{\beta}\)</span> to be a constant matrix. Out of the blue, define a new random variable via</p>
 <p><span class="math display">\[
 \begin{align*}
     u \, | \, x, y &amp;\sim \mathcal{N}\left( H x, Q^{-1}  \right),
@@ -358,15 +358,24 @@ Q_3^{-1} &amp;= \frac{1}{\lambda} I - B, \\
 </section>
 <section id="the-augmented-hierarchical-model" class="level1">
 <h1>The augmented hierarchical model</h1>
-<p>It turns out that when we allow <span class="math inline">\(B = B_{\beta}\)</span> to vary with hyper-parameters, everything we just did stays exactly the same, except we must choose a new <span class="math inline">\(\lambda= \lambda(B_{\beta})\)</span> such that <span class="math inline">\(\lambda &lt; \frac{1}{\| B_\beta \|}\)</span> for the current values of the hyper-parameters. So applying this auxiliary variable magic trick to <strong>?@eq-hierarchical_posterior</strong>, we now consider the alternative posterior with density</p>
+<p>It turns out that when we allow <span class="math inline">\(B = B_{\beta}\)</span> to vary with hyper-parameters, everything we just did stays exactly the same, except we must choose a new <span class="math inline">\(\lambda= \lambda(B_{\beta})\)</span> such that <span class="math inline">\(\lambda &lt; \frac{1}{\| B_\beta \|}\)</span> for the current values of the hyper-parameters. We have already discussed the conditionals <span class="math inline">\(x \, | \, v, \beta, y\)</span> and <span class="math inline">\(v \, | \, x, \beta, y\)</span> which are the same as before, but it turns out that the conditional <span class="math inline">\(\beta \, | \, x, v, y\)</span> is not trivial. As far as I know, this conditional is no longer known directly. So is all of our work for nothing? Fortunately, no, due to a technique called partially collapsed Gibbs sampling (PCGS) <span class="citation" data-cites="vanDyk2008PartiallyCG">[<a href="#ref-vanDyk2008PartiallyCG" role="doc-biblioref">3</a>]</span>. Note that while we don’t know an analytic form for <span class="math inline">\(\beta \, | \, x, v, y\)</span>, we <em>do</em> know the form of <span class="math inline">\(\beta \, | \, x, y\)</span> which is the same as it was in the model before we introduced <span class="math inline">\(v\)</span>. PCGS is designed to take advantage of this by allowing us to only need access to <span class="math inline">\(\beta \, | \, x, y\)</span>, with the price being that the order in which we iterate through the conditionals now matters.</p>
+<p>Thus our discussion leads us to a modified version of the BCD algorithm that uses an auxiliary variable to simplify the calculations for the update of each variable:</p>
 <p><span class="math display">\[
-\pi(x, v, \beta \, | \, y) \propto \exp\left\{ - \frac{1}{2} \left( v - B_{\beta} L x \right)^T B_{\beta}^{-1} \left( v - B_{\beta} L x \right) \right\} \times \exp\left\{ - \frac{1}{2} \| A x - y \|_2^2 \right\} \times \det \left( B_{\beta} \right)^{1/2} \exp\left\{ - \frac{1}{2} x^T L^T B_{\beta} L x  \right\} \times \pi(\beta).
+\begin{align*}
+x^{k+1} &amp;= \mathbb{E}_{\pi}\left( x \, | \, v^k, \beta^k, y \right), \\
+v^{k+1} &amp;= \mathbb{E}_{\pi}\left( v \, | \, x^k, \beta^k, y \right), \\
+\beta^{k+1} &amp;= \mathbb{E}_{\pi}\left( \beta \, | \, x^{k+1}, y \right).
+\end{align*}
 \]</span></p>
-<p>We have already discussed the conditionals <span class="math inline">\(x \, | \, v, \beta, y\)</span> and <span class="math inline">\(v \, | \, x, \beta, y\)</span> which are the same as before, but the conditional that changes is <span class="math inline">\(\beta \, | \, x, v, y\)</span> which has density</p>
-<p><span class="math display">\[
+<p>We will test this out by building off our code from my <a href="https://jlindbloom.github.io/posts/simple_image_deblurring.html">previous post</a> on de-blurring.</p>
+<!-- 
+$\beta \, | \, x, v, y$ which has density
+
+$$
 \pi(\beta \, | \, x, v, y) \propto \exp\left\{ - \frac{1}{2} \left( v - B_{\beta} L x \right)^T B_{\beta}^{-1} \left( v - B_{\beta} L x \right) \right\} \times \det \left( B_{\beta} \right)^{1/2} \exp\left\{ - \frac{1}{2} x^T L^T B_{\beta} L x  \right\} \times \pi(\beta).
-\]</span></p>
-<p>However, we can determine this by just updating the gamma hyper-prior twice so that this conditional is</p>
+$$
+
+However, we can determine this by just updating the gamma hyper-prior twice so that this conditional is -->
 
 
 
@@ -378,6 +387,9 @@ Q_3^{-1} &amp;= \frac{1}{\lambda} I - B, \\
 </div>
 <div id="ref-Marnissi2018" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">[2] </div><div class="csl-right-inline"><span class="smallcaps">Marnissi</span>, Y., <span class="smallcaps">Chouzenoux</span>, E., <span class="smallcaps">Benazza-Benyahia</span>, A. and <span class="smallcaps">Pesquet</span>, J.-C. (2018). <a href="https://doi.org/10.3390/e20020110">An auxiliary variable method for markov chain monte carlo algorithms in high dimension</a>. <em>Entropy</em> <strong>20</strong>.</div>
+</div>
+<div id="ref-vanDyk2008PartiallyCG" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline"><span class="smallcaps">Dyk</span>, D. A. van and <span class="smallcaps">Park</span>, T. (2008). Partially collapsed gibbs samplers. <em>Journal of the American Statistical Association</em> <strong>103</strong> 790–6.</div>
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
