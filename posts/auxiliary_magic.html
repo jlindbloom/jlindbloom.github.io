@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.587">
+<head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-0.9.587" />
 
-<meta name="dcterms.date" content="2022-07-07">
-<meta name="description" content="Hierarchical regularization via an auxiliary variable magic trick.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 
-<title>Jonathan Lindbloom - Auxiliary Magic</title>
+<meta name="dcterms.date" content="2022-07-07" />
+<meta name="description" content="Hierarchical regularization via an auxiliary variable magic trick." />
+
+<title>Jonathan Lindbloom – Auxiliary Magic</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -38,23 +40,7 @@ div.csl-indent {
 }
 </style>
 
-
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<!-- htmldependencies:E3FAD763 -->
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,28 +63,32 @@ div.csl-indent {
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles.css" />
 </head>
 
-<body class="nav-fixed">
+<body>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../index.html">
+      <a class="navbar-brand" href="/index.html">
     <span class="navbar-title">Jonathan Lindbloom</span>
   </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+  aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
+  onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../research.html">Research</a>
+    <a class="nav-link" href="/research.html">
+ Research</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog.html">Blog</a>
+    <a class="nav-link" href="/blog.html">
+ Blog</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -111,18 +101,7 @@ div.csl-indent {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#probabilistic-inverse-problems" id="toc-probabilistic-inverse-problems" class="nav-link active" data-scroll-target="#probabilistic-inverse-problems">Probabilistic inverse problems</a></li>
-  <li><a href="#a-hierarchical-prior" id="toc-a-hierarchical-prior" class="nav-link" data-scroll-target="#a-hierarchical-prior">A hierarchical prior</a></li>
-  <li><a href="#the-new-posterior" id="toc-the-new-posterior" class="nav-link" data-scroll-target="#the-new-posterior">The new posterior</a></li>
-  <li><a href="#an-inconvenience" id="toc-an-inconvenience" class="nav-link" data-scroll-target="#an-inconvenience">An inconvenience</a></li>
-  <li><a href="#an-auxiliary-variable-magic-trick" id="toc-an-auxiliary-variable-magic-trick" class="nav-link" data-scroll-target="#an-auxiliary-variable-magic-trick">An auxiliary variable magic trick</a></li>
-  <li><a href="#the-augmented-hierarchical-model" id="toc-the-augmented-hierarchical-model" class="nav-link" data-scroll-target="#the-augmented-hierarchical-model">The augmented hierarchical model</a></li>
-  </ul>
-</nav>
+        <div id="quarto-toc-target"></div>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -153,7 +132,18 @@ div.csl-indent {
   
 
 </header>
-
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#probabilistic-inverse-problems" id="toc-probabilistic-inverse-problems">Probabilistic inverse problems</a></li>
+  <li><a href="#a-hierarchical-prior" id="toc-a-hierarchical-prior">A hierarchical prior</a></li>
+  <li><a href="#the-new-posterior" id="toc-the-new-posterior">The new posterior</a></li>
+  <li><a href="#an-inconvenience" id="toc-an-inconvenience">An inconvenience</a></li>
+  <li><a href="#an-auxiliary-variable-magic-trick" id="toc-an-auxiliary-variable-magic-trick">An auxiliary variable magic trick</a></li>
+  <li><a href="#the-augmented-hierarchical-model" id="toc-the-augmented-hierarchical-model">The augmented hierarchical model</a></li>
+  </ul>
+</nav>
 <p><a href="https://jlindbloom.github.io/posts/simple_image_deblurring.html">Last time</a> we looked at an image de-blurring problem, which we solved by finding</p>
 <p><span id="eq-inv_prob_obj"><span class="math display">\[
 x^\star = \text{argmin}_x \,\, \| A x - y \|_2^2 + \mathcal{R}(x)
@@ -165,7 +155,7 @@ x^\star = \text{argmin}_x \,\, \| A x - y \|_2^2 + \mathcal{R}(x)
 <p>In this post, our goal is to: - describe a hierarchical prior and a method that can give us a better image reconstruction, - walk through a “magic” trick that will speed up our method, - and look at using <a href="https://cupy.dev/"><code>CuPy</code></a> to accelerate our reconstruction using a GPU.</p>
 <section id="probabilistic-inverse-problems" class="level1">
 <h1>Probabilistic inverse problems</h1>
-<p>While the problem posed in <a href="#eq-inv_prob_obj">Equation&nbsp;1</a> is completely deterministic, we can actually think of it as haven arisen from a probabilistic model. Suppose that</p>
+<p>While the problem posed in <a href="#eq-inv_prob_obj">Equation 1</a> is completely deterministic, we can actually think of it as haven arisen from a probabilistic model. Suppose that</p>
 <p><span class="math display">\[
 \begin{align*}
 x &amp;\sim \mathcal{N}\left( 0, \left(\gamma L^T L \right)^{-1} \right), \\
@@ -194,7 +184,7 @@ x^\star &amp;= \text{argmin}_x \,\, - \log \pi(x \, | \, y) \\
 &amp;= \text{argmin}_x \,\, \gamma \| L x \|_2^2 = \gamma x^T L^T L x,
 \end{align*}
 \]</span></p>
-<p>which is exactly <a href="#eq-inv_prob_obj">Equation&nbsp;1</a>. The role of <span class="math inline">\(\mathcal{R}(x)\)</span> can then be seen as contributing a prior of</p>
+<p>which is exactly <a href="#eq-inv_prob_obj">Equation 1</a>. The role of <span class="math inline">\(\mathcal{R}(x)\)</span> can then be seen as contributing a prior of</p>
 <p><span class="math display">\[
 \pi(x) \propto \exp\left\{ - \mathcal{R}(x) \right\}
 \]</span></p>
@@ -229,7 +219,7 @@ B_{\beta} = \text{diag}\left( \beta^V_{1,1}, \ldots, \beta^V_{m,n}, \beta^H_{1,1
 </section>
 <section id="the-new-posterior" class="level1">
 <h1>The new posterior</h1>
-<p>Using our prior <a href="#eq-hierarchical_prior">Equation&nbsp;2</a>, the full posterior in our original model (with an extra factor of <span class="math inline">\(\frac{1}{2}\)</span>) is given as</p>
+<p>Using our prior <a href="#eq-hierarchical_prior">Equation 2</a>, the full posterior in our original model (with an extra factor of <span class="math inline">\(\frac{1}{2}\)</span>) is given as</p>
 <p><span class="math display">\[
 \pi(x, \beta \, | \, y) \propto \exp\left\{ - \frac{1}{2} \| A x - y \|_2^2 \right\} \times \det \left( B_{\beta} \right)^{1/2} \exp\left\{ - \frac{1}{2} x^T L^T B_{\beta} L x  \right\} \times \pi(\beta).
 \]</span>{eq-hierarchical_posterior}</p>
@@ -367,20 +357,24 @@ Q_3^{-1} &amp;= \frac{1}{\lambda} I - B, \\
 \pi(\beta \, | \, x, v, y) \propto \exp\left\{ - \frac{1}{2} \left( v - B_{\beta} L x \right)^T B_{\beta}^{-1} \left( v - B_{\beta} L x \right) \right\} \times \det \left( B_{\beta} \right)^{1/2} \exp\left\{ - \frac{1}{2} x^T L^T B_{\beta} L x  \right\} \times \pi(\beta).
 \]</span></p>
 <p>However, we can determine this by just updating the gamma hyper-prior twice so that this conditional is</p>
-
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="quarto-navigation-envelope" class="hidden">
+<p><span class="hidden" data-render-id="quarto-int-sidebar-title">Jonathan Lindbloom</span> <span class="hidden" data-render-id="quarto-int-navbar-title">Jonathan Lindbloom</span> <span class="hidden" data-render-id="quarto-int-navbar:Research">Research</span> <span class="hidden" data-render-id="quarto-int-navbar:Blog">Blog</span></p>
+</div>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden" data-render-id="quarto-metatitle">Jonathan Lindbloom - Auxiliary Magic</span> <span class="hidden" data-render-id="quarto-metasitename">Jonathan Lindbloom</span></p>
+</div>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-Glaubitz2022" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">[1] </div><div class="csl-right-inline"><span class="smallcaps">Glaubitz</span>, J., <span class="smallcaps">Gelb</span>, A. and <span class="smallcaps">Song</span>, G. (2022). <a href="https://doi.org/10.48550/ARXIV.2201.07061">Generalized sparse bayesian learning and application to image reconstruction</a>.</div>
 </div>
 <div id="ref-Marnissi2018" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">[2] </div><div class="csl-right-inline"><span class="smallcaps">Marnissi</span>, Y., <span class="smallcaps">Chouzenoux</span>, E., <span class="smallcaps">Benazza-Benyahia</span>, A. and <span class="smallcaps">Pesquet</span>, J.-C. (2018). <a href="https://doi.org/10.3390/e20020110">An auxiliary variable method for markov chain monte carlo algorithms in high dimension</a>. <em>Entropy</em> <strong>20</strong>.</div>
 </div>
-</div></section></div></main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id = "quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const icon = "";
   const anchorJS = new window.AnchorJS();
@@ -461,6 +455,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 </div> <!-- /content -->
 
+</body>
 
-
-</body></html>
+</html>

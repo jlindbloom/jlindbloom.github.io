@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.587">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2022-07-07">
+<meta name="description" content="Some useful formulas for Gaussian posteriors.">
+
+<title>Jonathan Lindbloom - Gaussian Posterior Formulas</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Jonathan Lindbloom</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../research.html">Research</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog.html">Blog</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation">Notation</a></li>
+  <li><a href="#gaussian-prior-and-likelihood" id="toc-gaussian-prior-and-likelihood" class="nav-link" data-scroll-target="#gaussian-prior-and-likelihood">Gaussian Prior and Likelihood</a>
+  <ul class="collapse">
+  <li><a href="#diagonal-constant-precisions" id="toc-diagonal-constant-precisions" class="nav-link" data-scroll-target="#diagonal-constant-precisions">Diagonal Constant Precisions</a></li>
+  <li><a href="#diagonal-non-constant-precisions" id="toc-diagonal-non-constant-precisions" class="nav-link" data-scroll-target="#diagonal-non-constant-precisions">Diagonal Non-Constant Precisions</a></li>
+  </ul></li>
+  <li><a href="#exact-data-augmentation-eda" id="toc-exact-data-augmentation-eda" class="nav-link" data-scroll-target="#exact-data-augmentation-eda">Exact Data Augmentation (EDA)</a>
+  <ul class="collapse">
+  <li><a href="#eda-for-the-noise-precision" id="toc-eda-for-the-noise-precision" class="nav-link" data-scroll-target="#eda-for-the-noise-precision">EDA for the Noise Precision</a></li>
+  <li><a href="#eda-for-the-prior-precision" id="toc-eda-for-the-prior-precision" class="nav-link" data-scroll-target="#eda-for-the-prior-precision">EDA for the Prior Precision</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Gaussian Posterior Formulas</h1>
+</div>
+
+<div>
+  <div class="description">
+    Some useful formulas for Gaussian posteriors.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 7, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<p>This post is a (working) collection of formulas useful for computing posteriors involving Gaussian likelihoods and priors. Here I give all formulas in terms of precisions rather than covariances, and I assume that all precisions are nonsingular.</p>
+<section id="section" class="level1">
+<h1></h1>
+</section>
+<section id="notation" class="level1">
+<h1>Notation</h1>
+<p>Recall that <span class="math inline">\(x \sim \mathcal{N}\left( \mu_x, Q_{x}^{-1} \right)\)</span> denotes a random variable with density</p>
+<p><span class="math display">\[
+\begin{align*}
+\pi(x) &amp;= \frac{1}{\sqrt{(2 \pi)^n \det \left( Q_x^{-1} \right)}} \exp\left\{ - \frac{1}{2} \left( x - \mu_x \right)^T Q_x \left( x - \mu_x \right) \right\} \\
+&amp;\propto \exp\left\{ - \frac{1}{2} \left( x - \mu_x \right)^T Q_x \left( x - \mu_x \right) \right\}
+\end{align*}
+\]</span></p>
+<p>where <span class="math inline">\(\mu_x \in \mathbb{R}^{n \times 1}\)</span>, <span class="math inline">\(Q_x \in \mathbb{R}^{n \times n}\)</span>. It can be convenient to also work with the <em>canonical parameterization</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> of a Gaussian, where <span class="math inline">\(x \sim \mathcal{N}_C(b_x, Q_x)\)</span> denotes a random variable with density</p>
+<p><span class="math display">\[
+\pi(x) \propto \exp \left\{ - \frac{1}{2} x^T Q_x x + b_x^T x \right\}.
+\]</span></p>
+<p>To condition a Gaussian in the canonical parameterization on an observation <span class="math inline">\(y\)</span>, we use</p>
+<p><span class="math display">\[
+\begin{align*}
+x &amp;\sim \mathcal{N}_C\left( b_x, Q_x \right), \\
+y \, | \, x  &amp;\sim \mathcal{N}\left( x, Q_{y}^{-1} \right), \\
+x \, | \, y &amp;\sim \mathcal{N}_C\left( b_x + Q_{y} y, Q_{x} + Q_{y}  \right).
+\end{align*}
+\]</span></p>
+<p>To convert between the two notations, we can use</p>
+<p><span class="math display">\[
+\begin{align*}
+x \sim \mathcal{N}\left( \mu_x, Q_x^{-1} \right) &amp;\Leftrightarrow x \sim \mathcal{N}_C\left( Q_x \mu_x, Q_x \right), \\
+x \sim \mathcal{N}_C\left( b_x, Q_x \right) &amp;\Leftrightarrow x \sim \mathcal{N}\left( Q_x^{-1} b_x , Q_x^{-1} \right).
+\end{align*}
+\]</span></p>
+</section>
+<section id="gaussian-prior-and-likelihood" class="level1">
+<h1>Gaussian Prior and Likelihood</h1>
+<p>Using a Gaussian prior with Gaussian observations, we have</p>
+<p><span id="eq-gaussian_prior_gaussian_likelihood"><span class="math display">\[
+\begin{align*}
+x &amp;\sim \mathcal{N}\left( \mu_x, Q_x^{-1} \right), \\
+y \, | \, x &amp;\sim \mathcal{N} \left( G_x x, Q_{y}^{-1} \right), \\
+Q_{x \, | \, y} &amp;=  Q_x + G_x^T Q_{y} G_x,  \\
+b_{x \, | \, y} &amp;= Q_x \mu_x + G_x^T Q_{y} y, \\
+\mu_{x \, | \, y} &amp;= Q_{x \, | \, y}^{-1} b_{x \, | \, y}, \\
+x \, | \, y &amp;\sim \mathcal{N}_C \left( b_{x \, | \, y}, Q_{x \, | \, y} \right), \\
+x \, | \, y &amp;\sim \mathcal{N} \left(  \mu_{x \, | \, y}  , Q_{x \, | \, y}^{-1} \right),
+\end{align*}
+\tag{1}\]</span></span></p>
+<p>where the corresponding densities are</p>
+<p><span class="math display">\[
+\begin{align*}
+\pi(x) &amp;\propto \exp\left\{ -\frac{1}{2} \left( x - \mu_x \right)^T Q_x \left( x - \mu_x \right)   \right\}, \\
+\pi(y \, | \, x) &amp;\propto \exp\left\{ -\frac{1}{2} \left( y - A x \right)^T Q_{y} \left( y - A x \right)   \right\}, \\
+\pi(x \, | \, y) &amp;\propto \exp\left\{ -\frac{1}{2} \left( x - \mu_{x \, | \, y} \right)^T Q_{x \, | \, y}  \left(  x - \mu_{x \, | \, y} \right)    \right\}, \\
+\pi(x \, | \, y) &amp;\propto \exp\left\{ -\frac{1}{2} x^T Q_{x \, | \, y} x + b_{x \, | \, y}^T x   \right\}.
+\end{align*}
+\]</span></p>
+<p>Note that the last two are equivalent.</p>
+<section id="diagonal-constant-precisions" class="level2">
+<h2 class="anchored" data-anchor-id="diagonal-constant-precisions">Diagonal Constant Precisions</h2>
+<p>Suppose that <span class="math inline">\(Q_x = \frac{1}{\gamma^2} I\)</span> and <span class="math inline">\(Q_{y} = \frac{1}{\sigma^2} I\)</span>. Then our formulas become: <span class="math display">\[\begin{align*}
+x &amp;\sim \mathcal{N}\left( \mu_x, \gamma^2 I \right), \\
+y \, | \, x &amp;\sim \mathcal{N} \left( G_x x, \sigma^2 I \right), \\
+Q_{x \, | \, y} &amp;=  \frac{1}{\gamma^2} I + \frac{1}{\sigma^2} G_x^T G_x,  \\
+b_{x \, | \, y} &amp;= \frac{1}{\gamma^2}  \mu_x +  \frac{1}{\sigma^2} G_x^T  y, \\
+\mu_{x \, | \, y} &amp;= \left(  \frac{1}{\gamma^2} I + \frac{1}{\sigma^2} G_x^T G_x    \right)^{-1}  b_{x \, | \, y}, \\
+x \, | \, y &amp;\sim \mathcal{N}_C \left( b_{x \, | \, y}, Q_{x \, | \, y} \right), \\
+x \, | \, y &amp;\sim \mathcal{N} \left(  \mu_{x \, | \, y}  , Q_{x \, | \, y}^{-1} \right),
+\end{align*}\]</span></p>
+</section>
+<section id="diagonal-non-constant-precisions" class="level2">
+<h2 class="anchored" data-anchor-id="diagonal-non-constant-precisions">Diagonal Non-Constant Precisions</h2>
+<p>Suppose that <span class="math inline">\(Q_x = \Pi\)</span> and <span class="math inline">\(Q_{y} = \Lambda\)</span>. Then these formulas become:</p>
+<p><span class="math display">\[
+\begin{align*}
+x &amp;\sim \mathcal{N}\left( \mu_x, \Pi^{-1} \right), \\
+y \, | \, x &amp;\sim \mathcal{N} \left( G_x x, \Lambda^{-1} \right), \\
+Q_{x \, | \, y} &amp;=  \Pi + G_x^T \Lambda G_x,  \\
+b_{x \, | \, y} &amp;= \Pi \mu_x + G_x^T \Lambda y, \\
+\mu_{x \, | \, y} &amp;= \left( \Pi + G_x^T \Lambda G_x \right)^{-1} b_{x \, | \, y}, \\
+x \, | \, y &amp;\sim \mathcal{N}_C \left( b_{x \, | \, y}, Q_{x \, | \, y} \right), \\
+x \, | \, y &amp;\sim \mathcal{N} \left(  \mu_{x \, | \, y}  , Q_{x \, | \, y}^{-1} \right).
+\end{align*}
+\]</span></p>
+</section>
+</section>
+<section id="exact-data-augmentation-eda" class="level1">
+<h1>Exact Data Augmentation (EDA)</h1>
+<p>In the case of diagonal non-constant precisions, it can be useful to introduce auxiliary variables as proposed by <span class="citation" data-cites="Marnissi2018">[<a href="#ref-Marnissi2018" role="doc-biblioref">2</a>]</span> to simplify sampling of conditionals. These methods are known as exact data augmentation (EDA) methods.</p>
+<section id="eda-for-the-noise-precision" class="level2">
+<h2 class="anchored" data-anchor-id="eda-for-the-noise-precision">EDA for the Noise Precision</h2>
+<p>Suppose that <span class="math inline">\(Q_{y} = \Lambda\)</span> is a diagonal matrix. Define a new variable</p>
+<p><span class="math display">\[
+u \, | \, x \sim \mathcal{N}\left( G_u x, Q_u^{-1} \right).
+\]</span></p>
+<p>Then the joint density is proportional to</p>
+<p><span class="math display">\[
+\begin{align*}
+\pi(u, x \, | \, y) &amp;\propto \pi(u \, | \, x ) \pi(y \, | \, x ) \pi(x) \\
+&amp;\propto \exp\left\{ -\frac{1}{2} \left( G_x x - y \right)^T \Lambda \left( G_x x - y \right) \right\} \\
+&amp;\quad \times \exp\left\{  -\frac{1}{2} \left( u - G_u x  \right)^T Q_u \left( u - G_u x \right)   \right\} \times \pi(x) \\
+&amp;\propto \exp\left\{ -\frac{1}{2} \left( x^T G_x^T \Lambda G_x x + y^T \Lambda y - 2 y^T \Lambda G_x x + u^T Q_u u + x^T G_u^T Q_u G_u x - 2 u^T Q_u G_u x     \right)  \right\} \times \pi(x) \\
+&amp;\propto \exp\left\{ -\frac{1}{2} \left( x^T \left( G_x^T \Lambda G_x +  G_u^T Q_u G_u  \right) x + u^T Q_u u - 2 x^T \left(  G_x^T \Lambda y + G_u^T Q_u u \right)    \right)  \right\} \times \pi(x).
+\end{align*}                                                                                                                        
+\]</span></p>
+<p>If we pick</p>
+<p><span class="math display">\[
+\begin{align*}
+G_u &amp;= G_x, \\
+Q_u &amp;= \left( \frac{1}{\lambda} I - \Lambda \right),
+\end{align*}
+\]</span></p>
+<p>where <span class="math inline">\(\lambda &lt; \frac{1}{\| \Lambda \|}\)</span>, then</p>
+<p><span class="math display">\[
+\begin{align*}
+G_x^T \Lambda G_x +  G_u^T Q_u G_u &amp;= G_x^T \Lambda G_x +  G_x^T \left( \frac{1}{\lambda} I - \Lambda \right) G_x \\
+&amp;= \frac{1}{\lambda} G_x^T G_x,
+\end{align*}
+\]</span></p>
+<p>and the joint density becomes</p>
+<p><span class="math display">\[
+\begin{align*}
+\pi(u, x \, | \, y) &amp;\propto \exp\left\{ -\frac{1}{2} \left( \frac{1}{\lambda} x^T G_x^T G_x x + u^T Q_u u - 2 x^T G_x^T \left(  \Lambda y + Q_u u \right)    \right)  \right\} \times \pi(x).
+\end{align*}
+\]</span></p>
+<p>This motivates us to introduce a second variable</p>
+<p><span class="math display">\[
+v \sim \mathcal{N}\left( \left( \frac{1}{\lambda} I - \Lambda \right) G_x x , \left( \frac{1}{\lambda} I - \Lambda \right) \right),
+\]</span></p>
+<p>with which <span class="math inline">\(x\)</span> has the conditional density</p>
+<p><span class="math display">\[
+\pi(x \, | \, v) \propto \exp\left\{ -\frac{1}{2\lambda} \| G_x x - \lambda \left( \Lambda y + v  \right) \|_2^2  \right\} \times \pi(x).
+\]</span></p>
+<p>If we pick</p>
+<p><span class="math display">\[
+x \sim \mathcal{N}\left(0, \left(R^T \Pi R \right)^{-1} \right),
+\]</span></p>
+<p>then from our formula in <a href="#eq-gaussian_prior_gaussian_likelihood">Equation&nbsp;1</a> the conditional for <span class="math inline">\(x\)</span> becomes</p>
+<p><span class="math display">\[
+\begin{align*}
+Q_{x \, | \, v} &amp;= R^T \Pi R + \frac{1}{\lambda} I,  \\
+\mu_{x \, | \, v} &amp;= Q_{x \, | \, v}^{-1} \left( G_{x}^T \left( \Lambda y + v \right) \right)  , \\
+x &amp;\sim \mathcal{N}\left( \mu_{x \, | \, v}, Q_{x \, | \, v}^{-1} \right).
+\end{align*}
+\]</span></p>
+<p>Some algebra will show that the joint density is given as</p>
+<p><span class="math display">\[
+\pi(v, x \, | \, y) \propto \exp\left\{ - \frac{1}{2}  \left(  \frac{1}{\lambda} x^T G_x^T G_x x + v^T \Gamma^{-1} v +  y^T \Lambda y - 2 x^T G_x^T \left( \Lambda y + v     \right)     \right) \right\} \times \pi(x)
+\]</span></p>
+</section>
+<section id="eda-for-the-prior-precision" class="level2">
+<h2 class="anchored" data-anchor-id="eda-for-the-prior-precision">EDA for the Prior Precision</h2>
+<p>Suppose that <span class="math inline">\(\Pi\)</span> is a diagonal matrix and <span class="math inline">\(Q_{x} = R^T \Pi R\)</span>. Define a new variable</p>
+<p><span class="math display">\[
+u \, | \, x \sim \mathcal{N}\left( G_u x, Q_u^{-1} \right).
+\]</span></p>
+<p>Then the joint density is proportional to</p>
+<p><span class="math display">\[
+\begin{align*}
+\pi(u, x \, | \, y) &amp;\propto \pi(u \, | \, x) \pi(y \, | \, x ) \pi(x) \\
+&amp;\propto \exp\left\{ - \frac{1}{2} x^T R^T B R x \right\} \times \exp\left\{  -\frac{1}{2} \left( u - G_u x  \right)^T Q_u \left( u - G_u x \right)   \right\} \times \pi(y \, | \, x) \\
+&amp;\propto \exp\left\{ -\frac{1}{2} \left( x^T \left( R^T \Pi R +  G_u^T Q_u G_u  \right) x + u^T Q_u u - 2 x^T G_x^T Q_u u \right)   \right\} \times \pi(y \, | \, x).
+\end{align*}                                                                                                                        
+\]</span></p>
+<p>If we pick</p>
+<p><span class="math display">\[
+\begin{align*}
+G_u &amp;= R, \\
+Q_u &amp;= \left( \frac{1}{\lambda} I - \Pi \right),
+\end{align*}
+\]</span></p>
+<p>where <span class="math inline">\(\lambda &lt; \frac{1}{\| \Pi \|}\)</span>, then</p>
+<p><span class="math display">\[
+\begin{align*}
+R^T \Pi R +  G_u^T Q_u G_u &amp;= R^T \Pi R +  R^T \left( \frac{1}{\lambda} I - \Pi \right) R \\
+&amp;= \frac{1}{\lambda} R^T R,
+\end{align*}
+\]</span></p>
+<p>and the joint density becomes</p>
+<p><span class="math display">\[
+\begin{align*}
+\pi(u, x \, | \, y) &amp;\propto \exp\left\{ -\frac{1}{2} \left( \frac{1}{\lambda} x^T R^T R x + u^T Q_u u - 2 x^T R^T Q_u u  \right)  \right\} \times \pi(y \, | \, x).
+\end{align*}
+\]</span></p>
+<p>This motivates us to introduce a second variable</p>
+<p><span class="math display">\[
+v \sim \mathcal{N}\left( \left( \frac{1}{\lambda} I - \Pi \right) R x , \left( \frac{1}{\lambda} I - \Pi \right) \right),
+\]</span></p>
+<p>with which <span class="math inline">\(x\)</span> has the conditional density</p>
+<p><span class="math display">\[
+\pi(x \, | \, v) \propto \exp\left\{ -\frac{1}{2\lambda} \| R x - \lambda v \|_2^2  \right\} \times \pi(y \, | \, x).
+\]</span></p>
+<p>If we pick</p>
+<p><span class="math display">\[
+\pi(y \, | \, x) \propto \exp\left\{  -\frac{1}{2} \left( G_x x - y \right)^T \Lambda \left( G_x x - y \right)   \right\},
+\]</span></p>
+<p>then some algebra will show that the conditional density satisfies</p>
+<p><span class="math display">\[
+\pi(x \, | \, v) \propto \exp\left\{ -\frac{1}{2} \left( x^T \left( \frac{1}{\lambda} R^T R + G_x^T \Lambda G \right) x \right) + x^T \left( R^T v + G_x^T \Lambda y \right) \right\}.
+\]</span></p>
+<p>Matching this to the canonical parameterization, this is the density for</p>
+<p><span class="math display">\[
+\begin{align*}
+Q_{x \, | \, v} &amp;= \frac{1}{\lambda} R^T R + G_x^T \Lambda G, \\
+b_{x \, | \, v} &amp;= R^T v + G_x^T \Lambda y, \\
+x \, | \, v &amp;\sim \mathcal{N}_C\left( b_{x \, | \, v}, Q_{x \, | \, v} \right),
+\end{align*}
+\]</span></p>
+<p>and in terms of the standard parameterization is</p>
+<p><span class="math display">\[
+x \, | \, v \sim \mathcal{N}\left( Q_{x \, | \, v}^{-1} \mu_{x \, | \, v} , Q_{x \, | \, v}^{-1} \right).
+\]</span></p>
+<p>Some algebra will show that the joint density is given as</p>
+<p><span class="math display">\[
+\pi(v, x \, | \, y) \propto \exp\left\{ -\frac{1}{2} \left(   \frac{1}{\lambda} R^T R +  v^T \Gamma^{-1} v + y^T \Lambda y - 2 v^T R x - 2 y^T \Lambda G_x x  \right) \right\} \times \pi(y \, | \, x).
+\]</span></p>
+<!-- 
+
+$$
+\begin{align*}
+Q_{x \, | \, v} &= R^T \Pi R + \frac{1}{\lambda} I,  \\
+\mu_{x \, | \, v} &= Q_{x \, | \, v}^{-1} \left( G_{x}^T \left( \Lambda y + v \right) \right)  , \\
+x &\sim \mathcal{N}\left( \mu_{x \, | \, v}, Q_{x \, | \, v}^{-1} \right).
+\end{align*}
+$$
+
+
+
+Some algebra will show that the joint density is given as
+
+$$
+\pi(v, x \, | \, y) \propto \exp\left\{ - \frac{1}{2}  \left(  \frac{1}{\lambda} x^T G_x^T G_x x + v^T \Gamma^{-1} v +  y^T \Lambda y - 2 x^T G_x^T \left( \Lambda y + v     \right)     \right) \right\} \times \pi(x)
+$$ -->
+
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-Rue2005" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline"><span class="smallcaps">Rue</span>, H. and <span class="smallcaps">Held</span>, L. (2005). Gaussian markov random fields: Theory and applications.</div>
+</div>
+<div id="ref-Marnissi2018" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline"><span class="smallcaps">Marnissi</span>, Y., <span class="smallcaps">Chouzenoux</span>, E., <span class="smallcaps">Benazza-Benyahia</span>, A. and <span class="smallcaps">Pesquet</span>, J.-C. (2018). <a href="https://doi.org/10.3390/e20020110">An auxiliary variable method for markov chain monte carlo algorithms in high dimension</a>. <em>Entropy</em> <strong>20</strong>.</div>
+</div>
+</div></section><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1" role="doc-endnote"><p>See chapter 2 of <span class="citation" data-cites="Rue2005">[<a href="#ref-Rue2005" role="doc-biblioref">1</a>]</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
