@@ -373,9 +373,9 @@ x^\star = \text{argmin}_x \,\, \| A x - y \|_2^2 + \mathcal{R}(x)
 <p><span class="math display">\[
 \mathcal{R}(x) = \gamma \| L x \|_2^2 = \gamma x^T L^T L x.
 \]</span></p>
-<p>where <span class="math inline">\(L\)</span> encodes a discrete negative-Laplacian operator. This regularization term promotes smooth solutions for the reconstructed image <span class="math inline">\(x\)</span>, and the degree of this smoothness is controlled by the parameter <span class="math inline">\(\gamma &gt; 0\)</span>. For convenience, we will define the discrete gradient <span class="math inline">\(L\)</span> to use periodic boundary conditions which similarly to our blurring matrix will make <span class="math inline">\(L\)</span> a BCCB matrix that can be diagonalized by the discrete Fourier transform as</p>
+<p>where <span class="math inline">\(L\)</span> encodes a discrete negative-Laplacian operator. This regularization term promotes smooth solutions for the reconstructed image <span class="math inline">\(x\)</span>, and the degree of this smoothness is controlled by the parameter <span class="math inline">\(\gamma &gt; 0\)</span>. For convenience, we will define the discrete gradient <span class="math inline">\(L\)</span> to use periodic boundary conditions which will make <span class="math inline">\(L^T L\)</span> a BCCB matrix that can be diagonalized by the discrete Fourier transform as</p>
 <p><span class="math display">\[
-L = F^H \Pi F
+L^T L = F^H \Pi F
 \]</span></p>
 <p>for some diagonal matrix <span class="math inline">\(\Pi\)</span>.</p>
 <p>Note that with this choice of <span class="math inline">\(\mathcal{R}(x)\)</span>, if we set the gradient of the objective function in (<a href="#eq-regularized_sol">Equation&nbsp;1</a>) equal to zero we obtain the equation</p>
@@ -390,11 +390,11 @@ x = \left( A^T A + \gamma L^T L \right)^{-1} A^T y
 <p><span class="math display">\[
 \begin{align*}
 x &amp;= \left( A^T A + \gamma L^T L \right)^{-1} A^T y \\
-&amp;= \left( F^H \Lambda F F^H \Lambda F + \gamma F^H \Pi F F^H \Pi F \right)^{-1} F^H \Lambda F y \\
-&amp;= \left( F^H \Lambda^2 F + \gamma F^H \Pi^2 F \right)^{-1} F^H \Lambda F y \\
-&amp;= \left( F^H \left( \Lambda^2 + \gamma \Pi^2  \right) F \right)^{-1} F^H \Lambda F y \\
-&amp;= F^H \left( \Lambda^2 + \gamma \Pi^2  \right)^{-1} F F^H \Lambda F y \\
-&amp;= F^H \left( \Lambda^2 + \gamma \Pi^2  \right)^{-1} \Lambda F y.
+&amp;= \left( F^H \Lambda F F^H \Lambda F + \gamma F^H \Pi F  \right)^{-1} F^H \Lambda F y \\
+&amp;= \left( F^H \Lambda^2 F + \gamma F^H \Pi F \right)^{-1} F^H \Lambda F y \\
+&amp;= \left( F^H \left( \Lambda^2 + \gamma \Pi  \right) F \right)^{-1} F^H \Lambda F y \\
+&amp;= F^H \left( \Lambda^2 + \gamma \Pi  \right)^{-1} F F^H \Lambda F y \\
+&amp;= F^H \left( \Lambda^2 + \gamma \Pi  \right)^{-1} \Lambda F y.
 \end{align*}
 \]</span></p>
 <p>Note that the only matrix inverse remaining is that of a diagonal matrix, so we can easily compute the solution. Let’s try this out.</p>
@@ -432,11 +432,11 @@ x &amp;= \left( A^T A + \gamma L^T L \right)^{-1} A^T y \\
 <span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>pi_inv <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>pi</span>
 <span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Now compute the regularized solution</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>M</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> <span class="fl">0.00005</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span>M)</span>
 <span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>soln <span class="op">=</span> np.fft.fft2(noisy_blurred_img, norm<span class="op">=</span><span class="st">'ortho'</span>)</span>
 <span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>soln <span class="op">*=</span> lam</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>soln <span class="op">*=</span> <span class="dv">1</span><span class="op">/</span>( (lam<span class="op">**</span><span class="dv">2</span>) <span class="op">+</span> (gamma<span class="op">*</span>(pi<span class="op">**</span><span class="dv">2</span>)) )</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>soln <span class="op">*=</span> <span class="dv">1</span><span class="op">/</span>( (lam<span class="op">**</span><span class="dv">2</span>) <span class="op">+</span> (gamma<span class="op">*</span>(pi<span class="op">*</span><span class="dv">2</span>)) )</span>
 <span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>soln <span class="op">=</span> np.fft.ifft2(soln, norm<span class="op">=</span><span class="st">'ortho'</span>)</span>
 <span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>soln <span class="op">=</span> np.real(soln)</span>
 <span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
@@ -446,54 +446,8 @@ x &amp;= \left( A^T A + \gamma L^T L \right)^{-1} A^T y \\
 <span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>im.save(<span class="st">"regularized_deblurred_grand_canyon.jpg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <p><img src="regularized_deblurred_grand_canyon.jpg" class="img-fluid"></p>
-<p>This is much better than what we got by instead computing <span class="math inline">\(x = A^{-1} y\)</span>. In the next post, we’ll use <a href="https://cupy.dev/"><code>CuPy</code></a> to approach this same problem but with a different form of the regularizer <span class="math inline">\(\mathcal{R}(x)\)</span>.</p>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>capture</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.sparse <span class="im">as</span> sp</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># First we need to construct our L matrix</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct our L matrix</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>d_mat_vert <span class="op">=</span> sp.eye(N)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>d_mat_vert.setdiag(<span class="op">-</span><span class="dv">1</span>,k<span class="op">=-</span><span class="dv">1</span>)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>d_mat_vert <span class="op">=</span> sp.csc_matrix(d_mat_vert)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>d_mat_vert[<span class="dv">0</span>,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="co"># For periodic BCs</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>eye_horiz <span class="op">=</span> sp.eye(M)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>d_mat_one <span class="op">=</span> sp.kron(eye_horiz, d_mat_vert)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>d_mat_horiz <span class="op">=</span> sp.eye(M)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>d_mat_horiz.setdiag(<span class="op">-</span><span class="dv">1</span>,k<span class="op">=-</span><span class="dv">1</span>)</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>d_mat_horiz <span class="op">=</span> sp.csc_matrix(d_mat_horiz)</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>d_mat_horiz[<span class="dv">0</span>,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="co"># For periodic BCs</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>eye_vert <span class="op">=</span> sp.eye(N)</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>d_mat_two <span class="op">=</span> sp.kron(d_mat_horiz, eye_vert)</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>d_mat <span class="op">=</span> sp.vstack([d_mat_one, d_mat_two])</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>L_mat <span class="op">=</span> d_mat.T <span class="op">@</span> d_mat</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Next, we need to compute $\Pi$ like we did earlier with $\Lambda$.</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>rand_img <span class="op">=</span> np.random.randn(M,N)</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>mat_prod_rand_img <span class="op">=</span> np.fft.fft2( (L_mat <span class="op">@</span> np.fft.ifft2(rand_img, norm<span class="op">=</span><span class="st">'ortho'</span>).flatten() ).reshape((M,N)), norm<span class="op">=</span><span class="st">'ortho'</span>)</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> mat_prod_rand_img<span class="op">/</span>rand_img</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> np.real(pi) <span class="co"># We know it should be real</span></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>pi_inv <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>pi</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Now compute the regularized solution</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>M</span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>soln <span class="op">=</span> np.fft.fft2(noisy_blurred_img, norm<span class="op">=</span><span class="st">'ortho'</span>)</span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>soln <span class="op">*=</span> lam</span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>soln <span class="op">*=</span> <span class="dv">1</span><span class="op">/</span>( (lam<span class="op">**</span><span class="dv">2</span>) <span class="op">+</span> (gamma<span class="op">*</span>(pi<span class="op">**</span><span class="dv">2</span>)) )</span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>soln <span class="op">=</span> np.fft.ifft2(soln, norm<span class="op">=</span><span class="st">'ortho'</span>)</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>soln <span class="op">=</span> np.real(soln)</span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the solution</span></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> Image.fromarray(<span class="dv">255</span><span class="op">*</span>soln)</span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> im.convert(<span class="st">'RGB'</span>)</span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>im.save(<span class="st">"regularized_deblurred_grand_canyon.jpg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<p>This is much better than what we got by instead computing <span class="math inline">\(x = A^{-1} y\)</span>. Note that I didn’t talk about how to pick <span class="math inline">\(\gamma\)</span>, which in this case I tuned by hand.</p>
+<p>In the next post, we’ll use <a href="https://cupy.dev/"><code>CuPy</code></a> to approach this same problem but with a different form of the regularizer <span class="math inline">\(\mathcal{R}(x)\)</span>.</p>
 
 
 

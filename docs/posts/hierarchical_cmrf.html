@@ -841,7 +841,7 @@ x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( F^T H F \right)^{-1}
 <span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>h_mat <span class="op">=</span> sp.diags(h_mat)</span>
 <span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Build precision</span></span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>prec_mat <span class="op">=</span> d_mat.T <span class="op">@</span> h_mat <span class="op">@</span> d_mat</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    prec_mat <span class="op">=</span> d_mat.T <span class="op">@</span> h_mat <span class="op">@</span> d_mat</span>
 <span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>prec_mat <span class="op">=</span> sp.csc_matrix(prec_mat)</span>
 <span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Get Cholesky factor</span></span>
