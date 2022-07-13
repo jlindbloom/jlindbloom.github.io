@@ -187,7 +187,7 @@ div.csl-indent {
   <li><a href="#an-inconvenience" id="toc-an-inconvenience" class="nav-link" data-scroll-target="#an-inconvenience">An Inconvenience</a></li>
   <li><a href="#an-auxiliary-variable-magic-trick" id="toc-an-auxiliary-variable-magic-trick" class="nav-link" data-scroll-target="#an-auxiliary-variable-magic-trick">An Auxiliary Variable Magic Trick</a></li>
   <li><a href="#the-augmented-hierarchical-model" id="toc-the-augmented-hierarchical-model" class="nav-link" data-scroll-target="#the-augmented-hierarchical-model">The Augmented Hierarchical Model</a></li>
-  <li><a href="#the-code" id="toc-the-code" class="nav-link" data-scroll-target="#the-code">The code</a></li>
+  <li><a href="#the-code" id="toc-the-code" class="nav-link" data-scroll-target="#the-code">The Code</a></li>
   </ul>
 </nav>
     </div>
@@ -444,7 +444,7 @@ $$
 However, we can determine this by just updating the gamma hyper-prior twice so that this conditional is -->
 </section>
 <section id="the-code" class="level1">
-<h1>The code</h1>
+<h1>The Code</h1>
 <p>The first thing we will do is some initial set-up for the problem such as setting up our differencing matrix and computing the diagonalizations of <span class="math inline">\(A\)</span> and <span class="math inline">\(L^T L\)</span>. We will use the same blurred image from the previous post.</p>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>capture</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -531,9 +531,9 @@ However, we can determine this by just updating the gamma hyper-prior twice so t
 \lambda(\beta) = \frac{1}{2}\left( \frac{1}{\| B_{\beta} \|} + 0\right),
 \]</span></p>
 <p>which should be half of the maximum value we would be allowed to pick for <span class="math inline">\(\lambda\)</span>. I am not sure how picking <span class="math inline">\(\lambda\)</span> on the high or low side affects the performance, but I would guess that higher is better. In our code, I will refer to this <span class="math inline">\(\lambda\)</span> as <code>lam_aux</code>.</p>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lam_aux <span class="op">=</span> ((<span class="dv">1</span><span class="op">/</span>cp.amax(betas)) <span class="op">+</span> <span class="dv">0</span>)<span class="op">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lam_aux <span class="op">=</span> ((<span class="dv">1</span><span class="op">/</span>cp.amax(betas_gpu)) <span class="op">+</span> <span class="dv">0</span>)<span class="op">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We also need to set some noise precision <span class="math inline">\(\alpha = \sigma^{-2}\)</span>, and we can go ahead and pre-compute <span class="math inline">\(\frac{1}{\alpha} A^T y\)</span> which shows up in our formula for the conditional for <span class="math inline">\(x\)</span>.</p>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>noise_sigma <span class="op">=</span> <span class="fl">0.01</span></span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>noise_sigma <span class="op">=</span> <span class="fl">0.1</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>noise_prec <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>(noise_sigma<span class="op">**</span><span class="dv">2</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Aty_gpu <span class="op">=</span> noise_prec<span class="op">*</span>blur_op_gpu(y_gpu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>And finally, we must select the hyper-hyper-parametes <span class="math inline">\(c\)</span> and <span class="math inline">\(d\)</span>. We will examine two choices, the first being the “uniformative” choice</p>
@@ -545,9 +545,9 @@ d &amp;= 10^{-20},
 \]</span></p>
 <p>which corresponds to a flat prior.</p>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">1.0</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="fl">1e-12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="fl">1e-20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now we are ready to perform the BCD algorithm for the reconstruction of <span class="math inline">\(x\)</span> from <span class="math inline">\(y\)</span>. I will not go into the details, as all of the operations are just the implementation of the steps we outlined earlier.</p>
-<div class="cell" data-execution_count="211">
+<div class="cell" data-execution_count="94">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastprogress <span class="im">import</span> progress_bar</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set some number of iterations</span></span>
@@ -605,34 +605,40 @@ d &amp;= 10^{-20},
 </div>
 </div>
 <p>Let’s look at the reconstruction, as well as <span class="math inline">\(\beta\)</span>. Here I have plotted the <code>betas</code> on an inverse scale, so brighter pixels should correspond to a higher variance parameter. I have also artificially clipped the array to its 95th percentile, since there are some extremely large precision values that make the entire plot monotone.</p>
-<div class="cell" data-execution_count="212">
+<div class="cell" data-execution_count="95">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plot_name <span class="op">=</span> <span class="st">"uninformative_prior"</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plot_which <span class="op">=</span> <span class="st">"Uniformative Prior"</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">13</span>))</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.real(x), cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>plt.title(plot_which <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="st">"BCD reconstruction"</span>)</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">'axes.facecolor'</span>] <span class="op">=</span> <span class="st">'#0F2537'</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">'text.color'</span>] <span class="op">=</span> <span class="st">'white'</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">'axes.labelcolor'</span>] <span class="op">=</span> <span class="st">'white'</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">'xtick.color'</span>] <span class="op">=</span> <span class="st">'white'</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">'ytick.color'</span>] <span class="op">=</span> <span class="st">'white'</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>plot_name <span class="op">=</span> <span class="st">"uninformative_prior"</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>plot_which <span class="op">=</span> <span class="st">"Uniformative prior"</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">13</span>))</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.real(x), cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>plt.title(plot_which <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="st">"BCD reconstruction"</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="auxiliary_magic_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>betas <span class="op">=</span> betas.reshape((<span class="dv">2</span>,M,N))</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>betas_one, betas_two <span class="op">=</span> betas[<span class="dv">0</span>,:,:], betas[<span class="dv">1</span>,:,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-execution_count="214">
+<div class="cell" data-execution_count="97">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">13</span>))</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.clip(betas_one, a_min<span class="op">=</span><span class="va">None</span>, a_max <span class="op">=</span> np.quantile(betas_one.flatten(), <span class="fl">0.95</span>)), cmap<span class="op">=</span><span class="st">'plasma_r'</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.clip(betas_one, a_min<span class="op">=</span><span class="va">None</span>, a_max <span class="op">=</span> np.quantile(betas_one.flatten(), <span class="fl">0.95</span>)), cmap<span class="op">=</span><span class="st">'Greens_r'</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.title(plot_which <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="st">"betas (horizontal)"</span>)</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="auxiliary_magic_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="215">
+<div class="cell" data-execution_count="98">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">13</span>))</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.clip(betas_two, a_min<span class="op">=</span><span class="va">None</span>, a_max <span class="op">=</span> np.quantile(betas_two.flatten(), <span class="fl">0.95</span>)), cmap<span class="op">=</span><span class="st">'plasma_r'</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.clip(betas_two, a_min<span class="op">=</span><span class="va">None</span>, a_max <span class="op">=</span> np.quantile(betas_two.flatten(), <span class="fl">0.95</span>)), cmap<span class="op">=</span><span class="st">'Greens_r'</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.title(plot_which <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="st">"betas (vertical)"</span>)</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -640,7 +646,7 @@ d &amp;= 10^{-20},
 </div>
 </div>
 <p>Notice how you can (somewhat) trace out some of the edges in the image by the inferred variance parameters. Here is a comparison of the original, blurred, and reconstructed images:</p>
-<div class="cell" data-execution_count="217">
+<div class="cell" data-execution_count="99">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load original image</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> Image.<span class="bu">open</span>(<span class="st">"grand_canyon.jpg"</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> ImageOps.grayscale(img)</span>
@@ -650,11 +656,11 @@ d &amp;= 10^{-20},
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">26</span>,<span class="dv">26</span>))</span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].imshow(img, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].set_title(<span class="st">"Original Image"</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].set_title(<span class="st">"Original image"</span>)</span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].imshow(np.real(x), cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_title(plot_which <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="st">"BCD reconstruction"</span>)</span>
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">2</span>].imshow(blurred_img, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">2</span>].set_title(<span class="st">"Blurred Image"</span>)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">2</span>].set_title(<span class="st">"Blurred image"</span>)</span>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -675,10 +681,12 @@ d &amp;= 0.5(0.0005^2).
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>x_gpu <span class="op">=</span> cp.asarray(blurred_img) <span class="co"># Start x at the observed image</span></span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>y_gpu <span class="op">=</span> cp.asarray(blurred_img) <span class="co"># The observation</span></span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>v_gpu <span class="op">=</span> cp.asarray( L <span class="op">@</span> blurred_img.flatten() ) <span class="co"># Start v at Lx, this gives it the correct shape</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>betas <span class="op">=</span> <span class="dv">10</span><span class="op">*</span>cp.ones(<span class="dv">2</span><span class="op">*</span>M<span class="op">*</span>N)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>betas_gpu <span class="op">=</span> <span class="dv">10</span><span class="op">*</span>cp.ones(<span class="dv">2</span><span class="op">*</span>M<span class="op">*</span>N)</span>
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>lam_aux <span class="op">=</span> ((<span class="dv">1</span><span class="op">/</span>cp.amax(betas)) <span class="op">+</span> <span class="dv">0</span>)<span class="op">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-execution_count="221">
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>lam_aux <span class="op">=</span> ((<span class="dv">1</span><span class="op">/</span>cp.amax(betas_gpu)) <span class="op">+</span> <span class="dv">0</span>)<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>noise_prec <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>(noise_sigma<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>Aty_gpu <span class="op">=</span> noise_prec<span class="op">*</span>blur_op_gpu(y_gpu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="102">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set some number of iterations</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>n_iterations <span class="op">=</span> <span class="dv">500</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -733,9 +741,9 @@ d &amp;= 0.5(0.0005^2).
     
 </div>
 </div>
-<div class="cell" data-execution_count="222">
+<div class="cell" data-execution_count="103">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>plot_name <span class="op">=</span> <span class="st">"strong_cauchy_prior"</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plot_which <span class="op">=</span> <span class="st">"Strong Cauchy Prior"</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plot_which <span class="op">=</span> <span class="st">"Strong Cauchy prior"</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">13</span>))</span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.real(x), cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
@@ -747,41 +755,37 @@ d &amp;= 0.5(0.0005^2).
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>betas <span class="op">=</span> betas.reshape((<span class="dv">2</span>,M,N))</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>betas_one, betas_two <span class="op">=</span> betas[<span class="dv">0</span>,:,:], betas[<span class="dv">1</span>,:,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-execution_count="224">
+<div class="cell" data-execution_count="110">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">13</span>))</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.clip(betas_one, a_min<span class="op">=</span><span class="va">None</span>, a_max <span class="op">=</span> np.quantile(betas_one.flatten(), <span class="fl">0.95</span>)), cmap<span class="op">=</span><span class="st">'plasma_r'</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.clip(betas_one, a_min<span class="op">=</span><span class="va">None</span>, a_max <span class="op">=</span> np.quantile(betas_one.flatten(), <span class="fl">0.95</span>)), cmap<span class="op">=</span><span class="st">'Greens'</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>plt.title(plot_which <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="st">"betas (horizontal)"</span>)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="auxiliary_magic_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="225">
+<div class="cell" data-execution_count="109">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">13</span>))</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.clip(betas_two, a_min<span class="op">=</span><span class="va">None</span>, a_max <span class="op">=</span> np.quantile(betas_two.flatten(), <span class="fl">0.95</span>)), cmap<span class="op">=</span><span class="st">'plasma_r'</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.clip(betas_two, a_min<span class="op">=</span><span class="va">None</span>, a_max <span class="op">=</span> np.quantile(betas_two.flatten(), <span class="fl">0.95</span>)), cmap<span class="op">=</span><span class="st">'Greens'</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>plt.title(plot_which <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="st">"betas (vertical)"</span>)</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="auxiliary_magic_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.figure(figsize=(13,13))</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>plt.imsave(<span class="st">"cauchy_canyon.png"</span>, np.clip(betas_two, a_min<span class="op">=</span><span class="va">None</span>, a_max <span class="op">=</span> np.quantile(betas_two.flatten(), <span class="fl">0.95</span>)), cmap<span class="op">=</span><span class="st">'plasma_r'</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.title(plot_which + " " + "betas (vertical)")</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.show()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-execution_count="227">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">26</span>,<span class="dv">26</span>))</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].imshow(img, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].set_title(<span class="st">"Original Image"</span>)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].imshow(np.real(x), cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_title(plot_which <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="st">"BCD reconstruction"</span>)</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">2</span>].imshow(blurred_img, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">2</span>].set_title(<span class="st">"Blurred Image"</span>)</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="112">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">26</span>,<span class="dv">26</span>))</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].imshow(img, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].set_title(<span class="st">"Original image"</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].imshow(np.real(x), cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_title(plot_which <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="st">"BCD reconstruction"</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">2</span>].imshow(blurred_img, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">2</span>].set_title(<span class="st">"Blurred image"</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="auxiliary_magic_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
+<p><img src="auxiliary_magic_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 
