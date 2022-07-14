@@ -12,7 +12,9 @@ about:
     - icon: github
       text: Github
       href: https://github.com/jlindbloom
-    # (additional links excluded for brevity)
+    - icon: orcid
+      text: ORCiD
+      href: https://orcid.org/0000-0002-1789-2629
 ---
 
 I am an applied mathematics PhD student at Dartmouth College, originally from Dallas, Texas. I like learning about computational methods for solving (inverse) problems and quantifying uncertainty.

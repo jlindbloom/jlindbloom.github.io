@@ -1,5 +1,98 @@
 ---
 title: "Research"
+echo: false
+jupyter: python3
+section-divs: false
+keep-md: true
 ---
+
+```{python}
+import yaml
+from IPython.display import display, Markdown, HTML
+
+def readable_list(_s):
+  if len(_s) < 3:
+    return ' and '.join(map(str, _s))
+  *a, b = _s
+  return f"{', '.join(map(str, a))}, and {b}"
+
+def button(url, str, icon):
+    # icon_base = icon[:2]
+    # return f"""<a class="btn btn-outline-dark btn-sm", href="{url}" target="_blank" rel="noopener noreferrer">
+    #     <i class="{icon_base} {icon}" role='img' aria-label='{str}'></i>
+    #     {str}
+    # </a>"""
+
+    #return f"""<button type="button" class="btn btn-outline-info btn-sm"> {str} </button>"""
+
+    return f"""<a href="https://stackoverflow.com/questions/36003670/how-to-put-a-link-on-a-button-with-bootstrap" class="btn btn-outline-info btn-sm" role="button"> {str} </a>"""
+
+# Load all data
+talks_data = yaml.safe_load(open("talks.yaml"))
+
+# Dict for storing all info
+pub_strs = {
+    "talks": []
+}
+
+# Iterate over talks
+for _, data in talks_data.items():
+
+    # Required attributes
+    talk_title = data["title"]
+    date = data["date"]
+    me = data["me"]
+    venue = data["venue"]
+    location = data["location"]
+    
+    # Make author string
+    coauthors = data.get("coauthors")
+    if coauthors is None:
+        authors = me
+    else:
+        authors = [me]
+        authors += coauthors
+        authors = readable_list(authors)
+
+    # Make talk title stronger
+    talk_title = f"""<strong>{talk_title}.</strong><br>"""
+
+    # List for storing buttons
+    buttons = []
+
+    # If we have slides, add a button
+    slides_link = data.get("slides_link")
+    if slides_link is not None:
+        buttons.append(button(slides_link, "Slides", "bi-file-earmark-pdf"))
+
+    talk_str = f"{talk_title} {venue}. {location}. {date}."
+    
+    pub_strs["talks"].append(
+        talk_str + """<p style="font-size:1px;line-height:0.5;"><br/></p>""" + " ".join(buttons)
+        #"<li class='list-group-item'>" + talk_str + "<br>" + " ".join(buttons) + "</li>"
+    )
+
+```
+
+
+
+
+
+## Talks
+
+```{python}
+#| label: "published-year"
+#| id: "published-year"
+#| output: asis
+for talk_str in pub_strs["talks"]:
+    display(
+        HTML(
+            talk_str
+        )
+    )
+    display(HTML("<br> <br>"))
+
+```
+
 
 
