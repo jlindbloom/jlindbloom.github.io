@@ -6,15 +6,18 @@ about:
   image-shape: round
   image-width: 12em
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com/qed404
     - icon: github
       text: Github
       href: https://github.com/jlindbloom
     - icon: orcid
       text: ORCiD
       href: https://orcid.org/0000-0002-1789-2629
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/qed404
+    - icon: email
+      text: Email
+      href: jonathan.t.lindbloom.gr@dartmouth.edu
 ---
 
 I am an applied mathematics PhD student at Dartmouth College, originally from Dallas, Texas. I like learning about computational methods for solving (inverse) problems and quantifying uncertainty.
