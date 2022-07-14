@@ -170,7 +170,7 @@ div.csl-indent {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -185,7 +185,7 @@ div.csl-indent {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -223,8 +223,6 @@ div.csl-indent {
 <p><img src="grayscale_grand_canyon.jpg" class="img-fluid"></p>
 <p>and then apply a Gaussian blur to get</p>
 <p><img src="blurred_grand_canyon.jpg" class="img-fluid"></p>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.ndimage <span class="im">import</span> gaussian_filter</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image, ImageOps</span>
@@ -249,7 +247,6 @@ div.csl-indent {
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> Image.fromarray(<span class="dv">255</span><span class="op">*</span>blurred_img)</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> im.convert(<span class="st">'RGB'</span>)</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>im.save(<span class="st">"blurred_grand_canyon.jpg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </section>
 <section id="bccb-blurring" class="level1">
 <h1>BCCB Blurring</h1>
@@ -280,8 +277,6 @@ x &amp;= \left( F^H  \Lambda F \right)^{-1} y \\
 $$
 \bm x = \bm A^{-1} \bm y.
 $$ -->
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a random image</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>rand_img <span class="op">=</span> np.random.randn(M,N)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>mat_prod_rand_img <span class="op">=</span> np.fft.fft2(blur_op(np.fft.ifft2(rand_img, norm<span class="op">=</span><span class="st">'ortho'</span>)), norm<span class="op">=</span><span class="st">'ortho'</span>)</span>
@@ -296,7 +291,6 @@ $$ -->
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> Image.fromarray(<span class="dv">255</span><span class="op">*</span>x_approx)</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> im.convert(<span class="st">'RGB'</span>)</span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>im.save(<span class="st">"deblurred_grand_canyon_direct_inversion.jpg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <p><img src="deblurred_grand_canyon_direct_inversion.jpg" class="img-fluid"></p>
 <p>So that actually worked out pretty well. In reality, our image would likely be contaminated by at least some small amount of noise. Let’s see what happens if we apply our same inversion procedure to</p>
 <p><span class="math display">\[
@@ -310,8 +304,6 @@ y &amp;= A x + \varepsilon, \\
 <p>which is visually indistinguishable from our previous one with no noise added to the blurred image. However, if we compute <span class="math inline">\(x = A^{-1} y\)</span> in this case we obtain</p>
 <p><img src="noisy_deblurred_grand_canyon_direct_inversion.jpg" class="img-fluid"></p>
 <p>which is nonsense.</p>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>noise_sigma <span class="op">=</span> <span class="fl">0.000000001</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a little bit of noise and save</span></span>
@@ -329,11 +321,8 @@ y &amp;= A x + \varepsilon, \\
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> Image.fromarray(<span class="dv">255</span><span class="op">*</span>x_approx)</span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> im.convert(<span class="st">'RGB'</span>)</span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>im.save(<span class="st">"noisy_deblurred_grand_canyon_direct_inversion.jpg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <p>The reason this happens is because although our blurring operator <span class="math inline">\(A\)</span> is invertible, it is extremely ill-conditioned and thus will yield unexpected results such as this. Note that the diagonal entries of <span class="math inline">\(\Lambda\)</span> are in fact the eigenvalues of <span class="math inline">\(A\)</span>, so examining these in <a href="#fig-blur_mat_eigvals">Figure&nbsp;1</a> can give us a sense of why the matrix is ill-conditioned.</p>
 <div class="cell" data-execution_count="4">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">'axes.facecolor'</span>] <span class="op">=</span> <span class="st">'#0F2537'</span></span>
@@ -351,7 +340,6 @@ y &amp;= A x + \varepsilon, \\
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"nth eigenvalue"</span>)</span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"eigenvalue"</span>)</span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <div id="fig-blur_mat_eigvals" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -398,8 +386,6 @@ x &amp;= \left( A^T A + \gamma L^T L \right)^{-1} A^T y \\
 \end{align*}
 \]</span></p>
 <p>Note that the only matrix inverse remaining is that of a diagonal matrix, so we can easily compute the solution. Let’s try this out.</p>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>capture</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.sparse <span class="im">as</span> sp</span>
@@ -444,7 +430,6 @@ x &amp;= \left( A^T A + \gamma L^T L \right)^{-1} A^T y \\
 <span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> Image.fromarray(<span class="dv">255</span><span class="op">*</span>soln)</span>
 <span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> im.convert(<span class="st">'RGB'</span>)</span>
 <span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>im.save(<span class="st">"regularized_deblurred_grand_canyon.jpg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <p><img src="regularized_deblurred_grand_canyon.jpg" class="img-fluid"></p>
 <p>This is much better than what we got by instead computing <span class="math inline">\(x = A^{-1} y\)</span>. Note that I didn’t talk about how to pick <span class="math inline">\(\gamma\)</span>, which in this case I tuned by hand.</p>
 <p>In the next post, we’ll use <a href="https://cupy.dev/"><code>CuPy</code></a> to approach this same problem but with a different form of the regularizer <span class="math inline">\(\mathcal{R}(x)\)</span>.</p>

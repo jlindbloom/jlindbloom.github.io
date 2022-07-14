@@ -107,7 +107,7 @@ div.csl-indent {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -131,7 +131,7 @@ div.csl-indent {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -357,7 +357,7 @@ v \sim \mathcal{N}\left( \left( \frac{1}{\lambda} I - \Pi \right) R x , \left( \
 \]</span></p>
 <p>then some algebra will show that the conditional density satisfies</p>
 <p><span class="math display">\[
-\pi(x \, | \, v) \propto \exp\left\{ -\frac{1}{2} \left( x^T \left( \frac{1}{\lambda} R^T R + G_x^T \Lambda G \right) x \right) + x^T \left( R^T v + G_x^T \Lambda y \right) \right\}.
+\pi(x \, | \, v) \propto \exp\left\{ -\frac{1}{2} \left( x^T \left( \frac{1}{\lambda} R^T R + G_x^T \Lambda G \right) x \right) + 2 x^T \left( R^T v + G_x^T \Lambda y \right) \right\}.
 \]</span></p>
 <p>Matching this to the canonical parameterization, this is the density for</p>
 <p><span class="math display">\[

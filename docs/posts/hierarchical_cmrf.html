@@ -170,7 +170,7 @@ div.csl-indent {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -179,7 +179,7 @@ div.csl-indent {
    
   <ul>
   <li><a href="#gaussian-markov-random-fields" id="toc-gaussian-markov-random-fields" class="nav-link active" data-scroll-target="#gaussian-markov-random-fields">Gaussian Markov Random Fields</a></li>
-  <li><a href="#sampling-a-1d-gmrf" id="toc-sampling-a-1d-gmrf" class="nav-link" data-scroll-target="#sampling-a-1d-gmrf">1. Sampling a 1D GMRF</a></li>
+  <li><a href="#sampling-a-1d-gmrf" id="toc-sampling-a-1d-gmrf" class="nav-link" data-scroll-target="#sampling-a-1d-gmrf">Sampling a 1D GMRF</a></li>
   <li><a href="#hierarchical-representation-of-the-cauchy-distribution" id="toc-hierarchical-representation-of-the-cauchy-distribution" class="nav-link" data-scroll-target="#hierarchical-representation-of-the-cauchy-distribution">Hierarchical representation of the Cauchy distribution</a></li>
   <li><a href="#sampling-a-1d-cmrf" id="toc-sampling-a-1d-cmrf" class="nav-link" data-scroll-target="#sampling-a-1d-cmrf">2. Sampling a 1D CMRF</a></li>
   <li><a href="#sampling-a-2d-gmrfcmrf" id="toc-sampling-a-2d-gmrfcmrf" class="nav-link" data-scroll-target="#sampling-a-2d-gmrfcmrf">3. Sampling a 2D GMRF/CMRF</a></li>
@@ -188,7 +188,7 @@ div.csl-indent {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -232,8 +232,6 @@ X \sim \mathcal{N}\left( \mu, Q^{-1} \right)
 \]</span></p>
 <p>with mean vector <span class="math inline">\(\mu\)</span> and precision <span class="math inline">\(Q\)</span>, where <span class="math inline">\(Q\)</span> is a sparse banded matrix (or is under some re-ordering of the components). This is just one view, as there are many other perspectives/interpretations (see <span class="citation" data-cites="Rue2005">[<a href="#ref-Rue2005" role="doc-biblioref">3</a>]</span>). Here the precision <span class="math inline">\(Q\)</span> is the inverse of the covariance matrix, <span class="math inline">\(Q = \Sigma^{-1}\)</span>. The reason we care about the sparsity of <span class="math inline">\(Q\)</span> rather than that of the covariance <span class="math inline">\(\Sigma\)</span> is because the precision matrix encodes the conditional independence structure of the field, whereas the covariance matrix will be dense even if the precision is sparse. The sparsity of <span class="math inline">\(Q\)</span> is what allows us to do efficient computations with the corresponding GMRF and avoid the “Big <span class="math inline">\(N\)</span> Problem” that more general Gaussian fields suffer from.</p>
 <div class="cell" data-execution_count="1">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.sparse <span class="im">as</span> sp</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -258,7 +256,6 @@ X \sim \mathcal{N}\left( \mu, Q^{-1} \right)
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_title(<span class="st">"Covariance"</span>)</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <div id="fig-prec_vs_cov" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -274,7 +271,7 @@ X \sim \mathcal{N}\left( \mu, Q^{-1} \right)
 \]</span></p>
 </section>
 <section id="sampling-a-1d-gmrf" class="level1">
-<h1>1. Sampling a 1D GMRF</h1>
+<h1>Sampling a 1D GMRF</h1>
 <p>The GMRF we will consider is that with <span class="math inline">\(\mu = 0\)</span> and precision <span class="math inline">\(Q = D^T D\)</span>, where</p>
 <p><span class="math display">\[
 D = \left(\begin{array}{ccccc}
@@ -291,8 +288,6 @@ x = \mu + L z
 \]</span></p>
 <p>where <span class="math inline">\(z \sim \mathcal{N}(0, I)\)</span>. Let’s try this with <span class="math inline">\(N = 100\)</span> points.</p>
 <div class="cell" data-execution_count="2">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Build D matrix</span></span>
@@ -317,7 +312,6 @@ x = \mu + L z
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>axs.plot(sample_cov_method, <span class="st">"o-"</span>, color<span class="op">=</span><span class="st">"#A5D75E"</span>)</span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">#axs.set_title("A single draw from the random walk on the line")</span></span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <div id="fig-random_walk_draw_cov_method" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -329,8 +323,6 @@ x = \mu + L z
 </div>
 <p>Easy enough. However, a central concern when working with GMRFs is how well the method scales with the dimension <span class="math inline">\(N\)</span>. Now let’s do a naive experiment where we time how long it takes to compute a single sample as we increase <span class="math inline">\(N\)</span>.</p>
 <div class="cell" data-execution_count="3">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> datasets, linear_model</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -377,7 +369,6 @@ x = \mu + L z
 <span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>axs.set_ylabel(<span class="st">"Time (milliseconds)"</span>)</span>
 <span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>axs.set_title(<span class="ss">f"Slope = </span><span class="sc">{</span>slope<span class="sc">:.1f}</span><span class="ss">"</span>)</span>
 <span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <div id="fig-random_walk_increasing_n_cov_method" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -394,8 +385,6 @@ x = \mu + L^{-T} z
 \]</span></p>
 <p>with <span class="math inline">\(z \sim \mathcal{N}(0,I)\)</span>. However, it will be important <em>how</em> we compute the Cholesky factorization. If we just use <a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.cholesky.html"><code>np.linalg.cholesky</code></a> which handles dense matrices, we shouldn’t expect to do any better. A nice property of sparse matrices is that if a matrix has a lower bandwidth of <span class="math inline">\(p\)</span>, then its lower Cholesky factor <span class="math inline">\(L\)</span> also has bandwidth <span class="math inline">\(p\)</span>. There are specific algorithms that have been designed to take advantage of this fact, such as those implemented in <a href="https://scikit-sparse.readthedocs.io/en/latest/cholmod.html"><code>sksparse.cholmod</code></a> which we will use.</p>
 <div class="cell" data-execution_count="3">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sksparse.cholmod <span class="im">import</span> cholesky</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">100</span></span>
@@ -422,7 +411,6 @@ x = \mu + L^{-T} z
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>axs.plot(sample_prec_method, <span class="st">"o-"</span>, color<span class="op">=</span><span class="st">"#A5D75E"</span>)</span>
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co">#axs.set_title("A single draw from the random walk on the line")</span></span>
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <div id="fig-random_walk_draw_prec_method" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -433,8 +421,6 @@ x = \mu + L^{-T} z
 </div>
 </div>
 <div class="cell" data-execution_count="13">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> datasets, linear_model</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -479,7 +465,6 @@ x = \mu + L^{-T} z
 <span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>axs.set_ylabel(<span class="st">"Time (milliseconds)"</span>)</span>
 <span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>axs.set_title(<span class="ss">f"Slope = </span><span class="sc">{</span>slope<span class="sc">:.1f}</span><span class="ss">"</span>)</span>
 <span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <div id="fig-random_walk_increasing_n_prec_method" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -538,8 +523,6 @@ x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( D^T H D \right)^{-1}
 \pi(x) = \int \pi(x | \lambda_1, \ldots, \lambda_N) \pi(\lambda_1, \ldots, \lambda_N) \, d\lambda_1 \, \ldots \, d\lambda_N
 \end{equation*}\]</span> is the density function for a CMRF.</p>
 <div class="cell" data-execution_count="4">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sksparse.cholmod <span class="im">import</span> cholesky</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> gamma</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -572,7 +555,6 @@ x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( D^T H D \right)^{-1}
 <span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>axs.plot(sample_prec_method, <span class="st">"o-"</span>, color<span class="op">=</span><span class="st">"#A5D75E"</span>)</span>
 <span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="co">#axs.set_title("A single draw from the random walk on the line")</span></span>
 <span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <div id="fig-cauchy_random_walk_draw_prec_method" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -583,8 +565,6 @@ x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( D^T H D \right)^{-1}
 </div>
 </div>
 <div class="cell" data-execution_count="5">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -606,7 +586,6 @@ x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( D^T H D \right)^{-1}
 <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_title(<span class="st">"Covariance"</span>)</span>
 <span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <div id="fig-cauchy_random_walk_prec_cov_mats" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -618,8 +597,6 @@ x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( D^T H D \right)^{-1}
 </div>
 <p>Compared to our sample from a GMRF from earlier, the sample from the CMRF has infrequent massive jumps. This makes sense, since our CMRF is modeling increments as being Cauchy-distributed and the Cauchy distribution has infinite variance. Let’s look at some more samples from each.</p>
 <div class="cell" data-execution_count="6">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sksparse.cholmod <span class="im">import</span> cholesky</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">100</span></span>
@@ -666,7 +643,6 @@ x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( D^T H D \right)^{-1}
 <span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>,<span class="dv">1</span>].set_title(<span class="st">"CMRF Samples"</span>)</span>
 <span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <div id="fig-gmrf_cmrf_comparison" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -691,8 +667,6 @@ D_1 &amp;= I_N \otimes D, \\
 D_2 &amp;= D \otimes I_M,
 \end{align*}\]</span> and <span class="math inline">\(D\)</span> is the same matrix from our 1D example.</p>
 <div class="cell" data-execution_count="12">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>M, N <span class="op">=</span> <span class="dv">5</span>, <span class="dv">5</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Build D matrices</span></span>
@@ -716,7 +690,6 @@ D_2 &amp;= D \otimes I_M,
 <span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_title(<span class="st">'Q'</span>)</span>
 <span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <div id="fig-2d_diff_mat" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -728,8 +701,6 @@ D_2 &amp;= D \otimes I_M,
 </div>
 <p>Now that we have our precision matrix, we can sample the GMRF just as we did in the 1D case.</p>
 <div class="cell" data-execution_count="19">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>M, N <span class="op">=</span> <span class="dv">200</span>, <span class="dv">200</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Build D matrices</span></span>
@@ -767,7 +738,6 @@ D_2 &amp;= D \otimes I_M,
 <span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>cax <span class="op">=</span> divider.append_axes(<span class="st">"right"</span>, size<span class="op">=</span><span class="st">"5%"</span>, pad<span class="op">=</span><span class="fl">0.2</span>)</span>
 <span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>plt.colorbar(im, cax<span class="op">=</span>cax)</span>
 <span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <div id="fig-2d_gmrf_sample" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -778,8 +748,6 @@ D_2 &amp;= D \otimes I_M,
 </div>
 </div>
 <p>Let’s also make a “movie” for a sequence of samples.</p>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> moviepy.editor <span class="im">import</span> ImageSequenceClip</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>n_samples <span class="op">=</span> <span class="dv">10</span></span>
@@ -808,7 +776,6 @@ D_2 &amp;= D \otimes I_M,
 <span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>clip <span class="op">=</span> ImageSequenceClip(<span class="bu">list</span>(colored_samples), fps<span class="op">=</span>fps)</span>
 <span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>clip.write_gif(<span class="st">'gmrf_samples.gif'</span>, fps<span class="op">=</span>fps, verbose<span class="op">=</span><span class="va">False</span>, logger<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <p><img src="gmrf_samples.gif" width="500" height="500"></p>
 <p>Now that we can sample from a 2D GMRF, it is straightforward to add in hyper-parameters that turn our GMRF into a CMRF. To do this, we sample <span class="math display">\[\begin{align*}
 \lambda_1, \ldots, \lambda_{2N^2} &amp;\sim \text{Gamma}(1/2, s^2/2) \\
@@ -816,8 +783,6 @@ H \, | \, \lambda_1, \ldots, \lambda_{2N^2} &amp;= \text{diag}(\lambda_1, \ldots
 x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( F^T H F \right)^{-1} \right).
 \end{align*}\]</span> Let’s try sampling this.</p>
 <div class="cell" data-execution_count="21">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> gamma</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>M, N <span class="op">=</span> <span class="dv">200</span>, <span class="dv">200</span></span>
@@ -862,7 +827,6 @@ x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( F^T H F \right)^{-1}
 <span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>cax <span class="op">=</span> divider.append_axes(<span class="st">"right"</span>, size<span class="op">=</span><span class="st">"5%"</span>, pad<span class="op">=</span><span class="fl">0.2</span>)</span>
 <span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>plt.colorbar(im, cax<span class="op">=</span>cax)</span>
 <span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <div id="fig-2d_cmrf_sample" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -873,8 +837,6 @@ x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( F^T H F \right)^{-1}
 </div>
 </div>
 <p>Let’s make another movie while we’re at it.</p>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> moviepy.editor <span class="im">import</span> ImageSequenceClip</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>n_samples <span class="op">=</span> <span class="dv">10</span></span>
@@ -915,7 +877,6 @@ x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( F^T H F \right)^{-1}
 <span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>clip <span class="op">=</span> ImageSequenceClip(<span class="bu">list</span>(colored_samples), fps<span class="op">=</span>fps)</span>
 <span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>clip.write_gif(<span class="st">'cmrf_samples.gif'</span>, fps<span class="op">=</span>fps, verbose<span class="op">=</span><span class="va">False</span>, logger<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <p><img src="cmrf_samples.gif" width="500" height="500"></p>
 <p>So we have achieved our goal. In a future post, we will put this to work as a prior in an inverse problem.</p>
 </section>
@@ -933,8 +894,6 @@ x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( F^T H F \right)^{-1}
 H \, | \, \lambda_1, \ldots, \lambda_{2N^2} &amp;= \text{diag}(\lambda_1, \ldots, \lambda_{2N^2}) \\
 x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( F^T H F \right)^{-1} \right)
 \end{align*}\]</span> where <span class="math inline">\(\tau\)</span> is some fixed hyper-hyper-parameter and <span class="math inline">\(C^+\)</span> denotes the <a href="https://distribution-explorer.github.io/continuous/halfcauchy.html">half-Cauchy distribution</a>. Below are some movies of samples from a Laplace MRF and Horshoe MRF, respectively.</p>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> moviepy.editor <span class="im">import</span> ImageSequenceClip</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>n_samples <span class="op">=</span> <span class="dv">10</span></span>
@@ -1019,7 +978,6 @@ x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( F^T H F \right)^{-1}
 <span id="cb14-82"><a href="#cb14-82" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a>clip <span class="op">=</span> ImageSequenceClip(<span class="bu">list</span>(colored_samples), fps<span class="op">=</span>fps)</span>
 <span id="cb14-84"><a href="#cb14-84" aria-hidden="true" tabindex="-1"></a>clip.write_gif(<span class="st">'hmrf_samples.gif'</span>, fps<span class="op">=</span>fps, verbose<span class="op">=</span><span class="va">False</span>, logger<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
