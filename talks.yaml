@@ -1,11 +1,37 @@
 siamuq22:
     title: Multiplicative Denoising with Uncertainty Quantification for Synthetic Aperture Radar Imaging
-    me: Lindbloom, J.
-    coauthors:
-      - Gelb, A. 
-      - Parno, M.
+    copresenters: 
     video_link:
-    slides_link: 123
+    slides_link: https://github.com/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/siamuq22.pdf
     venue: SIAM Conference on Uncertainty Quantification
     location: Atlanta, GA
-    date: Apr 14, 2022
+    date: April 2022
+
+muri21:
+    title: Towards UQ for SAR Despeckling
+    copresenters: 
+    video_link: https://youtu.be/vwaR5C1GRiE
+    slides_link: https://github.com/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/siamuq22.pdf
+    venue: Dartmouth Sea Ice Modeling and Data Assimilation MURI Annual Meeting
+    location: Virtual
+    date: October 2021
+
+lanlhe22:
+    title: Uncertainty Quantification in High Explosives Equations of State 
+    copresenters:
+    video_link:
+    slides_link: https://www.osti.gov/biblio/1812650
+    venue: LANL Computational Physics Summer Workshop Final Presentations
+    location: Virtual
+    date: August 2021
+
+rcs2020:
+    title: Academic and Student Success Within a Residential Commons Model
+    video_link: https://www.youtube.com/watch?v=p67UQycj28s
+    slides_link:
+    venue: Residential College Symposium
+    location: Virtual
+    date: October 2020
+    copresenters:
+      - Dustin Grabsch
+      - Jennifer Post

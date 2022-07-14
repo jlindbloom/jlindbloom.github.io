@@ -10,29 +10,52 @@ keep-md: true
 import yaml
 from IPython.display import display, Markdown, HTML
 
+# Me
+me = "Jonathan Lindbloom"
+
+# This code is adapted from Drew Dimmery's post: https://ddimmery.com/posts/quarto-website/
+
 def readable_list(_s):
-  if len(_s) < 3:
-    return ' and '.join(map(str, _s))
-  *a, b = _s
-  return f"{', '.join(map(str, a))}, and {b}"
+    """Makes a list of names into a readable list.
+    """
+    if len(_s) < 3:
+        return ' and '.join(map(str, _s))
+    *a, b = _s
+    return f"{', '.join(map(str, a))}, and {b}"
+
 
 def button(url, str, icon):
-    # icon_base = icon[:2]
-    # return f"""<a class="btn btn-outline-dark btn-sm", href="{url}" target="_blank" rel="noopener noreferrer">
-    #     <i class="{icon_base} {icon}" role='img' aria-label='{str}'></i>
-    #     {str}
-    # </a>"""
+    """Builds the HTML for a button.
+    """
+    icon_base = icon[:2]
 
-    #return f"""<button type="button" class="btn btn-outline-info btn-sm"> {str} </button>"""
+    return f"""<a href="{url}" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="{icon_base} {icon}" role='img'></i>{"   "+str}</a>"""
 
-    return f"""<a href="https://stackoverflow.com/questions/36003670/how-to-put-a-link-on-a-button-with-bootstrap" class="btn btn-outline-info btn-sm" role="button"> {str} </a>"""
+
+def space_between_buttons(buttons):
+    """Adds space between the buttons.
+    """
+    if len(buttons) > 1:
+        new_buttons = []
+        for j, item in enumerate(buttons):
+            if j > 0:
+                item = "&nbsp; " + item
+            else:
+                pass
+            new_buttons.append(item)
+        return new_buttons
+    else:
+        return buttons
+
 
 # Load all data
 talks_data = yaml.safe_load(open("talks.yaml"))
+technical_articles_data = yaml.safe_load(open("technical_articles.yaml"))
 
 # Dict for storing all info
 pub_strs = {
-    "talks": []
+    "talks": [],
+    "technical_articles": [],
 }
 
 # Iterate over talks
@@ -41,21 +64,22 @@ for _, data in talks_data.items():
     # Required attributes
     talk_title = data["title"]
     date = data["date"]
-    me = data["me"]
     venue = data["venue"]
     location = data["location"]
-    
-    # Make author string
-    coauthors = data.get("coauthors")
-    if coauthors is None:
-        authors = me
-    else:
-        authors = [me]
-        authors += coauthors
-        authors = readable_list(authors)
 
     # Make talk title stronger
     talk_title = f"""<strong>{talk_title}.</strong><br>"""
+    
+    # Talk string
+    talk_str = f"{talk_title} {venue}. {location}. {date}."
+
+    # Copresenters
+    copresenters = data.get("copresenters")
+    if copresenters is None:
+        pass
+    else:
+        copresenters = readable_list(copresenters)
+        talk_str += f"""<br><i>Copresenters: {copresenters}.</i>"""
 
     # List for storing buttons
     buttons = []
@@ -63,14 +87,73 @@ for _, data in talks_data.items():
     # If we have slides, add a button
     slides_link = data.get("slides_link")
     if slides_link is not None:
-        buttons.append(button(slides_link, "Slides", "bi-file-earmark-pdf"))
+        buttons.append(button(slides_link, "&nbsp; Slides", "bi-file-earmark-pdf"))
 
-    talk_str = f"{talk_title} {venue}. {location}. {date}."
-    
+    # If we have a video, add the link
+    video_link = data.get("video_link")
+    if video_link is not None:
+        buttons.append(button(video_link, "&nbsp; Video", "bi bi-camera-video"))
+
+    # Now add space between buttons
+    buttons = space_between_buttons(buttons)
+
+    # Now add the talk to the dict
     pub_strs["talks"].append(
-        talk_str + """<p style="font-size:1px;line-height:0.5;"><br/></p>""" + " ".join(buttons)
+        talk_str + """<p style="margin-bottom:0.2cm;"></p>""" + " ".join(buttons)
         #"<li class='list-group-item'>" + talk_str + "<br>" + " ".join(buttons) + "</li>"
     )
+
+# Iterate over technical articles
+for _, data in technical_articles_data.items():
+
+    # Required attributes
+    article_title = data["title"]
+    date = data["date"]
+    
+    # Make talk title stronger
+    article_title = f"""<strong>{article_title}.</strong><br>"""
+    
+    # Make author string
+    authors = data.get("authors")
+    if authors is None:
+        pass
+    else:
+        author_list = []
+        for author in authors:
+            author_list.append(author)
+
+        authors = readable_list(authors)
+
+    # Article string
+    article_str = f"{article_title} {authors}."
+
+    # Add venue
+    venue = data.get("venue")
+    if venue is None:
+        pass
+    else:
+        article_str += f" {venue}."
+
+    # Add date
+    article_str += f" {date}."
+
+    # List for storing buttons
+    buttons = []
+
+    # If we have a url, add the link
+    url = data.get("url")
+    if url is not None:
+        buttons.append(button(url, "&nbsp; Link", "bi bi-link-45deg"))
+
+    # Now add space between buttons
+    buttons = space_between_buttons(buttons)
+
+    # Now add the talk to the dict
+    pub_strs["technical_articles"].append(
+        article_str + """<p style="margin-bottom:0.2cm;"></p>""" + " ".join(buttons)
+        #"<li class='list-group-item'>" + talk_str + "<br>" + " ".join(buttons) + "</li>"
+    )
+
 
 ```
 
@@ -81,8 +164,6 @@ for _, data in talks_data.items():
 ## Talks
 
 ```{python}
-#| label: "published-year"
-#| id: "published-year"
 #| output: asis
 for talk_str in pub_strs["talks"]:
     display(
@@ -94,5 +175,16 @@ for talk_str in pub_strs["talks"]:
 
 ```
 
+## Technical Articles
 
+```{python}
+#| output: asis
+for article_str in pub_strs["technical_articles"]:
+    display(
+        HTML(
+            article_str
+        )
+    )
+    display(HTML("<br> <br>"))
 
+```

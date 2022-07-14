@@ -1,0 +1,17 @@
+fmax_two:
+  title: A Bayesian model of records
+  url: https://www.authorea.com/users/429500/articles/535592-a-bayesian-model-of-records
+  authors:
+    - Jaime Sevilla
+    - Jonathan Lindbloom
+  venue: Authorea
+  date: May 2022
+
+fmax_one:
+  title: Modelling a Time Series of Records with PyMC3
+  url: https://www.authorea.com/users/429500/articles/533177-modelling-a-time-series-of-records-with-pymc3
+  authors:
+    - Jaime Sevilla
+    - Jonathan Lindbloom
+  venue: Authorea
+  date: September 2021
