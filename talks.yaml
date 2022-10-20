@@ -1,3 +1,12 @@
+lanlhe2022:
+    title: Surrogate Modeling for High Explosives Diameter Effect Calculations
+    copresenters: 
+    video_link:
+    slides_link: 
+    venue: Theoretical Division Lightning Talk Symposium
+    location: Los Alamos, NM
+    date: August 2022
+
 siamuq22:
     title: Multiplicative Denoising with Uncertainty Quantification for Synthetic Aperture Radar Imaging
     copresenters: 
@@ -16,7 +25,7 @@ muri21:
     location: Virtual
     date: October 2021
 
-lanlhe22:
+lanlhe21:
     title: Uncertainty Quantification in High Explosives Equations of State 
     copresenters:
     video_link:
