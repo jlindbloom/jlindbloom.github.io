@@ -2,9 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/posts/video_game_speedrunning.html",
       "/posts/auxiliary_magic.html",
-      "/posts/gaussian_posterior_formulas.html",
       "/posts/simple_image_deblurring.html",
       "/posts/hierarchical_cmrf.html"
     ]
