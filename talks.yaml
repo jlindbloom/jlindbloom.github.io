@@ -1,3 +1,21 @@
+advancement2022:
+    title: Generalized Hybrid Solvers for Sparsity-promoting Bayesian Inverse Problems
+    copresenters: 
+    video_link: 
+    slides_link: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/advancement22.pdf
+    venue: Dartmouth Advancement Exam
+    location: Dartmouth College
+    date: November 2022
+
+muri2022:
+    title: Generalized Hybrid Solvers for Large-scale Edge-preserving Inversion
+    copresenters: 
+    video_link: https://youtu.be/i7t4rTP-FG8
+    slides_link: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/muri22.pdf
+    venue: Dartmouth Sea Ice Modeling and Data Assimilation MURI Annual Meeting
+    location: Virtual
+    date: November 2022
+
 lanlhe2022:
     title: Surrogate Modeling for High Explosives Diameter Effect Calculations
     copresenters: 
@@ -11,7 +29,7 @@ siamuq22:
     title: Multiplicative Denoising with Uncertainty Quantification for Synthetic Aperture Radar Imaging
     copresenters: 
     video_link:
-    slides_link: https://github.com/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/siamuq22.pdf
+    slides_link: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/siamuq22.pdf
     venue: SIAM Conference on Uncertainty Quantification
     location: Atlanta, GA
     date: April 2022
