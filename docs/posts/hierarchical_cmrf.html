@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.587">
+<meta name="generator" content="quarto-0.9.577">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -181,9 +181,9 @@ div.csl-indent {
   <li><a href="#gaussian-markov-random-fields" id="toc-gaussian-markov-random-fields" class="nav-link active" data-scroll-target="#gaussian-markov-random-fields">Gaussian Markov Random Fields</a></li>
   <li><a href="#sampling-a-1d-gmrf" id="toc-sampling-a-1d-gmrf" class="nav-link" data-scroll-target="#sampling-a-1d-gmrf">Sampling a 1D GMRF</a></li>
   <li><a href="#hierarchical-representation-of-the-cauchy-distribution" id="toc-hierarchical-representation-of-the-cauchy-distribution" class="nav-link" data-scroll-target="#hierarchical-representation-of-the-cauchy-distribution">Hierarchical representation of the Cauchy distribution</a></li>
-  <li><a href="#sampling-a-1d-cmrf" id="toc-sampling-a-1d-cmrf" class="nav-link" data-scroll-target="#sampling-a-1d-cmrf">2. Sampling a 1D CMRF</a></li>
-  <li><a href="#sampling-a-2d-gmrfcmrf" id="toc-sampling-a-2d-gmrfcmrf" class="nav-link" data-scroll-target="#sampling-a-2d-gmrfcmrf">3. Sampling a 2D GMRF/CMRF</a></li>
-  <li><a href="#bonus-some-extra-mrfs" id="toc-bonus-some-extra-mrfs" class="nav-link" data-scroll-target="#bonus-some-extra-mrfs">Bonus: some extra MRFs</a></li>
+  <li><a href="#sampling-a-1d-cmrf" id="toc-sampling-a-1d-cmrf" class="nav-link" data-scroll-target="#sampling-a-1d-cmrf">Sampling a 1D CMRF</a></li>
+  <li><a href="#sampling-a-2d-gmrfcmrf" id="toc-sampling-a-2d-gmrfcmrf" class="nav-link" data-scroll-target="#sampling-a-2d-gmrfcmrf">Sampling a 2D GMRF/CMRF</a></li>
+  <li><a href="#bonus-some-extra-mrfs" id="toc-bonus-some-extra-mrfs" class="nav-link" data-scroll-target="#bonus-some-extra-mrfs">Bonus: Some Extra MRFs</a></li>
   </ul>
 </nav>
     </div>
@@ -514,7 +514,7 @@ $$
 In -->
 </section>
 <section id="sampling-a-1d-cmrf" class="level1">
-<h1>2. Sampling a 1D CMRF</h1>
+<h1>Sampling a 1D CMRF</h1>
 <p>Now let’s put this hierarchical representation to work. To obtain a CMRF from a GMRF, we will sample <span class="math display">\[\begin{align*}
 \lambda_1, \ldots, \lambda_N &amp;\sim \text{Gamma}(1/2, s^2/2) \\
 H &amp;= \text{diag}(\lambda_1, \ldots, \lambda_N) \\
@@ -654,7 +654,7 @@ x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( D^T H D \right)^{-1}
 </div>
 </section>
 <section id="sampling-a-2d-gmrfcmrf" class="level1">
-<h1>3. Sampling a 2D GMRF/CMRF</h1>
+<h1>Sampling a 2D GMRF/CMRF</h1>
 <p>Making the jump to a 2D GMRF is not too difficult. Whereas in our earlier examples for a 1D random walk with <span class="math inline">\(N\)</span> points our precision matrix <span class="math inline">\(Q\)</span> was <span class="math inline">\(N \times N\)</span>, in 2D on an <span class="math inline">\(M \times N\)</span> grid our precision matrix will need to be an <span class="math inline">\(M^2 \times N^2\)</span> matrix. The 2D GMRF we will consider is an “anisotropic difference prior” that is an extension of our 1D GMRF from earlier, with <span class="math inline">\(\mu = 0\)</span> and precision <span class="math display">\[\begin{equation*}
 Q = F^T F.
 \end{equation*}\]</span> Here <span class="math display">\[\begin{equation*}
@@ -881,7 +881,7 @@ x \, | \, H &amp;\sim \mathcal{N}\left(\mu, Q^{-1} = \left( F^T H F \right)^{-1}
 <p>So we have achieved our goal. In a future post, we will put this to work as a prior in an inverse problem.</p>
 </section>
 <section id="bonus-some-extra-mrfs" class="level1">
-<h1>Bonus: some extra MRFs</h1>
+<h1>Bonus: Some Extra MRFs</h1>
 <p>While we used a scale mixture of normal representation for the Cauchy distribution, we can also obtain other distributions as scale mixtures of normals. For example, we can simulate a MRF where the increments follow a <a href="https://en.wikipedia.org/wiki/Laplace_distribution">Laplace distribution</a> by sampling <span class="math display">\[\begin{align*}
 \beta_1, \ldots, \beta_{2N^2} &amp;\sim \text{Exponential} \\
 \lambda_i \, | \, \beta_i &amp;= \frac{1}{2\beta_i} \\
