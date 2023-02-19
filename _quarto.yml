@@ -15,7 +15,7 @@ website:
       # - href: about.qmd
       #   text: Home
       - research.qmd
-      - blog.qmd
+      #- blog.qmd
   # twitter-card:
   #   creator: "@qed404"
   #   site: "@qed404"

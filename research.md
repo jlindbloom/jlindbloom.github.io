@@ -12,6 +12,14 @@ keep-md: true
 
 
 ```{=html}
+<strong>Hierarchical Bayesian Inverse Problems.</strong><br> Graduate Student Seminar. Dartmouth College. January 2023.<p style="margin-bottom:0.2cm;"></p><a href="https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/gss123.pdf" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi-file-earmark-pdf" role='img'></i>   &nbsp; Slides</a>
+```
+
+```{=html}
+<br> <br>
+```
+
+```{=html}
 <strong>Generalized Hybrid Solvers for Sparsity-promoting Bayesian Inverse Problems.</strong><br> Dartmouth Advancement Exam. Dartmouth College. November 2022.<p style="margin-bottom:0.2cm;"></p><a href="https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/advancement22.pdf" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi-file-earmark-pdf" role='img'></i>   &nbsp; Slides</a>
 ```
 
