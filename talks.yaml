@@ -1,3 +1,13 @@
+gss123:
+    title: Hierarchical Bayesian Inverse Problems
+    copresenters: 
+    video_link: 
+    slides_link: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/gss123.pdf
+    venue:  Graduate Student Seminar
+    location: Dartmouth College
+    date: January 2023
+
+
 advancement2022:
     title: Generalized Hybrid Solvers for Sparsity-promoting Bayesian Inverse Problems
     copresenters: 
