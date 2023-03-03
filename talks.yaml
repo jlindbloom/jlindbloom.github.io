@@ -1,24 +1,32 @@
+siamcse23:
+    title: Computational Strategies for Bayesian Inversion with Conditionally Gaussian Sparsity Priors
+    video_link:
+    slides_link: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/siamcse23.pdf
+    venue: SIAM Conference on Computational Science and Engineering
+    location: Amsterdam, NL
+    date: March 2023
+
 gss123:
     title: Hierarchical Bayesian Inverse Problems
     copresenters: 
     video_link: 
     slides_link: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/gss123.pdf
-    venue:  Graduate Student Seminar
-    location: Dartmouth College
+    venue:  Dartmouth Mathematics Graduate Student Seminar
+    location: Hanover, NH
     date: January 2023
 
 
 advancement2022:
-    title: Generalized Hybrid Solvers for Sparsity-promoting Bayesian Inverse Problems
+    title: Generalized Hybrid Solvers for Sparsity-Promoting Bayesian Inverse Problems
     copresenters: 
     video_link: 
     slides_link: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/advancement22.pdf
-    venue: Dartmouth Advancement Exam
-    location: Dartmouth College
+    venue: Dartmouth Advancement Examination
+    location: Hanover, NH
     date: November 2022
 
 muri2022:
-    title: Generalized Hybrid Solvers for Large-scale Edge-preserving Inversion
+    title: Generalized Hybrid Solvers for Large-Scale Edge-Preserving Inversion
     copresenters: 
     video_link: https://youtu.be/i7t4rTP-FG8
     slides_link: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/muri22.pdf
