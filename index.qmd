@@ -12,22 +12,26 @@ about:
     - icon: orcid
       text: ORCiD
       href: https://orcid.org/0000-0002-1789-2629
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com/qed404
+    # - icon: twitter
+    #   text: Twitter
+    #   href: https://twitter.com/qed404
     - icon: email
       text: Email
       href: jonathan.t.lindbloom.gr@dartmouth.edu
 ---
 
-I am an applied mathematics PhD candidate at Dartmouth College, originally from Dallas, Texas. I like learning about computational methods for solving (inverse) problems and quantifying uncertainty.
+I am an applied mathematics PhD candidate at Dartmouth College, originally from Dallas, Texas. I study computational methods for solving (inverse) problems and uncertainty quantification.
 
 ## Education
 
-Dartmouth College | Hanover, NH  
+Dartmouth College   
 PhD in Mathematics  
-Sept 2021 - Present
+Sept 2021 --- Present
 
-Southern Methodist University | Dallas, TX  
+Dartmouth College   
+MA in Mathematics  
+Sept 2021 --- June 2023
+
+Southern Methodist University    
 BS in Mathematics, BBA in Finance  
-Aug 2017 - May 2021
+Aug 2017 --- May 2021
