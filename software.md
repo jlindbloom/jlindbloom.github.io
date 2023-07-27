@@ -10,7 +10,6 @@ Here is a list of links to some miscellaneous Python packages I have developed (
 
 
 ### [gpcg](https://pypi.org/project/gpcg/)
-
 An implementation of a conjugate gradient algorithm (GPCG) for solving bound-constrained quadratic programs.
 
 
@@ -20,4 +19,7 @@ Some implementations of randomized, matrix-free algorithms for estimating matrix
 
 ### [rjpo](https://pypi.org/project/rjpo/)
 An implementation of a reversible jump perturbation optimization (RJPO) method for sampling high-dimensional Gaussians.
+
+### [runningstatistics](https://pypi.org/project/runningstatistics/0.0.1/)
+A simple module for computing the sample statistics of an array in a running/online fashion.
 
