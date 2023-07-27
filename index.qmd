@@ -20,7 +20,7 @@ about:
       href: jonathan.t.lindbloom.gr@dartmouth.edu
 ---
 
-I am an applied mathematics PhD candidate at Dartmouth College, originally from Dallas, Texas. I study computational methods for solving (inverse) problems and uncertainty quantification.
+I am a 3rd year applied mathematics PhD candidate at Dartmouth College, originally from Dallas, Texas. I study computational methods for solving (inverse) problems and uncertainty quantification. My advisor is [Anne Gelb](https://math.dartmouth.edu/~annegelb/).
 
 ## Education
 
