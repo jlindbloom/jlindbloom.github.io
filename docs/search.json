@@ -39,7 +39,7 @@
     "href": "software.html",
     "title": "Software",
     "section": "",
-    "text": "gpcg\nAn implementation of a conjugate gradient algorithm (GPCG) for solving bound-constrained quadratic programs.\ntracelogdetdiag\nSome implementations of randomized, matrix-free algorithms for estimating matrix traces, log determinants, diagonals, and diagonals of inverses.\nrjpo\nAn implementation of a reversible jump perturbation optimization (RJPO) method for sampling high-dimensional Gaussians."
+    "text": "gpcg\nAn implementation of a conjugate gradient algorithm (GPCG) for solving bound-constrained quadratic programs.\ntracelogdetdiag\nSome implementations of randomized, matrix-free algorithms for estimating matrix traces, log determinants, diagonals, and diagonals of inverses.\nrjpo\nAn implementation of a reversible jump perturbation optimization (RJPO) method for sampling high-dimensional Gaussians.\nrunningstatistics\nA simple module for computing the sample statistics of an array in a running/online fashion."
   },
   {
     "objectID": "teaching.html",
