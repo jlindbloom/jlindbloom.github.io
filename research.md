@@ -12,6 +12,14 @@ keep-md: true
 
 
 ```{=html}
+<strong>Oblique Projections and Low-Rank Structure in Inverse Problems.</strong><br> Dartmouth Mathematics Graduate Student Seminar. Hanover, NH. September 2023.<p style="margin-bottom:0.2cm;"></p><a href="https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/gss922.pdf" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi-file-earmark-pdf" role='img'></i>   &nbsp; Slides</a>
+```
+
+```{=html}
+<br> <br>
+```
+
+```{=html}
 <strong>Computational Strategies for Bayesian Inversion with Conditionally Gaussian Sparsity Priors.</strong><br> SIAM Conference on Computational Science and Engineering. Amsterdam, NL. March 2023.<p style="margin-bottom:0.2cm;"></p><a href="https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/siamcse23.pdf" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi-file-earmark-pdf" role='img'></i>   &nbsp; Slides</a>
 ```
 

@@ -1,3 +1,11 @@
+gss922:
+    title: Oblique Projections and Low-Rank Structure in Inverse Problems
+    video_link:
+    slides_link: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/gss922.pdf
+    venue: Dartmouth Mathematics Graduate Student Seminar
+    location: Hanover, NH
+    date: September 2023
+
 siamcse23:
     title: Computational Strategies for Bayesian Inversion with Conditionally Gaussian Sparsity Priors
     video_link:
