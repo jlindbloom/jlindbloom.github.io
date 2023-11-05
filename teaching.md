@@ -30,9 +30,17 @@ This page summarizes my teaching activities.
 
 I have enjoyed participating as a mentor in Dartmouth's [Directed Reading Program (DRP)](https://math.dartmouth.edu/~drp/) for undergraduates. Past reading programs I have supervised include:
 
+- Computational Measure Transport (Winter 2024)
+- A Tour of the Finite Element Method (Winter 2024)
 - Markov Chain Monte Carlo and Bayesian Computation (Spring 2023, with Daniel Carstensen)
 - Bayesian Modeling and Computation (Spring 2022, with Ivy Yan)
-- Nonlinear dynamics, chaos, and ergodicity (Fall 2021, with Andrew White)
+- Nonlinear Dynamics, Chaos, and Ergodicity (Fall 2021, with Andrew White)
 
 If you are interested in participating in a DRP (formally or informally), feel free to write me via email [here](mailto:jonathan.t.lindbloom.gr@dartmouth.edu).
+
+<!-- <details>
+<summary>How do I dropdown?</summary>
+<br>
+This is how you dropdown.
+</details> -->
 
