@@ -10,7 +10,7 @@ This page summarizes my teaching activities.
 
 ## Instructor
 
-- [Math 3: Calculus](https://math.dartmouth.edu/~m3f23/general.phtml), Dartmouth College, Fall 2023 (lecture notes)
+- [Math 3: Calculus](https://math.dartmouth.edu/~m3f23/general.phtml), Dartmouth College, Fall 2023 [[lecture notes]](https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/documents/m3f23_notes.pdf)
 
 
 ## Teaching Assistant
