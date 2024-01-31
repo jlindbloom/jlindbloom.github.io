@@ -12,6 +12,14 @@ keep-md: true
 
 
 ```{=html}
+<strong>A Brief Introduction to Matrix-Free and Randomized Matrix Computations.</strong><br> Dartmouth Mathematics Graduate Student Seminar. Hanover, NH. January 2024.<p style="margin-bottom:0.2cm;"></p>
+```
+
+```{=html}
+<br> <br>
+```
+
+```{=html}
 <strong>Oblique Projections and Low-Rank Structure in Inverse Problems.</strong><br> Dartmouth Mathematics Graduate Student Seminar. Hanover, NH. September 2023.<p style="margin-bottom:0.2cm;"></p><a href="https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/fee4027830e5376a299c01046478278cc0479ef4/talk_slides/gss922.pdf" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi-file-earmark-pdf" role='img'></i>   &nbsp; Slides</a>
 ```
 
