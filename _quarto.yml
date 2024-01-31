@@ -16,7 +16,7 @@ website:
       #   text: Home
       - research.qmd
       - teaching.qmd
-      - office_hours.qmd
+      #- office_hours.qmd
       - software.qmd
       #- blog.qmd
   # twitter-card:
