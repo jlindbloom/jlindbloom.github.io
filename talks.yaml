@@ -1,3 +1,19 @@
+cmcc24:
+    title: Generalized Sparsity-Promoting Solvers and Uncertainty Quantification for Bayesian Inverse Problems
+    video_link:
+    slides_link: 
+    venue: SIAM Conference on Uncertainty Quantification
+    location: Bologna, IT
+    date: March 2024
+
+siamuq24:
+    title: Generalized Sparsity-Promoting Solvers and Samplers for Hierarchical Inverse Problems
+    video_link:
+    slides_link: 
+    venue: SIAM Conference on Uncertainty Quantification
+    location: Trieste, IT
+    date: February 2024
+
 gss124:
     title: A Brief Introduction to Matrix-Free and Randomized Matrix Computations
     video_link:
