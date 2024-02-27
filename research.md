@@ -12,7 +12,7 @@ keep-md: true
 
 
 ```{=html}
-<strong>Generalized sparsity-promoting solvers for Bayesian inverse problems: Versatile sparsifying transforms and unknown noise variances.</strong><br> Jonathan Lindbloom, Jan Glaubitz, and Anne Gelb. 2024.<p style="margin-bottom:0.2cm;"></p>
+<strong>Generalized sparsity-promoting solvers for Bayesian inverse problems: Versatile sparsifying transforms and unknown noise variances.</strong><br> Jonathan Lindbloom, Jan Glaubitz, and Anne Gelb. 2024.<p style="margin-bottom:0.2cm;"></p><a href="https://arxiv.org/abs/2402.16623" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi bi-link-45deg" role='img'></i>   &nbsp; arXiv</a>
 ```
 
 ```{=html}
@@ -25,7 +25,7 @@ keep-md: true
 
 
 ```{=html}
-<strong>Generalized Sparsity-Promoting Solvers and Uncertainty Quantification for Bayesian Inverse Problems.</strong><br> SIAM Conference on Uncertainty Quantification. Bologna, IT. March 2024.<p style="margin-bottom:0.2cm;"></p>
+<strong>Generalized Sparsity-Promoting Solvers and Uncertainty Quantification for Bayesian Inverse Problems.</strong><br> Fondazione CMCC Webinar. Bologna, IT. March 2024.<p style="margin-bottom:0.2cm;"></p>
 ```
 
 ```{=html}
@@ -134,7 +134,7 @@ keep-md: true
 
 
 ```{=html}
-<strong>Sparsity-Promoting Multiplicative Denoising via Block Coordinate Descent.</strong><br> SIAM POD-UQ. Trieste, IT. February 2024.<p style="margin-bottom:0.2cm;"></p><a href="https://nbviewer.org/jlindbloom/jlindbloom.github.io/blob/main/posters/Despeckling_2024.pdf" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi-file-earmark-pdf" role='img'></i>   &nbsp; Poster</a>
+<strong>Sparsity-Promoting Multiplicative Denoising via Block Coordinate Descent.</strong><br> SIAM POD-UQ. Trieste, IT. February 2024.<p style="margin-bottom:0.2cm;"></p><a href="https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/posters/Despeckling_2024.pdf" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi-file-earmark-pdf" role='img'></i>   &nbsp; Poster</a>
 ```
 
 ```{=html}
