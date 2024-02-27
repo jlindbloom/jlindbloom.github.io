@@ -8,8 +8,37 @@ keep-md: true
 
 
 
+## Preprints
+
+
+```{=html}
+<strong>Generalized sparsity-promoting solvers for Bayesian inverse problems: Versatile sparsifying transforms and unknown noise variances.</strong><br> Jonathan Lindbloom, Jan Glaubitz, and Anne Gelb. 2024.<p style="margin-bottom:0.2cm;"></p>
+```
+
+```{=html}
+<br> <br>
+```
+
+
+
 ## Talks
 
+
+```{=html}
+<strong>Generalized Sparsity-Promoting Solvers and Uncertainty Quantification for Bayesian Inverse Problems.</strong><br> SIAM Conference on Uncertainty Quantification. Bologna, IT. March 2024.<p style="margin-bottom:0.2cm;"></p>
+```
+
+```{=html}
+<br> <br>
+```
+
+```{=html}
+<strong>Generalized Sparsity-Promoting Solvers and Samplers for Hierarchical Inverse Problems.</strong><br> SIAM Conference on Uncertainty Quantification. Trieste, IT. February 2024.<p style="margin-bottom:0.2cm;"></p>
+```
+
+```{=html}
+<br> <br>
+```
 
 ```{=html}
 <strong>A Brief Introduction to Matrix-Free and Randomized Matrix Computations.</strong><br> Dartmouth Mathematics Graduate Student Seminar. Hanover, NH. January 2024.<p style="margin-bottom:0.2cm;"></p>
@@ -93,6 +122,19 @@ keep-md: true
 
 ```{=html}
 <strong>Academic and Student Success Within a Residential Commons Model.</strong><br> Residential College Symposium. Virtual. October 2020.<br><i>Copresenters: Dustin Grabsch and Jennifer Post.</i><p style="margin-bottom:0.2cm;"></p><a href="https://www.youtube.com/watch?v=p67UQycj28s" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi bi-camera-video" role='img'></i>   &nbsp; Video</a>
+```
+
+```{=html}
+<br> <br>
+```
+
+
+
+## Posters
+
+
+```{=html}
+<strong>Sparsity-Promoting Multiplicative Denoising via Block Coordinate Descent.</strong><br> SIAM POD-UQ. Trieste, IT. February 2024.<p style="margin-bottom:0.2cm;"></p><a href="https://nbviewer.org/jlindbloom/jlindbloom.github.io/blob/main/posters/Despeckling_2024.pdf" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi-file-earmark-pdf" role='img'></i>   &nbsp; Poster</a>
 ```
 
 ```{=html}
