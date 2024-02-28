@@ -9,7 +9,7 @@ cmcc24:
 siamuq24:
     title: Generalized Sparsity-Promoting Solvers and Samplers for Hierarchical Inverse Problems
     video_link:
-    slides_link: 
+    slides_link: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/siam_uq24.pdf
     venue: SIAM Conference on Uncertainty Quantification
     location: Trieste, IT
     date: February 2024

@@ -33,7 +33,7 @@ keep-md: true
 ```
 
 ```{=html}
-<strong>Generalized Sparsity-Promoting Solvers and Samplers for Hierarchical Inverse Problems.</strong><br> SIAM Conference on Uncertainty Quantification. Trieste, IT. February 2024.<p style="margin-bottom:0.2cm;"></p>
+<strong>Generalized Sparsity-Promoting Solvers and Samplers for Hierarchical Inverse Problems.</strong><br> SIAM Conference on Uncertainty Quantification. Trieste, IT. February 2024.<p style="margin-bottom:0.2cm;"></p><a href="https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/siam_uq24.pdf" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi-file-earmark-pdf" role='img'></i>   &nbsp; Slides</a>
 ```
 
 ```{=html}
