@@ -30,8 +30,10 @@ This page summarizes my teaching activities.
 
 I have enjoyed participating as a mentor in Dartmouth's [Directed Reading Program (DRP)](https://math.dartmouth.edu/~drp/) for undergraduates. Past reading programs I have supervised include:
 
-- Computational Measure Transport (Winter 2024)
-- A Tour of the Finite Element Method (Winter 2024)
+- Krylov Methods for Solving Linear Systems  (Spring 2024)
+- Markov Chain Monte Carlo and Bayesian Computation (Spring 2024)
+- Computational Measure Transport (Winter 2024, with W)
+<!-- - A Tour of the Finite Element Method (Winter 2024) -->
 - Markov Chain Monte Carlo and Bayesian Computation (Spring 2023, with Daniel Carstensen)
 - Bayesian Modeling and Computation (Spring 2022, with Ivy Yan)
 - Nonlinear Dynamics, Chaos, and Ergodicity (Fall 2021, with Andrew White)
