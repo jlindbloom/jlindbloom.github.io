@@ -32,7 +32,7 @@ I have enjoyed participating as a mentor in Dartmouth's [Directed Reading Progra
 
 - Krylov Methods for Solving Linear Systems  (Spring 2024)
 - Markov Chain Monte Carlo and Bayesian Computation (Spring 2024)
-- Computational Measure Transport (Winter 2024, with W)
+- Computational Measure Transport (Winter 2024, with William O'Brien and Paul Chirkov)
 <!-- - A Tour of the Finite Element Method (Winter 2024) -->
 - Markov Chain Monte Carlo and Bayesian Computation (Spring 2023, with Daniel Carstensen)
 - Bayesian Modeling and Computation (Spring 2022, with Ivy Yan)
