@@ -6,19 +6,21 @@ about:
   image-shape: round
   image-width: 12em
   links:
-    - icon: github
-      text: Github
+    - text: "{{< iconify clarity email-line size=large >}}"
+      href: jonathan.t.lindbloom.gr@dartmouth.edu
+    - text: "{{< iconify codicon github size=large >}}"
       href: https://github.com/jlindbloom
-    - icon: orcid
-      text: ORCiD
+    - text: "{{< iconify la orcid size=large >}}"
       href: https://orcid.org/0000-0002-1789-2629
     # - icon: twitter
     #   text: Twitter
     #   href: https://twitter.com/qed404
-    - icon: email
-      text: Email
-      href: jonathan.t.lindbloom.gr@dartmouth.edu
+    - text: "{{< iconify academicons google-scholar size=large >}}"
+      href: https://scholar.google.com/citations?user=AaUaETwAAAAJ&hl=en&oi=ao
+    - text: "{{< iconify academicons arxiv size=large >}}"
+      href: https://arxiv.org/search/math?searchtype=author&query=Lindbloom,+J
 ---
+
 
 I am a 3rd year applied mathematics PhD candidate at Dartmouth College, originally from Dallas, Texas. I study computational methods for solving (inverse) problems and uncertainty quantification. My advisor is [Anne Gelb](https://math.dartmouth.edu/~annegelb/).
 

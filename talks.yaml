@@ -1,7 +1,7 @@
 cmcc24:
     title: Generalized Sparsity-Promoting Solvers and Uncertainty Quantification for Bayesian Inverse Problems
     video_link: https://youtu.be/4xjjD3TaIak?si=sgJmkOQn4bRuR-cz
-    slides_link: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/cmcc24.pdf
+    slides_link: https://github.com/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/cmcc24.pdf
     venue: Fondazione CMCC Webinar
     location: Bologna, IT
     date: March 2024
