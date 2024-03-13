@@ -1,7 +1,19 @@
 /* css styles */
-a {text-decoration: none; }
+a {
+    text-decoration: none;
 
+}
 
+.nav-link  {
+    color: white; /* Change 'blue' to your desired navbar text color */
+}
 
+.active {
+    color: white; /* Change 'blue' to your desired navbar text color */
+}
+
+.nav-link.active {
+    color: white; /* Change 'blue' to your desired navbar text color */
+}
 
 

@@ -31,5 +31,6 @@ format:
       - custom.scss
     css: styles.css
     toc: true
+    linkcolor: "#00ccff"
 
 
