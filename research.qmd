@@ -83,9 +83,12 @@ for _, data in preprints_data.items():
     else:
         author_list = []
         for author in authors:
-            author_list.append(author)
+            if author == "Jonathan Lindbloom":
+                author_list.append('''<span style="color: #d55415;">Jonathan Lindbloom</span>''')
+            else:
+                author_list.append(author)
 
-        authors = readable_list(authors)
+        authors = readable_list(author_list)
 
     # Article string
     article_str = f"{preprint_title} {authors}."
