@@ -65,6 +65,17 @@ pub_strs = {
 
 
 
+author_urls = {
+    "Dylan Green": "https://math.dartmouth.edu/~dgreen/",
+    "Anne Gelb": "https://math.dartmouth.edu/~annegelb/",
+    "Jan Glaubitz": "https://www.janglaubitz.com/",
+}
+
+
+
+
+
+
 # Iterate over preprints
 for _, data in preprints_data.items():
 
@@ -83,9 +94,16 @@ for _, data in preprints_data.items():
     else:
         author_list = []
         for author in authors:
-            author_list.append(author)
+            if author == "Jonathan Lindbloom":
+                author_list.append('''<span style="color: #d55415;">Jonathan Lindbloom</span>''')
+            else:
+                if author in author_urls.keys():
+                    link = author_urls[author]
+                    author_list.append(f'''<a href={link} style="color: #17c1ff;">{author}</a>''')
+                else:
+                    author_list.append(author)
 
-        authors = readable_list(authors)
+        authors = readable_list(author_list)
 
     # Article string
     article_str = f"{preprint_title} {authors}."
