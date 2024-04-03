@@ -12,7 +12,7 @@ keep-md: true
 
 
 ```{=html}
-<strong>Generalized sparsity-promoting solvers for Bayesian inverse problems: Versatile sparsifying transforms and unknown noise variances.</strong><br> <span style="color: #d55415;">Jonathan Lindbloom</span>, Jan Glaubitz, and Anne Gelb. 2024.<p style="margin-bottom:0.2cm;"></p><a href="https://arxiv.org/abs/2402.16623" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi bi-link-45deg" role='img'></i>   &nbsp; arXiv</a>
+<strong>Generalized sparsity-promoting solvers for Bayesian inverse problems: Versatile sparsifying transforms and unknown noise variances.</strong><br> <span style="color: #d55415;">Jonathan Lindbloom</span>, <a href=https://www.janglaubitz.com/ style="color: #17c1ff;">Jan Glaubitz</a>, and <a href=https://math.dartmouth.edu/~annegelb/ style="color: #17c1ff;">Anne Gelb</a>. 2024.<p style="margin-bottom:0.2cm;"></p><a href="https://arxiv.org/abs/2402.16623" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi bi-link-45deg" role='img'></i>   &nbsp; arXiv</a>
 ```
 
 ```{=html}
@@ -20,7 +20,7 @@ keep-md: true
 ```
 
 ```{=html}
-<strong>Complex-valued signal recovery using the Bayesian LASSO.</strong><br> Dylan Green, <span style="color: #d55415;">Jonathan Lindbloom</span>, and Anne Gelb. 2024.<p style="margin-bottom:0.2cm;"></p><a href="https://arxiv.org/abs/2403.16992" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi bi-link-45deg" role='img'></i>   &nbsp; arXiv</a>
+<strong>Complex-valued signal recovery using the Bayesian LASSO.</strong><br> <a href=https://math.dartmouth.edu/~dgreen/ style="color: #17c1ff;">Dylan Green</a>, <span style="color: #d55415;">Jonathan Lindbloom</span>, and <a href=https://math.dartmouth.edu/~annegelb/ style="color: #17c1ff;">Anne Gelb</a>. 2024.<p style="margin-bottom:0.2cm;"></p><a href="https://arxiv.org/abs/2403.16992" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi bi-link-45deg" role='img'></i>   &nbsp; arXiv</a>
 ```
 
 ```{=html}
