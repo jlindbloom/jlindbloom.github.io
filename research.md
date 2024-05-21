@@ -33,7 +33,7 @@ keep-md: true
 
 
 ```{=html}
-<strong>The Conjugate Gradient Method: A Top 10 Algorithm of the 20th Century.</strong><br> Dartmouth Mathematics Graduate Student Seminar. Hanover, NH. May 2024.<p style="margin-bottom:0.2cm;"></p><a href="https://icons.getbootstrap.com/icons/camera/" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi bi-camera" role='img'></i>   &nbsp; Photo</a>
+<strong>The Conjugate Gradient Method: A Top 10 Algorithm of the 20th Century.</strong><br> Dartmouth Mathematics Graduate Student Seminar. Hanover, NH. May 2024.<p style="margin-bottom:0.2cm;"></p><a href="https://raw.githubusercontent.com/jlindbloom/jlindbloom.github.io/main/photos/20240516_124202.JPG" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi bi-camera" role='img'></i>   &nbsp; Photo</a>
 ```
 
 ```{=html}
