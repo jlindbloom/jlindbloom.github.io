@@ -1,3 +1,12 @@
+gss516:
+    title: "The Conjugate Gradient Method: A Top 10 Algorithm of the 20th Century"
+    video_link:
+    slides_link: 
+    photo_link: https://icons.getbootstrap.com/icons/camera/
+    venue: Dartmouth Mathematics Graduate Student Seminar
+    location: Hanover, NH
+    date: May 2024
+
 cmcc24:
     title: Generalized Sparsity-Promoting Solvers and Uncertainty Quantification for Bayesian Inverse Problems
     video_link: https://youtu.be/4xjjD3TaIak?si=sgJmkOQn4bRuR-cz

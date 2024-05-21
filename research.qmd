@@ -223,6 +223,12 @@ for _, data in talks_data.items():
     if video_link is not None:
         buttons.append(button(video_link, "&nbsp; Video", "bi bi-camera-video"))
 
+    # If we have a photo, add link to photo
+    photo_link = data.get("photo_link")
+    if photo_link is not None:
+        buttons.append(button(photo_link, "&nbsp; Photo", "bi bi-camera"))
+       
+
     # Now add space between buttons
     buttons = space_between_buttons(buttons)
 
