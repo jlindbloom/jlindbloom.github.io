@@ -33,6 +33,14 @@ keep-md: true
 
 
 ```{=html}
+<strong>The Conjugate Gradient Method: A Top 10 Algorithm of the 20th Century.</strong><br> Dartmouth Mathematics Graduate Student Seminar. Hanover, NH. May 2024.<p style="margin-bottom:0.2cm;"></p><a href="https://icons.getbootstrap.com/icons/camera/" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi bi-camera" role='img'></i>   &nbsp; Photo</a>
+```
+
+```{=html}
+<br> <br>
+```
+
+```{=html}
 <strong>Generalized Sparsity-Promoting Solvers and Uncertainty Quantification for Bayesian Inverse Problems.</strong><br> Fondazione CMCC Webinar. Bologna, IT. March 2024.<p style="margin-bottom:0.2cm;"></p><a href="https://github.com/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/cmcc24.pdf" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi-file-earmark-pdf" role='img'></i>   &nbsp; Slides</a> &nbsp; <a href="https://youtu.be/4xjjD3TaIak?si=sgJmkOQn4bRuR-cz" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi bi-camera-video" role='img'></i>   &nbsp; Video</a>
 ```
 
