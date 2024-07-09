@@ -54,6 +54,8 @@ talks_data = yaml.safe_load(open("talks.yaml"))
 posters_data = yaml.safe_load(open("posters.yaml"))
 preprints_data = yaml.safe_load(open("preprints.yaml"))
 technical_articles_data = yaml.safe_load(open("technical_articles.yaml"))
+conference_papers_data = yaml.safe_load(open("conference_papers.yaml"))
+
 
 # Dict for storing all info
 pub_strs = {
@@ -61,6 +63,7 @@ pub_strs = {
     "talks": [],
     "posters": [],
     "technical_articles": [],
+    "conference_papers": [],
 }
 
 
@@ -94,8 +97,9 @@ for _, data in preprints_data.items():
     else:
         author_list = []
         for author in authors:
-            if author == "Jonathan Lindbloom":
-                author_list.append('''<span style="color: #d55415;">Jonathan Lindbloom</span>''')
+            if author == me:
+                #author_list.append('''<span style="color: #d55415;">Jonathan Lindbloom</span>''')
+                author_list.append('''<i>Jonathan Lindbloom</i>''')
             else:
                 if author in author_urls.keys():
                     link = author_urls[author]
@@ -132,6 +136,76 @@ for _, data in preprints_data.items():
 
 
 
+# Iterate over conference papers
+for _, data in conference_papers_data.items():
+
+    # Required
+    preprint_title = data["title"]
+    authors = data["authors"]
+    year = data["year"]
+
+    # Make preprint title stronger
+    preprint_title = f"""<strong>{preprint_title}.</strong><br>"""
+
+    # Make author string
+    authors = data.get("authors")
+    if authors is None:
+        pass
+    else:
+        author_list = []
+        for author in authors:
+            if author == me:
+                #author_list.append('''<span style="color: #d55415;">Jonathan Lindbloom</span>''')
+                author_list.append('''<i>Jonathan Lindbloom</i>''')
+            else:
+                if author in author_urls.keys():
+                    link = author_urls[author]
+                    author_list.append(f'''<a href={link} style="color: #17c1ff;">{author}</a>''')
+                else:
+                    author_list.append(author)
+
+        authors = readable_list(author_list)
+
+
+    # Article string
+    article_str = f"{preprint_title} {authors}."
+
+    # Add conference
+    conf = data.get("conference")
+    if conf is None:
+        pass
+    else:
+        article_str += f" {conf}."
+
+    # Add year 
+    article_str += f" {year}."
+
+    
+
+    # List for storing buttons
+    buttons = []
+
+    # If we have a url, add the link
+    url = data.get("url")
+    if url is not None:
+        buttons.append(button(url, "&nbsp; link", "bi bi-link-45deg"))
+
+    # Now add space between buttons
+    buttons = space_between_buttons(buttons)
+
+    # Now add the talk to the dict
+    pub_strs["conference_papers"].append(
+        article_str + """<p style="margin-bottom:0.2cm;"></p>""" + " ".join(buttons)
+        #"<li class='list-group-item'>" + talk_str + "<br>" + " ".join(buttons) + "</li>"
+    )
+
+
+
+
+
+
+
+
 # Iterate over technical articles
 for _, data in technical_articles_data.items():
 
@@ -155,7 +229,7 @@ for _, data in technical_articles_data.items():
 
     # Article string
     article_str = f"{article_title} {authors}."
-
+    
     # Add venue
     venue = data.get("venue")
     if venue is None:
@@ -309,6 +383,22 @@ for preprint_str in pub_strs["preprints"]:
 
 
 
+## Conference papers
+
+```{python}
+#| output: asis
+for preprint_str in pub_strs["conference_papers"]:
+    display(
+        HTML(
+            preprint_str
+        )
+    )
+    display(HTML("<br> <br>"))
+
+```
+
+
+
 ## Talks
 
 ```{python}
@@ -343,11 +433,11 @@ for poster_str in pub_strs["posters"]:
 
 
 
-## Technical Articles
+## Technical articles
 
 ```{python}
 #| output: asis
-for article_str in pub_strs["technical_articles"]:
+for article_str in pub_strs["conference_papers"]:
     display(
         HTML(
             article_str

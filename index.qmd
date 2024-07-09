@@ -1,6 +1,6 @@
 ---
 title: "Jonathan Lindbloom"
-image: profile2.jpg
+image: profile3.jpeg
 about:
   template: trestles
   image-shape: round
@@ -19,10 +19,12 @@ about:
       href: https://scholar.google.com/citations?user=AaUaETwAAAAJ&hl=en&oi=ao
     - text: "{{< iconify academicons arxiv size=large >}}"
       href: https://arxiv.org/search/math?searchtype=author&query=Lindbloom,+J
+    - text: "{{< iconify academicons researchgate size=large >}}"
+      href: https://www.researchgate.net/profile/Jonathan-Lindbloom
 ---
 
 
-I am a 3rd year applied mathematics PhD candidate at Dartmouth College, originally from Dallas, Texas. I study computational methods for solving (inverse) problems and uncertainty quantification. My advisor is [Anne Gelb](https://math.dartmouth.edu/~annegelb/).
+I am a 4th year applied mathematics PhD candidate at Dartmouth College, originally from Dallas, Texas. I study computational methods for solving (inverse) problems and uncertainty quantification. My advisor is [Anne Gelb](https://math.dartmouth.edu/~annegelb/).
 
 ## Education
 

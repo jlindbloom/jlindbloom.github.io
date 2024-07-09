@@ -111,13 +111,14 @@ lanlhe21:
     location: Virtual
     date: August 2021
 
-rcs2020:
-    title: Academic and Student Success Within a Residential Commons Model
-    video_link: https://www.youtube.com/watch?v=p67UQycj28s
-    slides_link:
-    venue: Residential College Symposium
-    location: Virtual
-    date: October 2020
-    copresenters:
-      - Dustin Grabsch
-      - Jennifer Post
+
+# rcs2020:
+#     title: Academic and Student Success Within a Residential Commons Model
+#     video_link: https://www.youtube.com/watch?v=p67UQycj28s
+#     slides_link:
+#     venue: Residential College Symposium
+#     location: Virtual
+#     date: October 2020
+#     copresenters:
+#       - Dustin Grabsch
+#       - Jennifer Post

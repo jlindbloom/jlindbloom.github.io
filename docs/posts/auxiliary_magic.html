@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -78,7 +78,7 @@ div.csl-indent {
 }</style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -100,7 +100,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -109,17 +115,45 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -128,9 +162,9 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Jonathan Lindbloom</span>
     </a>
@@ -142,21 +176,21 @@ div.csl-indent {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../research.html" rel="" target="">
- <span class="menu-text">Research</span></a>
+    <a class="nav-link" href="../research.html"> 
+<span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching.html" rel="" target="">
- <span class="menu-text">Teaching</span></a>
+    <a class="nav-link" href="../teaching.html"> 
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../software.html" rel="" target="">
- <span class="menu-text">Software</span></a>
+    <a class="nav-link" href="../software.html"> 
+<span class="menu-text">Software</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -194,7 +228,7 @@ div.csl-indent {
 </div>
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
     <div>
@@ -208,7 +242,9 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <p><a href="https://jlindbloom.github.io/posts/simple_image_deblurring.html">Last time</a> we looked at an image de-blurring problem, which we solved by finding <span id="eq-inv_prob_obj"><span class="math display">\[
 x^\star = \text{argmin}_x \,\, \| A x - y \|_2^2 + \mathcal{R}(x)
@@ -217,7 +253,7 @@ x^\star = \text{argmin}_x \,\, \| A x - y \|_2^2 + \mathcal{R}(x)
 \]</span> In this post, our goal is to: - describe a hierarchical prior and a method that can give us a better image reconstruction, - walk through a “magic” trick that will speed up our method, - and look at using <a href="https://cupy.dev/"><code>CuPy</code></a> to accelerate our reconstruction using a GPU.</p>
 <section id="probabilistic-inverse-problems" class="level1">
 <h1>Probabilistic Inverse Problems</h1>
-<p>While the problem posed in <a href="#eq-inv_prob_obj">Equation&nbsp;1</a> is completely deterministic, we can actually think of it as haven arisen from a probabilistic model. Suppose that <span class="math display">\[
+<p>While the problem posed in <a href="#eq-inv_prob_obj" class="quarto-xref">Equation&nbsp;1</a> is completely deterministic, we can actually think of it as haven arisen from a probabilistic model. Suppose that <span class="math display">\[
 \begin{align*}
 x &amp;\sim \mathcal{N}\left( 0, \left(\gamma L^T L \right)^{-1} \right), \\
 y \, | \, x &amp;\sim \mathcal{N}\left( A x, I \right).
@@ -236,7 +272,7 @@ x^\star = \text{argmax}_x \,\, \pi(x \, | \, y),
 x^\star &amp;= \text{argmin}_x \,\, - \log \pi(x \, | \, y) \\
 &amp;= \text{argmin}_x \,\, \gamma \| L x \|_2^2 = \gamma x^T L^T L x,
 \end{align*}
-\]</span> which is exactly <a href="#eq-inv_prob_obj">Equation&nbsp;1</a>. The role of <span class="math inline">\(\mathcal{R}(x)\)</span> can then be seen as contributing a prior of <span class="math display">\[
+\]</span> which is exactly <a href="#eq-inv_prob_obj" class="quarto-xref">Equation&nbsp;1</a>. The role of <span class="math inline">\(\mathcal{R}(x)\)</span> can then be seen as contributing a prior of <span class="math display">\[
 \pi(x) \propto \exp\left\{ - \mathcal{R}(x) \right\}
 \]</span> into the inference problem.</p>
 </section>
@@ -259,7 +295,7 @@ B_{\beta} = \text{diag}\left( \beta^V_{1,1}, \ldots, \beta^V_{m,n}, \beta^H_{1,1
 </section>
 <section id="the-new-posterior" class="level1">
 <h1>The New Posterior</h1>
-<p>Using our prior <a href="#eq-hierarchical_prior">Equation&nbsp;2</a>, the full posterior in our original model (with an extra factor of <span class="math inline">\(\frac{1}{2}\)</span>, as well as a noise precision parameter <span class="math inline">\(\alpha\)</span>) is given as <span id="eq-hierarchical_posterior"><span class="math display">\[
+<p>Using our prior <a href="#eq-hierarchical_prior" class="quarto-xref">Equation&nbsp;2</a>, the full posterior in our original model (with an extra factor of <span class="math inline">\(\frac{1}{2}\)</span>, as well as a noise precision parameter <span class="math inline">\(\alpha\)</span>) is given as <span id="eq-hierarchical_posterior"><span class="math display">\[
 \pi(x, \beta \, | \, y) \propto \exp\left\{ - \frac{\alpha}{2} \| A x - y \|_2^2 \right\} \times \det \left( B_{\beta} \right)^{1/2} \exp\left\{ - \frac{1}{2} x^T L^T B_{\beta} L x  \right\} \times \pi(\beta).
 \tag{3}\]</span></span> In the sampling setting, a common approach that could be used to draw samples from this posterior is <a href="https://en.wikipedia.org/wiki/Gibbs_sampling">Gibbs sampling</a>, which involves iteratively drawing from the conditionals of each variable in the density given all of the others. In this case, our conditionals would be <span class="math display">\[
 \begin{align*}
@@ -351,7 +387,7 @@ Q_3^{-1} &amp;= \frac{1}{\lambda} I - B, \\
 </section>
 <section id="the-augmented-hierarchical-model" class="level1">
 <h1>The Augmented Hierarchical Model</h1>
-<p>It turns out that when we allow <span class="math inline">\(B = B_{\beta}\)</span> to vary with hyper-parameters, everything we just did stays exactly the same, except we must choose a new <span class="math inline">\(\lambda= \lambda(B_{\beta})\)</span> such that <span class="math inline">\(\lambda &lt; \frac{1}{\| B_\beta \|}\)</span> for the current values of the hyper-parameters. We have already discussed the conditionals <span class="math inline">\(x \, | \, v, \beta, y\)</span> and <span class="math inline">\(v \, | \, x, \beta, y\)</span> which are the same as before, but it turns out that the conditional <span class="math inline">\(\beta \, | \, x, v, y\)</span> is not trivial. As far as I know, this conditional is no longer known directly. So is all of our work for nothing? Fortunately, no, due to a technique called partially collapsed Gibbs sampling (PCGS) <span class="citation" data-cites="vanDyk2008PartiallyCG">[<a href="#ref-vanDyk2008PartiallyCG" role="doc-biblioref">3</a>]</span>. Note that while we don’t know an analytic form for <span class="math inline">\(\beta \, | \, x, v, y\)</span>, we <em>do</em> know the form of <span class="math inline">\(\beta \, | \, x, y\)</span> which is the same as it was in the model before we introduced <span class="math inline">\(v\)</span>. PCGS is designed to take advantage of this by allowing us to only need access to <span class="math inline">\(\beta \, | \, x, y\)</span>, with the price being that the order in which we iterate through the conditionals now matters.</p>
+<p>It turns out that when we allow <span class="math inline">\(B = B_{\beta}\)</span> to vary with hyper-parameters, everything we just did stays exactly the same, except we must choose a new <span class="math inline">\(\lambda=  \lambda(B_{\beta})\)</span> such that <span class="math inline">\(\lambda &lt; \frac{1}{\| B_\beta \|}\)</span> for the current values of the hyper-parameters. We have already discussed the conditionals <span class="math inline">\(x \, | \, v, \beta, y\)</span> and <span class="math inline">\(v \, | \, x, \beta, y\)</span> which are the same as before, but it turns out that the conditional <span class="math inline">\(\beta \, | \, x, v, y\)</span> is not trivial. As far as I know, this conditional is no longer known directly. So is all of our work for nothing? Fortunately, no, due to a technique called partially collapsed Gibbs sampling (PCGS) <span class="citation" data-cites="vanDyk2008PartiallyCG">[<a href="#ref-vanDyk2008PartiallyCG" role="doc-biblioref">3</a>]</span>. Note that while we don’t know an analytic form for <span class="math inline">\(\beta \, | \, x, v, y\)</span>, we <em>do</em> know the form of <span class="math inline">\(\beta \, | \, x, y\)</span> which is the same as it was in the model before we introduced <span class="math inline">\(v\)</span>. PCGS is designed to take advantage of this by allowing us to only need access to <span class="math inline">\(\beta \, | \, x, y\)</span>, with the price being that the order in which we iterate through the conditionals now matters.</p>
 <p>Thus our discussion leads us to a modified version of the BCD algorithm that uses an auxiliary variable to simplify the calculations for the update of each variable: <span class="math display">\[
 \begin{align*}
 x^{k+1} &amp;= \mathbb{E}_{\pi}\left( x \, | \, v^k, \beta^k, y \right), \\
@@ -369,7 +405,7 @@ However, we can determine this by just updating the gamma hyper-prior twice so t
 <section id="the-code" class="level1">
 <h1>The Code</h1>
 <p>The first thing we will do is some initial set-up for the problem such as setting up our differencing matrix and computing the diagonalizations of <span class="math inline">\(A\)</span> and <span class="math inline">\(L^T L\)</span>. We will use the same blurred image from the previous post.</p>
-<div class="cell" data-execution_count="1">
+<div id="cell-7" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>capture</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -431,7 +467,7 @@ However, we can determine this by just updating the gamma hyper-prior twice so t
 <p>In order to quickly perform the FFTs/IFFTs needed for the algorithm, we will leverage a GPU via <a href="https://cupy.dev/"><code>CuPy</code></a>. I had previously tried doing this algorithm on CPUs with just NumPy alone and found that it took about one iteration per second, whereas with CuPy we can get about 500 iterations per 30 seconds (about 17 iterations per second).</p>
 <p>In terms of NumPy vs.&nbsp;CuPy, the main things to keep in mind are that 1. you must explicitly transfer arrays between the CPU and GPU, and 2. while on the GPU, you must use functions that act on CuPy arrays.</p>
 <p>Both of these are easy to do. For this post, I will suffix all arrays that live on the GPU with <code>_gpu</code>. Let’s bring all of the things we just computed onto the GPU:</p>
-<div class="cell" data-execution_count="88">
+<div id="cell-9" class="cell" data-execution_count="88">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cupy <span class="im">as</span> cp</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Bring diagonalizations Pi and Lambda onto GPU</span></span>
@@ -445,13 +481,13 @@ However, we can determine this by just updating the gamma hyper-prior twice so t
 </div>
 <p>Note that <a href="https://docs.scipy.org/doc/scipy/reference/sparse.html"><code>scipy.sparse</code></a> matrices are different from <a href="https://docs.cupy.dev/en/stable/reference/scipy_sparse.html"><code>cupy.sparse</code></a> matrices, and that we bring them onto the GPU by calling the CuPy constructor on the SciPy (CPU) version of the matrix.</p>
 <p>To apply our blurring operator to a vector on the GPU, we will also need to use the CuPy version of <code>gaussian_filter</code>:</p>
-<div class="cell" data-execution_count="89">
+<div id="cell-11" class="cell" data-execution_count="89">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> cupyx.scipy.ndimage <span class="im">import</span> gaussian_filter <span class="im">as</span> cupy_gaussian_filter </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>blur_op_gpu <span class="op">=</span> <span class="kw">lambda</span> x: cupy_gaussian_filter(x, blur_sigma, mode<span class="op">=</span><span class="st">'wrap'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s make our arrays for <span class="math inline">\(x\)</span>, <span class="math inline">\(v\)</span>, <span class="math inline">\(y\)</span>, and <span class="math inline">\(\beta\)</span>:</p>
-<div class="cell" data-execution_count="90">
+<div id="cell-13" class="cell" data-execution_count="90">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x_gpu <span class="op">=</span> cp.asarray(blurred_img) <span class="co"># Start x at the observed image</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>y_gpu <span class="op">=</span> cp.asarray(blurred_img) <span class="co"># The observation</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>v_gpu <span class="op">=</span> cp.asarray( L <span class="op">@</span> blurred_img.flatten() ) <span class="co"># Start v at Lx, this gives it the correct shape</span></span>
@@ -460,11 +496,11 @@ However, we can determine this by just updating the gamma hyper-prior twice so t
 <p>Remember that we need to pick a new value of <span class="math inline">\(\lambda\)</span> each time we update <span class="math inline">\(\beta\)</span>. We will make the choice <span class="math display">\[
 \lambda(\beta) = \frac{1}{2}\left( \frac{1}{\| B_{\beta} \|} + 0\right),
 \]</span> which should be half of the maximum value we would be allowed to pick for <span class="math inline">\(\lambda\)</span>. I am not sure how picking <span class="math inline">\(\lambda\)</span> on the high or low side affects the performance, but I would guess that higher is better. In our code, I will refer to this <span class="math inline">\(\lambda\)</span> as <code>lam_aux</code>.</p>
-<div class="cell" data-execution_count="91">
+<div id="cell-15" class="cell" data-execution_count="91">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lam_aux <span class="op">=</span> ((<span class="dv">1</span><span class="op">/</span>cp.amax(betas_gpu)) <span class="op">+</span> <span class="dv">0</span>)<span class="op">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We also need to set some noise precision <span class="math inline">\(\alpha = \sigma^{-2}\)</span>, and we can go ahead and pre-compute <span class="math inline">\(\frac{1}{\alpha} A^T y\)</span> which shows up in our formula for the conditional for <span class="math inline">\(x\)</span>.</p>
-<div class="cell" data-execution_count="92">
+<div id="cell-17" class="cell" data-execution_count="92">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>noise_sigma <span class="op">=</span> <span class="fl">0.1</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>noise_prec <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>(noise_sigma<span class="op">**</span><span class="dv">2</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Aty_gpu <span class="op">=</span> noise_prec<span class="op">*</span>blur_op_gpu(y_gpu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -475,12 +511,12 @@ c &amp;= 1.0, \\
 d &amp;= 10^{-20},
 \end{align*}
 \]</span> which corresponds to a flat prior.</p>
-<div class="cell" data-execution_count="93">
+<div id="cell-19" class="cell" data-execution_count="93">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">1.0</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="fl">1e-20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we are ready to perform the BCD algorithm for the reconstruction of <span class="math inline">\(x\)</span> from <span class="math inline">\(y\)</span>. I will not go into the details, as all of the operations are just the implementation of the steps we outlined earlier.</p>
-<div class="cell" data-execution_count="94">
+<div id="cell-21" class="cell" data-execution_count="94">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastprogress <span class="im">import</span> progress_bar</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set some number of iterations</span></span>
@@ -538,7 +574,7 @@ d &amp;= 10^{-20},
 </div>
 </div>
 <p>Let’s look at the reconstruction, as well as <span class="math inline">\(\beta\)</span>. Here I have plotted the <code>betas</code> on an inverse scale, so brighter pixels should correspond to a higher variance parameter. I have also artificially clipped the array to its 95th percentile, since there are some extremely large precision values that make the entire plot monotone.</p>
-<div class="cell" data-execution_count="95">
+<div id="cell-23" class="cell" data-execution_count="95">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">'axes.facecolor'</span>] <span class="op">=</span> <span class="st">'#0F2537'</span></span>
@@ -555,33 +591,45 @@ d &amp;= 10^{-20},
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>plt.title(plot_which <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="st">"BCD reconstruction"</span>)</span>
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="auxiliary_magic_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="auxiliary_magic_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
 </div>
-<div class="cell" data-execution_count="96">
+</div>
+<div id="cell-24" class="cell" data-execution_count="96">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>betas <span class="op">=</span> betas.reshape((<span class="dv">2</span>,M,N))</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>betas_one, betas_two <span class="op">=</span> betas[<span class="dv">0</span>,:,:], betas[<span class="dv">1</span>,:,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="97">
+<div id="cell-25" class="cell" data-execution_count="97">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">13</span>))</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.clip(betas_one, a_min<span class="op">=</span><span class="va">None</span>, a_max <span class="op">=</span> np.quantile(betas_one.flatten(), <span class="fl">0.95</span>)), cmap<span class="op">=</span><span class="st">'Greens_r'</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.title(plot_which <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="st">"betas (horizontal)"</span>)</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="auxiliary_magic_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="auxiliary_magic_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
 </div>
-<div class="cell" data-execution_count="98">
+</div>
+<div id="cell-26" class="cell" data-execution_count="98">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">13</span>))</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.clip(betas_two, a_min<span class="op">=</span><span class="va">None</span>, a_max <span class="op">=</span> np.quantile(betas_two.flatten(), <span class="fl">0.95</span>)), cmap<span class="op">=</span><span class="st">'Greens_r'</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.title(plot_which <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="st">"betas (vertical)"</span>)</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="auxiliary_magic_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="auxiliary_magic_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Notice how you can (somewhat) trace out some of the edges in the image by the inferred variance parameters. Here is a comparison of the original, blurred, and reconstructed images:</p>
-<div class="cell" data-execution_count="99">
+<div id="cell-28" class="cell" data-execution_count="99">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load original image</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> Image.<span class="bu">open</span>(<span class="st">"grand_canyon.jpg"</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> ImageOps.grayscale(img)</span>
@@ -599,7 +647,11 @@ d &amp;= 10^{-20},
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="auxiliary_magic_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="auxiliary_magic_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The last thing I will point out is that by changing the <span class="math inline">\(c\)</span> and <span class="math inline">\(d\)</span> hyper-hyper-parameters, you can change the degree of sparsity in the prior on <span class="math inline">\(L x\)</span>. As we did in a <a href="https://jlindbloom.github.io/posts/hierarchical_cmrf.html">previous post</a>, we can recover a prior that is marginally Cauchy with a special choice of <span class="math inline">\(c\)</span> and <span class="math inline">\(d\)</span>. Let’s repeat the reconstruction with the choice <span class="math display">\[
@@ -608,7 +660,7 @@ c &amp;= 0.5, \\
 d &amp;= 0.5(0.0005^2).
 \end{align*}
 \]</span></p>
-<div class="cell" data-execution_count="101">
+<div id="cell-30" class="cell" data-execution_count="101">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>noise_sigma <span class="op">=</span> <span class="fl">0.01</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">0.5</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="fl">0.5</span><span class="op">*</span>(<span class="fl">0.0005</span><span class="op">**</span><span class="dv">2</span>)</span>
@@ -622,7 +674,7 @@ d &amp;= 0.5(0.0005^2).
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>noise_prec <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>(noise_sigma<span class="op">**</span><span class="dv">2</span>)</span>
 <span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>Aty_gpu <span class="op">=</span> noise_prec<span class="op">*</span>blur_op_gpu(y_gpu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="102">
+<div id="cell-31" class="cell" data-execution_count="102">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set some number of iterations</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>n_iterations <span class="op">=</span> <span class="dv">500</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -677,7 +729,7 @@ d &amp;= 0.5(0.0005^2).
     
 </div>
 </div>
-<div class="cell" data-execution_count="103">
+<div id="cell-32" class="cell" data-execution_count="103">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>plot_name <span class="op">=</span> <span class="st">"strong_cauchy_prior"</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plot_which <span class="op">=</span> <span class="st">"Strong Cauchy prior"</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -686,32 +738,44 @@ d &amp;= 0.5(0.0005^2).
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>plt.title(plot_which <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="st">"BCD reconstruction"</span>)</span>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="auxiliary_magic_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="auxiliary_magic_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
 </div>
-<div class="cell" data-execution_count="107">
+</div>
+<div id="cell-33" class="cell" data-execution_count="107">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>betas <span class="op">=</span> betas.reshape((<span class="dv">2</span>,M,N))</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>betas_one, betas_two <span class="op">=</span> betas[<span class="dv">0</span>,:,:], betas[<span class="dv">1</span>,:,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="110">
+<div id="cell-34" class="cell" data-execution_count="110">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">13</span>))</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.clip(betas_one, a_min<span class="op">=</span><span class="va">None</span>, a_max <span class="op">=</span> np.quantile(betas_one.flatten(), <span class="fl">0.95</span>)), cmap<span class="op">=</span><span class="st">'Greens'</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>plt.title(plot_which <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="st">"betas (horizontal)"</span>)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="auxiliary_magic_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="auxiliary_magic_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
 </div>
-<div class="cell" data-execution_count="109">
+</div>
+<div id="cell-35" class="cell" data-execution_count="109">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">13</span>))</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.clip(betas_two, a_min<span class="op">=</span><span class="va">None</span>, a_max <span class="op">=</span> np.quantile(betas_two.flatten(), <span class="fl">0.95</span>)), cmap<span class="op">=</span><span class="st">'Greens'</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>plt.title(plot_which <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="st">"betas (vertical)"</span>)</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="auxiliary_magic_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="auxiliary_magic_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
 </div>
-<div class="cell" data-execution_count="112">
+</div>
+<div id="cell-36" class="cell" data-execution_count="112">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">26</span>,<span class="dv">26</span>))</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].imshow(img, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
@@ -723,7 +787,11 @@ d &amp;= 0.5(0.0005^2).
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="auxiliary_magic_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="auxiliary_magic_files/figure-html/cell-21-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 
@@ -731,7 +799,7 @@ d &amp;= 0.5(0.0005^2).
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-Glaubitz2022" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div><div class="csl-right-inline"><span class="smallcaps">Glaubitz</span>, J., <span class="smallcaps">Gelb</span>, A. and <span class="smallcaps">Song</span>, G. (2022). <a href="https://doi.org/10.48550/ARXIV.2201.07061">Generalized sparse bayesian learning and application to image reconstruction</a>.</div>
 </div>
@@ -821,10 +889,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -834,8 +919,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -847,7 +941,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -891,6 +1108,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -916,6 +1134,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -976,6 +1220,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
