@@ -18,7 +18,7 @@
     "href": "software.html",
     "title": "Software",
     "section": "",
-    "text": "Here is a list of links to some miscellaneous Python packages I have developed (or are still developing).\ngpcg\nAn implementation of a conjugate gradient algorithm (GPCG) for solving bound-constrained quadratic programs.\ntracelogdetdiag\nSome implementations of randomized, matrix-free algorithms for estimating matrix traces, log determinants, diagonals, and diagonals of inverses.\nrjpo\nAn implementation of a reversible jump perturbation optimization (RJPO) method for sampling high-dimensional Gaussians.\nrunningstatistics\nA simple module for computing the sample statistics of an array in a running/online fashion."
+    "text": "Here is a list of links to some miscellaneous Python packages I have developed (or are still developing).\ngpcg\nAn implementation of a conjugate gradient algorithm (GPCG) for solving bound-constrained quadratic programs.\ntracelogdetdiag\nSome implementations of randomized, matrix-free algorithms for estimating matrix traces, log determinants, diagonals, and diagonals of inverses.\nrjpo\nAn implementation of a reversible jump perturbation optimization (RJPO) method for sampling high-dimensional Gaussians.\nrunningstatistics\nA simple module for computing the sample statistics of an array in a running/online fashion.\ngsvdm2py\nA Python wrapper for MATLAB’s gsvd function (generalized singular value decomposition)."
   },
   {
     "objectID": "office_hours.html",

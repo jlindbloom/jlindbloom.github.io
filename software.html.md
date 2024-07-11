@@ -12,14 +12,15 @@ Here is a list of links to some miscellaneous Python packages I have developed (
 ### [gpcg](https://pypi.org/project/gpcg/)
 An implementation of a conjugate gradient algorithm (GPCG) for solving bound-constrained quadratic programs.
 
-
 ### [tracelogdetdiag](https://pypi.org/project/tracelogdetdiag/)
 Some implementations of randomized, matrix-free algorithms for estimating matrix traces, log determinants, diagonals, and diagonals of inverses.
-
 
 ### [rjpo](https://pypi.org/project/rjpo/)
 An implementation of a reversible jump perturbation optimization (RJPO) method for sampling high-dimensional Gaussians.
 
 ### [runningstatistics](https://pypi.org/project/runningstatistics/0.0.1/)
 A simple module for computing the sample statistics of an array in a running/online fashion.
+
+### [gsvdm2py](https://pypi.org/project/gsvdm2py/0.0.1/)
+A Python wrapper for MATLAB's gsvd function (generalized singular value decomposition).
 
