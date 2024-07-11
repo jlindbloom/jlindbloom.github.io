@@ -437,7 +437,7 @@ for poster_str in pub_strs["posters"]:
 
 ```{python}
 #| output: asis
-for article_str in pub_strs["conference_papers"]:
+for article_str in pub_strs["technical_articles"]:
     display(
         HTML(
             article_str

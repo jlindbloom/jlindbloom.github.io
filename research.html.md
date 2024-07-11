@@ -176,7 +176,15 @@ keep-md: true
 
 
 ```{=html}
-<strong>Complex-Valued Image Recovery from Multiple Measurements.</strong><br> <a href=https://math.dartmouth.edu/~dgreen/ style="color: #17c1ff;">Dylan Green</a>, <i>Jonathan Lindbloom</i>, and <a href=https://math.dartmouth.edu/~annegelb/ style="color: #17c1ff;">Anne Gelb</a>. 2024 IEEE Conference on Computational Imaging Using Synthetic Apertures (CISA). 2024.<p style="margin-bottom:0.2cm;"></p><a href="http://dx.doi.org/10.1109/CISA60639.2024.10576266" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi bi-link-45deg" role='img'></i>   &nbsp; link</a>
+<strong>A Bayesian model of records.</strong><br> Jaime Sevilla and Jonathan Lindbloom. Authorea. May 2022.<p style="margin-bottom:0.2cm;"></p><a href="https://www.authorea.com/users/429500/articles/535592-a-bayesian-model-of-records" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi bi-link-45deg" role='img'></i>   &nbsp; Link</a>
+```
+
+```{=html}
+<br> <br>
+```
+
+```{=html}
+<strong>Modelling a Time Series of Records with PyMC3.</strong><br> Jaime Sevilla and Jonathan Lindbloom. Authorea. September 2021.<p style="margin-bottom:0.2cm;"></p><a href="https://www.authorea.com/users/429500/articles/533177-modelling-a-time-series-of-records-with-pymc3" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi bi-link-45deg" role='img'></i>   &nbsp; Link</a>
 ```
 
 ```{=html}
