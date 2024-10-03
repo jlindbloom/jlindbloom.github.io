@@ -14,6 +14,8 @@ website:
     left:
       # - href: about.qmd
       #   text: Home
+      - text: "CV"
+        href: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/documents/LindbloomCV.pdf
       - research.qmd
       - teaching.qmd
       #- office_hours.qmd
