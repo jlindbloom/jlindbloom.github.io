@@ -10,11 +10,11 @@ This page summarizes my teaching activities.
 
 ## Instructor
 
-- **\*\*Upcoming\*\*** Math 56: Computational and Experimental Mathematics, Dartmouth College, Winter 2025
+- **\*\*Upcoming\*\*** [Math 56: Computational and Experimental Mathematics](https://math.dartmouth.edu/~m56w25/), Dartmouth College, Winter 2025
 - [Math 3: Calculus](https://math.dartmouth.edu/~m3f23/general.phtml), Dartmouth College, Fall 2023 [[lecture notes]](https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/documents/m3f23_notes.pdf)
 
 
-## Teaching Assistant
+## Teaching assistant
 
 - [Math 22: Linear Algebra and Applications](https://math.dartmouth.edu/~m22s23/), Dartmouth College, Spring 2023
 - [Math 56: Computational and Experimental Mathematics](https://math.dartmouth.edu/~m56w23/), Dartmouth College, Winter 2023
@@ -22,12 +22,15 @@ This page summarizes my teaching activities.
 - [Math 3: Calculus](https://math.dartmouth.edu/~m3w22/), Dartmouth College, Winter 2022
 - [Math 3: Calculus](https://canvas.dartmouth.edu/courses/48609), Dartmouth College, Fall 2021
 
+<!-- 
 ## Grading Assistant
 - Math 3311: Introduction to Proofs and Analysis, Southern Methodist University, Fall 2020 / Spring 2021
 - Math 3304: Introduction to Linear Algebra, Southern Methodist University, Fall 2019 / Spring 2020 / Fall 2020
-- Math 1337: Calculus I, Southern Methodist University, Fall 2018
+- Math 1337: Calculus I, Southern Methodist University, Fall 2018 -->
 
-## Directed Reading Programs
+
+
+## Directed reading programs
 
 I have enjoyed participating as a mentor in Dartmouth's [Directed Reading Program (DRP)](https://math.dartmouth.edu/~drp/) for undergraduates. Past reading programs I have supervised include:
 
@@ -46,4 +49,10 @@ If you are interested in participating in a DRP (formally or informally), feel f
 <br>
 This is how you dropdown.
 </details> -->
+
+
+
+## Miscellaneous lecture notes and slides
+
+- Overview of regularization parameter selection methods [ [PDF] ](https://drive.google.com/file/d/1TWQOOK4GvS1AaIIHTfKP44cvEuOBFGbp/view?usp=sharing) [ [full] ](https://drive.google.com/file/d/1nvsj8x_M4dB2DANriSm1Ex_LuIJwNOKt/view?usp=sharing)  
 
