@@ -54,5 +54,5 @@ This is how you dropdown.
 
 ## Miscellaneous lecture notes and slides
 
-- Overview of regularization parameter selection methods [ [PDF] ](https://drive.google.com/file/d/1TWQOOK4GvS1AaIIHTfKP44cvEuOBFGbp/view?usp=sharing) [ [full] ](https://drive.google.com/file/d/1nvsj8x_M4dB2DANriSm1Ex_LuIJwNOKt/view?usp=sharing)  
+- Overview of regularization parameter selection methods [ [Slides] ](https://drive.google.com/file/d/1TWQOOK4GvS1AaIIHTfKP44cvEuOBFGbp/view?usp=sharing) [ [Slides source] ](https://drive.google.com/file/d/1nvsj8x_M4dB2DANriSm1Ex_LuIJwNOKt/view?usp=sharing) [ [Notes 1] ](https://drive.google.com/file/d/182zelaJ_Fqp__gxCY6PNVHU0r0LH1KH5/view?usp=sharing) [ [Notes 2] ](https://drive.google.com/file/d/1NJxD0wM2KTYcNVIFeWVe9LpMjZl2ob0e/view?usp=sharing) 
 
