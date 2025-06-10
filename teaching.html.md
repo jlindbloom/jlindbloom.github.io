@@ -10,7 +10,7 @@ This page summarizes my teaching activities.
 
 ## Instructor
 
-- [Math 56: Computational and Experimental Mathematics](https://math.dartmouth.edu/~m56w25/), Dartmouth College, Winter 2025
+- [Math 56: Computational and Experimental Mathematics](https://math.dartmouth.edu/~m56w25/), Dartmouth College, Winter 2025 [[videos]](https://www.youtube.com/watch?v=EUCtfknfp4A&list=PLhGj86VHjXcyDof19rIc8HQPuIZlI3_ju&pp=gAQB)
 - [Math 3: Calculus](https://math.dartmouth.edu/~m3f23/general.phtml), Dartmouth College, Fall 2023 [[lecture notes]](https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/documents/m3f23_notes.pdf)
 
 
