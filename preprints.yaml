@@ -1,23 +1,13 @@
 
-
-gensparse24:
-    title: "Generalized sparsity-promoting solvers for Bayesian inverse problems: Versatile sparsifying transforms and unknown noise variances"
+projectedpsgks25:
+    title: "Priorconditioned Sparsity-Promoting Projection Methods for Deterministic and Bayesian Linear Inverse Problems"
     authors: 
       - Jonathan Lindbloom
+      - Mirjeta Pasha
       - Jan Glaubitz
-      - Anne Gelb
-    url: https://arxiv.org/abs/2402.16623
-    year: 2024
-
-classo24:
-    title: "Complex-valued signal recovery using the Bayesian LASSO"
-    authors: 
-      - Dylan Green
-      - Jonathan Lindbloom
-      - Anne Gelb
-    url: https://arxiv.org/abs/2403.16992
-    year: 2024
-
+      - Youssef Marzouk
+    url: https://arxiv.org/abs/2505.01827
+    year: 2025
 
 
 

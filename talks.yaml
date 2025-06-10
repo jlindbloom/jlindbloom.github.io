@@ -1,3 +1,66 @@
+acms25:
+    title: "Preconditioning techniques for large-scale sparsity-promoting inverse problems"
+    video_link:
+    slides_link: https://drive.google.com/file/d/1b8MRQrDKKi_CyXhaXOWeNP8HEAXlLAFT/view?usp=sharing
+    photo_link: 
+    venue: Dartmouth Applied & Computational Mathematics Seminar 
+    location: Hanover, NH
+    date: April 2025
+
+ecom25:
+    title: "Preconditioning techniques for large-scale sparsity-promoting inverse problems"
+    video_link:
+    slides_link: https://drive.google.com/file/d/1ZbJSLORMwgCOJqAyW4Q1HKNNpWfI8yzP/view?usp=sharing
+    photo_link: 
+    venue: East Coast Optimization Meeting
+    location: Arlington, VA
+    date: April 2025
+
+anysrgmc25:
+    title: "Preconditioning techniques for large-scale sparsity-promoting inverse problems"
+    video_link:
+    slides_link: 
+    photo_link: 
+    venue: 50th Annual New York State Regional Graduate Mathematics Conference 
+    location: Syracuse, NY
+    date: March 2025
+
+cse25:
+    title: "Preconditioning techniques for large-scale sparsity-promoting inverse problems"
+    video_link:
+    slides_link: https://drive.google.com/file/d/1d296m3IIKsd_FcR_ITTdBTazU0hCn3aL/view?usp=sharing
+    photo_link: 
+    venue: SIAM Conference on Computational Science and Engineering 
+    location: Fort Worth, TX
+    date: March 2025
+
+gss125:
+    title: "Cauchy interlacing and generalized Ostrowski theorems"
+    video_link:
+    slides_link: 
+    photo_link: 
+    venue: Dartmouth Mathematics Graduate Student Seminar 
+    location: Hanover, NH
+    date: January 2025
+
+vt24:
+    title: "Priorconditioned generalized Krylov subspaces for sparsity-promoting inversion"
+    video_link:
+    slides_link: 
+    photo_link: 
+    venue: Virginia Tech Applied Numerical Analysis Seminar 
+    location: Blacksburg, VA
+    date: December 2024
+
+gss1024:
+    title: "Priorconditioned generalized Krylov subspaces for sparsity-promoting inversion"
+    video_link:
+    slides_link: 
+    photo_link: 
+    venue: Dartmouth Mathematics Graduate Student Seminar
+    location: Hanover, NH
+    date: October 2024
+
 gss516:
     title: "The Conjugate Gradient Method: A Top 10 Algorithm of the 20th Century"
     video_link:

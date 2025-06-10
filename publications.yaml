@@ -1,0 +1,35 @@
+
+gensparse25:
+    title: "Efficient sparsity-promoting MAP estimation for Bayesian linear inverse problems"
+    authors: 
+      - Jonathan Lindbloom
+      - Jan Glaubitz
+      - Anne Gelb
+    url: https://doi.org/10.1088/1361-6420/ada17f
+    journal: "Inverse Problems, 41(2), 025001"
+    year: 2025
+
+
+classo25:
+    title: "Complex-valued signal recovery using the Bayesian LASSO"
+    authors: 
+      - Dylan Green
+      - Jonathan Lindbloom
+      - Anne Gelb
+    url: https://doi.org/10.1137/24M1644778
+    journal: "SIAM/ASA Journal on Uncertainty Quantification, 13(2), 831-861"
+    year: 2025
+
+
+empcomplex24:
+    title: "Empirical Bayesian inference for complex-valued signals using support-informed priors"
+    authors: 
+      - Dylan Green
+      - Jonathan Lindbloom
+      - Anne Gelb
+    url: https://doi.org/10.3934/ammc.2024020
+    journal: "AIMS Applied Mathematics for Modern Challenges, 2(4)"
+    year: 2024
+
+
+
