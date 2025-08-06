@@ -13,6 +13,9 @@ Here is a list of links to some miscellaneous Python packages I have developed (
 ### [gpcg](https://pypi.org/project/gpcg/)
 An implementation of a conjugate gradient algorithm (GPCG) for solving bound-constrained quadratic programs.
 
+### [blockcg](https://pypi.org/project/blockcg/)
+Pure python implementations of block conjugate gradient (BCG) methods.
+
 ### [tracelogdetdiag](https://pypi.org/project/tracelogdetdiag/)
 Some implementations of randomized, matrix-free algorithms for estimating matrix traces, log determinants, diagonals, and diagonals of inverses.
 
