@@ -23,6 +23,7 @@ This page summarizes my teaching activities.
 - [Math 3: Calculus](https://math.dartmouth.edu/~m3w22/), Dartmouth College, Winter 2022
 - [Math 3: Calculus](https://canvas.dartmouth.edu/courses/48609), Dartmouth College, Fall 2021
 
+
 <!-- 
 ## Grading Assistant
 - Math 3311: Introduction to Proofs and Analysis, Southern Methodist University, Fall 2020 / Spring 2021
