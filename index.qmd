@@ -24,7 +24,7 @@ about:
 ---
 
 
-I am a 4th year applied mathematics PhD candidate at Dartmouth College, originally from Dallas, Texas. I study computational methods for solving (inverse) problems and uncertainty quantification. My advisor is [Anne Gelb](https://math.dartmouth.edu/~annegelb/).
+I am a 5th year applied mathematics PhD candidate at Dartmouth College, originally from Dallas, Texas. I study computational methods for solving (inverse) problems and uncertainty quantification. My advisor is [Anne Gelb](https://math.dartmouth.edu/~annegelb/).
 
 ## Education
 

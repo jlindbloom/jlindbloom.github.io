@@ -8,7 +8,7 @@ keep-md: true
 
 This page summarizes my teaching activities. 
 
-## Instructor
+## Instructor of record
 
 -  Math 23: Differential Equations, Dartmouth College, upcoming Spring 2026
 - [Math 56: Computational and Experimental Mathematics](https://math.dartmouth.edu/~m56w25/), Dartmouth College, Winter 2025 [[videos]](https://www.youtube.com/watch?v=EUCtfknfp4A&list=PLhGj86VHjXcyDof19rIc8HQPuIZlI3_ju&pp=gAQB)

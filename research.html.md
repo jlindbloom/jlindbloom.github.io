@@ -67,6 +67,14 @@ keep-md: true
 
 
 ```{=html}
+<strong>The GSVD with applications to inverse problems.</strong><br> Dartmouth Mathematics Graduate Student Seminar. Hanover, NH. September 2025.<p style="margin-bottom:0.2cm;"></p><a href="https://drive.google.com/file/d/1Dlbpfub27Qk8ffCV32xmmpW9_YgOlrnt/view?usp=sharing" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi-file-earmark-pdf" role='img'></i>   &nbsp; Slides</a>
+```
+
+```{=html}
+<br> <br>
+```
+
+```{=html}
 <strong>Preconditioning techniques for large-scale sparsity-promoting inverse problems.</strong><br> Dartmouth Applied & Computational Mathematics Seminar. Hanover, NH. April 2025.<p style="margin-bottom:0.2cm;"></p><a href="https://drive.google.com/file/d/1b8MRQrDKKi_CyXhaXOWeNP8HEAXlLAFT/view?usp=sharing" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi-file-earmark-pdf" role='img'></i>   &nbsp; Slides</a> &nbsp; <a href="https://raw.githubusercontent.com/jlindbloom/jlindbloom.github.io/main/photos/acms25.JPG" class="btn btn-outline-info btn-sm" role="button" target="_blank"> <i class="bi bi bi-camera" role='img'></i>   &nbsp; Photo</a>
 ```
 
