@@ -23,14 +23,14 @@ about:
       href: https://www.researchgate.net/profile/Jonathan-Lindbloom
 ---
 
+I am a fifth-year PhD candidate in mathematics at Dartmouth College (currently on the job market), originally from Dallas, Texas. My research focuses on developing fast, structure-exploiting and structure-preserving methods for large-scale inverse problems and uncertainty quantification in scientific computing. My advisor is [Anne Gelb](https://math.dartmouth.edu/~annegelb/).
 
-I am a 5th year applied mathematics PhD candidate at Dartmouth College, originally from Dallas, Texas. I study computational methods for solving (inverse) problems and uncertainty quantification. My advisor is [Anne Gelb](https://math.dartmouth.edu/~annegelb/).
 
 ## Education
 
 Dartmouth College   
 Ph.D. in Mathematics  
-Sept 2021 --- Present
+Sept 2021 --- Present (expected June 2026)
 
 Dartmouth College   
 A.M. in Mathematics  

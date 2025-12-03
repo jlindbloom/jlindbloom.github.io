@@ -18,7 +18,7 @@
     "href": "software.html",
     "title": "Software",
     "section": "",
-    "text": "Here is a list of links to some miscellaneous Python packages I have developed (or are still developing).\neasygsvd\nA pure-python, friendly interface to the generalized singular value decomposition (GSVD).\ngpcg\nAn implementation of a conjugate gradient algorithm (GPCG) for solving bound-constrained quadratic programs.\nrjpo\nAn implementation of a reversible jump perturbation optimization (RJPO) method for sampling high-dimensional Gaussians.\nblockcg\nPure python implementations of block conjugate gradient (BCG) methods.\ntracelogdetdiag\nSome implementations of randomized, matrix-free algorithms for estimating matrix traces, log determinants, diagonals, and diagonals of inverses.\nrunningstatistics\nA simple module for computing the sample statistics of an array in a running/online fashion.\ngsvdm2py\nA Python wrapper for MATLAB’s gsvd function (generalized singular value decomposition)."
+    "text": "Here is a list of links to some miscellaneous Python packages I have developed (or are still developing).\npytikhonov\nA pure-Python toolkit for Tikhonov regularization of linear inverse problems, with GSVD-based diagnostics and regularization parameter selection.\neasygsvd\nA pure-Python, friendly interface to the generalized singular value decomposition (GSVD).\nblockcg\nPure python implementations of block conjugate gradient (BCG) methods.\ngpcg\nAn implementation of a conjugate gradient algorithm (GPCG) for solving bound-constrained quadratic programs.\nrjpo\nAn implementation of a reversible jump perturbation optimization (RJPO) method for sampling high-dimensional Gaussians.\n\nrunningstatistics\nA simple module for computing the sample statistics of an array in a running/online fashion.\ngsvdm2py\nA Python wrapper for MATLAB’s gsvd function (generalized singular value decomposition)."
   },
   {
     "objectID": "office_hours.html",
@@ -39,14 +39,14 @@
     "href": "index.html",
     "title": "Jonathan Lindbloom",
     "section": "",
-    "text": "I am a 5th year applied mathematics PhD candidate at Dartmouth College, originally from Dallas, Texas. I study computational methods for solving (inverse) problems and uncertainty quantification. My advisor is Anne Gelb."
+    "text": "I am a fifth-year PhD candidate in mathematics at Dartmouth College (currently on the job market), originally from Dallas, Texas. My research focuses on developing fast, structure-exploiting and structure-preserving methods for large-scale inverse problems and uncertainty quantification in scientific computing. My advisor is Anne Gelb."
   },
   {
     "objectID": "index.html#education",
     "href": "index.html#education",
     "title": "Jonathan Lindbloom",
     "section": "Education",
-    "text": "Education\nDartmouth College\nPh.D. in Mathematics\nSept 2021 — Present\nDartmouth College\nA.M. in Mathematics\nSept 2021 — June 2023\nSouthern Methodist University\nB.S. in Mathematics, B.B.A. in Finance\nAug 2017 — May 2021"
+    "text": "Education\nDartmouth College\nPh.D. in Mathematics\nSept 2021 — Present (expected June 2026)\nDartmouth College\nA.M. in Mathematics\nSept 2021 — June 2023\nSouthern Methodist University\nB.S. in Mathematics, B.B.A. in Finance\nAug 2017 — May 2021"
   },
   {
     "objectID": "research.html",

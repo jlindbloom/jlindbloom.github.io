@@ -8,8 +8,14 @@ keep-md: true
 
 Here is a list of links to some miscellaneous Python packages I have developed (or are still developing).
 
+### [pytikhonov](https://github.com/jlindbloom/pytikhonov)
+A pure-Python toolkit for Tikhonov regularization of linear inverse problems, with GSVD-based diagnostics and regularization parameter selection.
+
 ### [easygsvd](https://github.com/jlindbloom/easygsvd)
-A pure-python, friendly interface to the generalized singular value decomposition (GSVD).
+A pure-Python, friendly interface to the generalized singular value decomposition (GSVD).
+
+### [blockcg](https://pypi.org/project/blockcg/)
+Pure python implementations of block conjugate gradient (BCG) methods.
 
 ### [gpcg](https://pypi.org/project/gpcg/)
 An implementation of a conjugate gradient algorithm (GPCG) for solving bound-constrained quadratic programs.
@@ -17,11 +23,8 @@ An implementation of a conjugate gradient algorithm (GPCG) for solving bound-con
 ### [rjpo](https://pypi.org/project/rjpo/)
 An implementation of a reversible jump perturbation optimization (RJPO) method for sampling high-dimensional Gaussians.
 
-### [blockcg](https://pypi.org/project/blockcg/)
-Pure python implementations of block conjugate gradient (BCG) methods.
-
-### [tracelogdetdiag](https://pypi.org/project/tracelogdetdiag/)
-Some implementations of randomized, matrix-free algorithms for estimating matrix traces, log determinants, diagonals, and diagonals of inverses.
+<!-- ### [tracelogdetdiag](https://pypi.org/project/tracelogdetdiag/)
+Some implementations of randomized, matrix-free algorithms for estimating matrix traces, log determinants, diagonals, and diagonals of inverses. -->
 
 ### [runningstatistics](https://pypi.org/project/runningstatistics/0.0.1/)
 A simple module for computing the sample statistics of an array in a running/online fashion.
