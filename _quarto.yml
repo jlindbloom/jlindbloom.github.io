@@ -9,6 +9,7 @@ project:
 
 website:
   title: "Jonathan Lindbloom"
+  google-analytics: "G-QH680DR4M4"
   navbar:
     search: false
     left:
