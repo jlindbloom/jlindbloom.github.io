@@ -1,0 +1,208 @@
+linkoping26:
+    title: "Priorconditioned Sparsity-Promoting Projection Methods for Deterministic and Bayesian Linear Inverse Problems"
+    video_link:
+    slides_link:
+    photo_link:
+    venue: Linköping University Computational Math Group Meeting
+    location: Linköping, SE
+    date: July 2026
+
+
+gsssept25:
+    title: "The GSVD with applications to inverse problems"
+    video_link:
+    slides_link: https://drive.google.com/file/d/1Dlbpfub27Qk8ffCV32xmmpW9_YgOlrnt/view?usp=sharing
+    photo_link:
+    venue: Dartmouth Mathematics Graduate Student Seminar
+    location: Hanover, NH
+    date: September 2025
+
+
+
+acms25:
+    title: "Preconditioning techniques for large-scale sparsity-promoting inverse problems"
+    video_link:
+    slides_link: https://drive.google.com/file/d/1b8MRQrDKKi_CyXhaXOWeNP8HEAXlLAFT/view?usp=sharing
+    photo_link: https://raw.githubusercontent.com/jlindbloom/jlindbloom.github.io/main/photos/acms25.JPG
+    venue: Dartmouth Applied & Computational Mathematics Seminar 
+    location: Hanover, NH
+    date: April 2025
+
+ecom25:
+    title: "Preconditioning techniques for large-scale sparsity-promoting inverse problems"
+    video_link:
+    slides_link: https://drive.google.com/file/d/1ZbJSLORMwgCOJqAyW4Q1HKNNpWfI8yzP/view?usp=sharing
+    photo_link: https://raw.githubusercontent.com/jlindbloom/jlindbloom.github.io/main/photos/ecom25.JPG
+    venue: East Coast Optimization Meeting
+    location: Arlington, VA
+    date: April 2025
+
+anysrgmc25:
+    title: "Preconditioning techniques for large-scale sparsity-promoting inverse problems"
+    video_link:
+    slides_link: 
+    photo_link: 
+    venue: 50th Annual New York State Regional Graduate Mathematics Conference 
+    location: Syracuse, NY
+    date: March 2025
+
+cse25:
+    title: "Preconditioning techniques for large-scale sparsity-promoting inverse problems"
+    video_link:
+    slides_link: https://drive.google.com/file/d/1d296m3IIKsd_FcR_ITTdBTazU0hCn3aL/view?usp=sharing
+    photo_link: 
+    venue: SIAM Conference on Computational Science and Engineering 
+    location: Fort Worth, TX
+    date: March 2025
+
+gss125:
+    title: "Cauchy interlacing and generalized Ostrowski theorems"
+    video_link:
+    slides_link: 
+    photo_link: 
+    venue: Dartmouth Mathematics Graduate Student Seminar 
+    location: Hanover, NH
+    date: January 2025
+
+vt24:
+    title: "Priorconditioned generalized Krylov subspaces for sparsity-promoting inversion"
+    video_link:
+    slides_link: 
+    photo_link: 
+    venue: Virginia Tech Applied Numerical Analysis Seminar 
+    location: Blacksburg, VA
+    date: December 2024
+
+gss1024:
+    title: "Priorconditioned generalized Krylov subspaces for sparsity-promoting inversion"
+    video_link:
+    slides_link: 
+    photo_link: 
+    venue: Dartmouth Mathematics Graduate Student Seminar
+    location: Hanover, NH
+    date: October 2024
+
+gss516:
+    title: "The Conjugate Gradient Method: A Top 10 Algorithm of the 20th Century"
+    video_link:
+    slides_link: 
+    photo_link: https://raw.githubusercontent.com/jlindbloom/jlindbloom.github.io/main/photos/20240516_124202.JPG
+    venue: Dartmouth Mathematics Graduate Student Seminar
+    location: Hanover, NH
+    date: May 2024
+
+cmcc24:
+    title: Generalized Sparsity-Promoting Solvers and Uncertainty Quantification for Bayesian Inverse Problems
+    video_link: https://youtu.be/4xjjD3TaIak?si=sgJmkOQn4bRuR-cz
+    slides_link: https://github.com/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/cmcc24.pdf
+    venue: Fondazione CMCC Webinar
+    location: Bologna, IT
+    date: March 2024
+
+siamuq24:
+    title: Generalized Sparsity-Promoting Solvers and Samplers for Hierarchical Inverse Problems
+    video_link:
+    slides_link: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/siam_uq24.pdf
+    venue: SIAM Conference on Uncertainty Quantification
+    location: Trieste, IT
+    date: February 2024
+
+gss124:
+    title: A Brief Introduction to Matrix-Free and Randomized Matrix Computations
+    video_link:
+    slides_link: 
+    venue: Dartmouth Mathematics Graduate Student Seminar
+    location: Hanover, NH
+    date: January 2024
+
+gss922:
+    title: Oblique Projections and Low-Rank Structure in Inverse Problems
+    video_link:
+    slides_link: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/fee4027830e5376a299c01046478278cc0479ef4/talk_slides/gss922.pdf
+    venue: Dartmouth Mathematics Graduate Student Seminar
+    location: Hanover, NH
+    date: September 2023
+
+siamcse23:
+    title: Computational Strategies for Bayesian Inversion with Conditionally Gaussian Sparsity Priors
+    video_link:
+    slides_link: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/siamcse23.pdf
+    venue: SIAM Conference on Computational Science and Engineering
+    location: Amsterdam, NL
+    date: March 2023
+
+gss123:
+    title: Hierarchical Bayesian Inverse Problems
+    copresenters: 
+    video_link: 
+    slides_link: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/gss123.pdf
+    venue:  Dartmouth Mathematics Graduate Student Seminar
+    location: Hanover, NH
+    date: January 2023
+
+
+advancement2022:
+    title: Generalized Hybrid Solvers for Sparsity-Promoting Bayesian Inverse Problems
+    copresenters: 
+    video_link: 
+    slides_link: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/advancement22.pdf
+    venue: Dartmouth Advancement Examination
+    location: Hanover, NH
+    date: November 2022
+
+muri2022:
+    title: Generalized Hybrid Solvers for Large-Scale Edge-Preserving Inversion
+    copresenters: 
+    video_link: https://youtu.be/i7t4rTP-FG8
+    slides_link: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/muri22.pdf
+    venue: Dartmouth Sea Ice Modeling and Data Assimilation MURI Annual Meeting
+    location: Virtual
+    date: November 2022
+
+lanlhe2022:
+    title: Surrogate Modeling for High Explosives Diameter Effect Calculations
+    copresenters: 
+    video_link:
+    slides_link: 
+    venue: Theoretical Division Lightning Talk Symposium
+    location: Los Alamos, NM
+    date: August 2022
+
+siamuq22:
+    title: Multiplicative Denoising with Uncertainty Quantification for Synthetic Aperture Radar Imaging
+    copresenters: 
+    video_link:
+    slides_link: https://nbviewer.org/github/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/siamuq22.pdf
+    venue: SIAM Conference on Uncertainty Quantification
+    location: Atlanta, GA
+    date: April 2022
+
+muri21:
+    title: Towards UQ for SAR Despeckling
+    copresenters: 
+    video_link: https://youtu.be/vwaR5C1GRiE
+    slides_link: https://github.com/jlindbloom/jlindbloom.github.io/blob/main/talk_slides/siamuq22.pdf
+    venue: Dartmouth Sea Ice Modeling and Data Assimilation MURI Annual Meeting
+    location: Virtual
+    date: October 2021
+
+lanlhe21:
+    title: Uncertainty Quantification in High Explosives Equations of State 
+    copresenters:
+    video_link:
+    slides_link: https://www.osti.gov/biblio/1812650
+    venue: LANL Computational Physics Summer Workshop Final Presentations
+    location: Virtual
+    date: August 2021
+
+
+# rcs2020:
+#     title: Academic and Student Success Within a Residential Commons Model
+#     video_link: https://www.youtube.com/watch?v=p67UQycj28s
+#     slides_link:
+#     venue: Residential College Symposium
+#     location: Virtual
+#     date: October 2020
+#     copresenters:
+#       - Dustin Grabsch
+#       - Jennifer Post

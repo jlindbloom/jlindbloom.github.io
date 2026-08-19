@@ -1,0 +1,42 @@
+---
+title: "Research"
+---
+
+## Publications
+
+### Preprints
+
+- **Priorconditioned Sparsity-Promoting Projection Methods for Deterministic and Bayesian Linear Inverse Problems** [arXiv](https://arxiv.org/abs/2505.01827)  
+  **Jonathan Lindbloom**, [Mirjeta Pasha](https://sites.google.com/view/mirjeta-pasha/home), [Jan Glaubitz](https://www.janglaubitz.com/), and [Youssef Marzouk](https://aeroastro.mit.edu/people/youssef-m-marzouk/) (2025).
+
+### Journal publications
+
+- **[Efficient sparsity-promoting MAP estimation for Bayesian linear inverse problems](https://doi.org/10.1088/1361-6420/ada17f)**  
+  **Jonathan Lindbloom**, [Jan Glaubitz](https://www.janglaubitz.com/), and [Anne Gelb](https://math.dartmouth.edu/~annegelb/). *Inverse Problems* 41(2), 025001 (2025).
+
+- **[Complex-valued signal recovery using the Bayesian LASSO](https://doi.org/10.1137/24M1644778)**  
+  Dylan Green, **Jonathan Lindbloom**, and [Anne Gelb](https://math.dartmouth.edu/~annegelb/). *SIAM/ASA Journal on Uncertainty Quantification* 13(2), 831-861 (2025).
+
+- **[Empirical Bayesian inference for complex-valued signals using support-informed priors](https://doi.org/10.3934/ammc.2024020)**  
+  Dylan Green, **Jonathan Lindbloom**, and [Anne Gelb](https://math.dartmouth.edu/~annegelb/). *AIMS Applied Mathematics for Modern Challenges* 2(4) (2024).
+
+### Conference papers
+
+- **[Complex-Valued Image Recovery from Multiple Measurements](https://doi.org/10.1109/CISA60639.2024.10576266)**  
+  Dylan Green, **Jonathan Lindbloom**, and [Anne Gelb](https://math.dartmouth.edu/~annegelb/). *2024 IEEE Conference on Computational Imaging Using Synthetic Apertures (CISA)* (2024).
+
+## Dissertation
+
+- **[Advances in Computational Methods for Sparsity-Promoting Linear Inverse Problems](https://digitalcommons.dartmouth.edu/dissertations/520/)**  
+  **Jonathan Lindbloom**. Ph.D. dissertation, Dartmouth College (2026).
+
+## Technical articles
+
+- **[Final Reports of the 2021 Los Alamos National Laboratory Computational Physics Student Summer Workshop](https://doi.org/10.2172/1820058)**  
+  Angermeier et al. Los Alamos National Laboratory report (September 2021). [OSTI record](https://www.osti.gov/biblio/1820058).
+
+- **[A Bayesian model of records](https://www.authorea.com/users/429500/articles/535592-a-bayesian-model-of-records)**  
+  Jaime Sevilla and **Jonathan Lindbloom**. Authorea (May 2022).
+
+- **[Modelling a Time Series of Records with PyMC3](https://www.authorea.com/users/429500/articles/533177-modelling-a-time-series-of-records-with-pymc3)**  
+  Jaime Sevilla and **Jonathan Lindbloom**. Authorea (September 2021).

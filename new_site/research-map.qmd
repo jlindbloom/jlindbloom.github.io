@@ -1,0 +1,15 @@
+---
+title: "Research map"
+pagetitle: "Research map | Jonathan Lindbloom"
+description: "An interactive map of selected places in Jonathan Lindbloom's research journey."
+css: assets/css/research-map.css
+include-in-header:
+  - text: |
+      <meta name="robots" content="noindex, nofollow">
+include-after-body:
+  - text: |
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
+      <script src="assets/js/research-map.js"></script>
+---
+
+{{< include _includes/research-map-embed.html >}}

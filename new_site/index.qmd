@@ -1,0 +1,35 @@
+---
+pagetitle: "Jonathan Lindbloom"
+css: assets/css/research-map.css
+include-after-body:
+  - text: |
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
+      <script src="assets/js/research-map.js"></script>
+---
+
+# ![Jonathan Lindbloom](assets/images/jonathan-lindbloom-pseudospectrum-inline-osu.png){.home-name-image width="4740" height="1027"} {.home-name}
+
+:::: {.home-intro}
+::: {.home-copy}
+I am a visiting assistant professor of mathematics at [The Ohio State University](https://math.osu.edu/), where I am mentored by [Dongbin Xiu](https://sites.google.com/view/dongbin-xiu/home). I received my Ph.D. in mathematics from Dartmouth College in 2026, where I was advised by [Anne Gelb](https://math.dartmouth.edu/~annegelb/). My dissertation is titled [*Advances in Computational Methods for Sparsity-Promoting Linear Inverse Problems*](https://digitalcommons.dartmouth.edu/dissertations/520/). My research interests include (Bayesian) inverse problems, numerical linear algebra, SciML/scientific computing, and uncertainty quantification.
+
+::: {.profile-icons role="navigation" aria-label="Professional profiles"}
+[{{< iconify clarity email-line size=large label="Email" title="Email" >}}](mailto:lindbloom.1@osu.edu){.profile-icon-link aria-label="Email" title="Email"}
+[{{< iconify academicons google-scholar size=large label="Google Scholar" title="Google Scholar" >}}](https://scholar.google.com/citations?user=AaUaETwAAAAJ&hl=en){.profile-icon-link aria-label="Google Scholar" title="Google Scholar"}
+[{{< iconify codicon github size=large label="GitHub" title="GitHub" >}}](https://github.com/jlindbloom){.profile-icon-link aria-label="GitHub" title="GitHub"}
+[{{< iconify la orcid size=large label="ORCID" title="ORCID" >}}](https://orcid.org/0000-0002-1789-2629){.profile-icon-link aria-label="ORCID" title="ORCID"}
+[{{< iconify academicons arxiv size=large label="arXiv" title="arXiv" >}}](https://arxiv.org/search/math?searchtype=author&query=Lindbloom,+J){.profile-icon-link aria-label="arXiv" title="arXiv"}
+[{{< iconify academicons researchgate size=large label="ResearchGate" title="ResearchGate" >}}](https://www.researchgate.net/profile/Jonathan-Lindbloom){.profile-icon-link aria-label="ResearchGate" title="ResearchGate"}
+:::
+:::
+
+::: {.home-photo}
+![](assets/images/profile.jpeg){.profile-photo fig-alt="Portrait of Jonathan Lindbloom"}
+:::
+::::
+
+```{=html}
+<div class="home-map-separator" aria-hidden="true"></div>
+```
+
+{{< include _includes/research-map-embed.html >}}

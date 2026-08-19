@@ -1,0 +1,37 @@
+---
+title: "Teaching"
+---
+
+This page summarizes my teaching activities.
+
+## Instructor of record
+
+- **Math 3607: Beginning Scientific Computing** (2 sections), Ohio State University, Autumn 2026.
+- **[Math 23: Differential Equations](https://math.dartmouth.edu/~m23s26/?)**, Dartmouth College, Spring 2026.
+- **[Math 56: Computational and Experimental Mathematics](https://math.dartmouth.edu/~m56w25/)**, Dartmouth College, Winter 2025. [Videos](https://www.youtube.com/watch?v=EUCtfknfp4A&list=PLhGj86VHjXcyDof19rIc8HQPuIZlI3_ju&pp=gAQB).
+- **[Math 3: Calculus](https://math.dartmouth.edu/~m3f23/general.phtml)**, Dartmouth College, Fall 2023. [Lecture notes](assets/documents/m3f23-notes.pdf).
+
+## Teaching assistant
+
+- **[Math 22: Linear Algebra and Applications](https://math.dartmouth.edu/~m22s23/)**, Dartmouth College, Spring 2023.
+- **[Math 56: Computational and Experimental Mathematics](https://math.dartmouth.edu/~m56w23/)**, Dartmouth College, Winter 2023.
+- **[Math 3: Calculus](https://math.dartmouth.edu/~m3w23/)**, Dartmouth College, Winter 2023.
+- **[Math 3: Calculus](https://math.dartmouth.edu/~m3w22/)**, Dartmouth College, Winter 2022.
+- **[Math 3: Calculus](https://canvas.dartmouth.edu/courses/48609)**, Dartmouth College, Fall 2021.
+
+## Directed reading programs
+
+I have enjoyed participating as a mentor in Dartmouth's [Directed Reading Program](https://math.dartmouth.edu/~drp/) for undergraduates. Past reading programs I have supervised include:
+
+- **Randomized Numerical Linear Algebra**, Spring 2025, with Michael Bond.
+- **Markov Chain Monte Carlo and Bayesian Computation**, Spring 2024, with Michael Bond and Vadin Thadhani.
+- **Computational Measure Transport**, Winter 2024, with William O'Brien and Paul Chirkov.
+- **Markov Chain Monte Carlo and Bayesian Computation**, Spring 2023, with Daniel Carstensen.
+- **Bayesian Modeling and Computation**, Spring 2022, with Ivy Yan.
+- **Nonlinear Dynamics, Chaos, and Ergodicity**, Fall 2021, with Andrew White.
+
+If you are interested in participating in a directed reading program, formally or informally, feel free to [email me](mailto:lindbloom.1@osu.edu).
+
+## Miscellaneous lecture notes and slides
+
+- **Overview of regularization parameter selection methods:** [Slides](https://drive.google.com/file/d/1TWQOOK4GvS1AaIIHTfKP44cvEuOBFGbp/view?usp=sharing), [slides source](https://drive.google.com/file/d/1nvsj8x_M4dB2DANriSm1Ex_LuIJwNOKt/view?usp=sharing), [notes 1](https://drive.google.com/file/d/182zelaJ_Fqp__gxCY6PNVHU0r0LH1KH5/view?usp=sharing), and [notes 2](https://drive.google.com/file/d/1NJxD0wM2KTYcNVIFeWVe9LpMjZl2ob0e/view?usp=sharing).

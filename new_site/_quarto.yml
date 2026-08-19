@@ -1,0 +1,50 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+  resources:
+    - assets/images/**
+    - assets/documents/**
+    - assets/posters/**
+    - assets/slides/**
+    - assets/js/**
+    - data/**
+
+website:
+  title: "Jonathan Lindbloom"
+  description: "Jonathan Lindbloom is a visiting assistant professor of mathematics at The Ohio State University working in inverse problems, scientific computing, and uncertainty quantification."
+  site-url: "https://jlindbloom.github.io"
+  favicon: assets/images/favicon.svg
+  google-analytics: "G-QH680DR4M4"
+  search: false
+  reader-mode: false
+  navbar:
+    background: "#BA0C2F"
+    foreground: "#FFFFFF"
+    collapse-below: md
+    right:
+      - text: "Home"
+        href: index.qmd
+      - text: "Research"
+        href: research.qmd
+      - text: "Talks"
+        href: talks.qmd
+      - text: "Teaching"
+        href: teaching.qmd
+      - text: "Software"
+        href: software.qmd
+      - text: "Gallery"
+        href: gallery.qmd
+  open-graph: true
+
+format:
+  html:
+    theme: cosmo
+    css: assets/css/styles.css
+    include-before-body: _includes/skip-link.html
+    toc: false
+    anchor-sections: false
+    link-external-newwindow: false
+    code-copy: false
+    lang: en

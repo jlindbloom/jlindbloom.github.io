@@ -1,0 +1,27 @@
+lanl_cpssw21:
+  title: Final Reports of the 2021 Los Alamos National Laboratory Computational Physics Student Summer Workshop
+  url: https://doi.org/10.2172/1820058
+  record_url: https://www.osti.gov/biblio/1820058
+  authors:
+    - Angermeier et al.
+  venue: Los Alamos National Laboratory
+  type: Report
+  date: September 2021
+
+fmax_two:
+  title: A Bayesian model of records
+  url: https://www.authorea.com/users/429500/articles/535592-a-bayesian-model-of-records
+  authors:
+    - Jaime Sevilla
+    - Jonathan Lindbloom
+  venue: Authorea
+  date: May 2022
+
+fmax_one:
+  title: Modelling a Time Series of Records with PyMC3
+  url: https://www.authorea.com/users/429500/articles/533177-modelling-a-time-series-of-records-with-pymc3
+  authors:
+    - Jaime Sevilla
+    - Jonathan Lindbloom
+  venue: Authorea
+  date: September 2021

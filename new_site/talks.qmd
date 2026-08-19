@@ -1,0 +1,139 @@
+---
+title: "Talks"
+---
+
+## Invited talks
+
+::: {.talk-list}
+
+July 2026
+: *Priorconditioned Sparsity-Promoting Projection Methods for Deterministic and Bayesian Linear Inverse Problems*  
+  [Linköping University Computational Math Group Meeting, Linköping, Sweden.]{.talk-meta}
+
+March 2026
+: *Making the Most of Every Matvec: projection-based methods for efficient UQ in sparsity-promoting inverse problems*  
+  [[SIAM Conference on Uncertainty Quantification (UQ26)](https://www.siam.org/conferences-events/past-event-archive/uq26/), Minneapolis, MN.]{.talk-meta}
+
+March 2026
+: *Inverse problems through the lens of linear algebra*  
+  [Trinity College Mathematics Colloquium, Hartford, CT.]{.talk-meta}
+
+March 2025
+: *Preconditioning techniques for large-scale sparsity-promoting inverse problems*  
+  [[SIAM Conference on Computational Science and Engineering (CSE25)](https://www.siam.org/conferences-events/past-event-archive/cse25/), Fort Worth, TX.]{.talk-meta} [Slides](https://drive.google.com/file/d/1d296m3IIKsd_FcR_ITTdBTazU0hCn3aL/view?usp=sharing){.talk-resource aria-label="Slides for Preconditioning techniques for large-scale sparsity-promoting inverse problems at SIAM CSE 2025"}
+
+December 2024
+: *Priorconditioned generalized Krylov subspaces for sparsity-promoting inversion*  
+  [Virginia Tech Applied Numerical Analysis Seminar, Blacksburg, VA.]{.talk-meta}
+
+March 2024
+: *Generalized sparsity-promoting solvers and uncertainty quantification for Bayesian inverse problems*  
+  [CMCC Foundation Webinar, Bologna, Italy.]{.talk-meta} [Video](https://youtu.be/4xjjD3TaIak?si=sgJmkOQn4bRuR-cz){.talk-resource aria-label="Video for Generalized sparsity-promoting solvers and uncertainty quantification for Bayesian inverse problems"} [Slides](assets/slides/cmcc24.pdf){.talk-resource aria-label="Slides for Generalized sparsity-promoting solvers and uncertainty quantification for Bayesian inverse problems"}
+
+February 2024
+: *Generalized sparsity-promoting solvers and samplers for hierarchical inverse problems*  
+  [[SIAM Conference on Uncertainty Quantification (UQ24)](https://www.siam.org/conferences-events/past-event-archive/uq24/), Trieste, Italy.]{.talk-meta} [Slides](assets/slides/siam_uq24.pdf){.talk-resource aria-label="Slides for Generalized sparsity-promoting solvers and samplers for hierarchical inverse problems"}
+
+March 2023
+: *Computational strategies for Bayesian inversion with conditionally Gaussian sparsity priors*  
+  [[SIAM Conference on Computational Science and Engineering (CSE23)](https://www.siam.org/conferences-events/past-event-archive/cse23/), Amsterdam, Netherlands.]{.talk-meta} [Slides](assets/slides/siamcse23.pdf){.talk-resource aria-label="Slides for Computational strategies for Bayesian inversion with conditionally Gaussian sparsity priors"}
+
+:::
+
+## Contributed talks
+
+::: {.talk-list}
+
+June 2026
+: *Pseudospectra and the picture of a matrix*  
+  [[Dartmouth Mathematics Graduate Student Seminar](https://math.dartmouth.edu/~gradseminar/), Hanover, NH.]{.talk-meta}
+
+May 2026
+: *Multigrid-accelerated sparsity-promoting projection methods for inverse problems*  
+  [27th Conference of the International Linear Algebra Society (ILAS 2026), Blacksburg, VA.]{.talk-meta}
+
+March 2026
+: *Priorconditioned sparsity-promoting projection methods for deterministic and Bayesian linear inverse problems*  
+  [[SIAM Conference on Uncertainty Quantification (UQ26)](https://www.siam.org/conferences-events/past-event-archive/uq26/), Minneapolis, MN.]{.talk-meta}
+
+September 2025
+: *The GSVD with applications to inverse problems*  
+  [[Dartmouth Mathematics Graduate Student Seminar](https://math.dartmouth.edu/~gradseminar/), Hanover, NH.]{.talk-meta} [Slides](https://drive.google.com/file/d/1Dlbpfub27Qk8ffCV32xmmpW9_YgOlrnt/view?usp=sharing){.talk-resource aria-label="Slides for The GSVD with applications to inverse problems"}
+
+April 2025
+: *Preconditioning techniques for large-scale sparsity-promoting inverse problems*  
+  [Dartmouth Applied & Computational Mathematics Seminar, Hanover, NH.]{.talk-meta} [Slides](https://drive.google.com/file/d/1b8MRQrDKKi_CyXhaXOWeNP8HEAXlLAFT/view?usp=sharing){.talk-resource aria-label="Slides for Preconditioning techniques for large-scale sparsity-promoting inverse problems at the Dartmouth ACMS seminar"}
+
+April 2025
+: *Preconditioning techniques for large-scale sparsity-promoting inverse problems*  
+  [East Coast Optimization Meeting, Arlington, VA.]{.talk-meta} [Slides](https://drive.google.com/file/d/1ZbJSLORMwgCOJqAyW4Q1HKNNpWfI8yzP/view?usp=sharing){.talk-resource aria-label="Slides for Preconditioning techniques for large-scale sparsity-promoting inverse problems at the East Coast Optimization Meeting"}
+
+March 2025
+: *Preconditioning techniques for large-scale sparsity-promoting inverse problems*  
+  [50th Annual New York State Regional Graduate Mathematics Conference, Syracuse, NY.]{.talk-meta}
+
+January 2025
+: *Cauchy interlacing and generalized Ostrowski theorems*  
+  [[Dartmouth Mathematics Graduate Student Seminar](https://math.dartmouth.edu/~gradseminar/), Hanover, NH.]{.talk-meta}
+
+October 2024
+: *Priorconditioned generalized Krylov subspaces for sparsity-promoting inversion*  
+  [[Dartmouth Mathematics Graduate Student Seminar](https://math.dartmouth.edu/~gradseminar/), Hanover, NH.]{.talk-meta}
+
+May 2024
+: *The conjugate gradient method: a top 10 algorithm of the 20th century*  
+  [[Dartmouth Mathematics Graduate Student Seminar](https://math.dartmouth.edu/~gradseminar/), Hanover, NH.]{.talk-meta}
+
+January 2024
+: *A brief introduction to matrix-free and randomized matrix computations*  
+  [[Dartmouth Mathematics Graduate Student Seminar](https://math.dartmouth.edu/~gradseminar/), Hanover, NH.]{.talk-meta}
+
+September 2023
+: *Oblique projections and low-rank structure in inverse problems*  
+  [[Dartmouth Mathematics Graduate Student Seminar](https://math.dartmouth.edu/~gradseminar/), Hanover, NH.]{.talk-meta} [Slides](assets/slides/gss922.pdf){.talk-resource aria-label="Slides for Oblique projections and low-rank structure in inverse problems"}
+
+January 2023
+: *Hierarchical Bayesian inverse problems*  
+  [[Dartmouth Mathematics Graduate Student Seminar](https://math.dartmouth.edu/~gradseminar/), Hanover, NH.]{.talk-meta} [Slides](assets/slides/gss123.pdf){.talk-resource aria-label="Slides for Hierarchical Bayesian inverse problems"}
+
+November 2022
+: *Generalized hybrid solvers for sparsity-promoting Bayesian inverse problems*  
+  [Dartmouth Advancement Examination, Hanover, NH.]{.talk-meta} [Slides](assets/slides/advancement22.pdf){.talk-resource aria-label="Slides for Generalized hybrid solvers for sparsity-promoting Bayesian inverse problems"}
+
+November 2022
+: *Generalized hybrid solvers for large-scale edge-preserving inversion*  
+  [Dartmouth Sea Ice Modeling and Data Assimilation MURI Annual Meeting, virtual.]{.talk-meta} [Video](https://youtu.be/i7t4rTP-FG8){.talk-resource aria-label="Video for Generalized hybrid solvers for large-scale edge-preserving inversion"} [Slides](assets/slides/muri22.pdf){.talk-resource aria-label="Slides for Generalized hybrid solvers for large-scale edge-preserving inversion"}
+
+August 2022
+: *Surrogate modeling for high explosives diameter effect calculations*  
+  [LANL Theoretical Division Lightning Talk Symposium, Los Alamos, NM.]{.talk-meta}
+
+April 2022
+: *Multiplicative denoising with uncertainty quantification for synthetic aperture radar imaging*  
+  [[SIAM Conference on Uncertainty Quantification (UQ22)](https://www.siam.org/conferences-events/past-event-archive/uq22/), Atlanta, GA.]{.talk-meta} [Slides](assets/slides/siamuq22.pdf){.talk-resource aria-label="Slides for Multiplicative denoising with uncertainty quantification for synthetic aperture radar imaging"}
+
+October 2021
+: *Towards UQ for SAR despeckling*  
+  [Dartmouth Sea Ice Modeling and Data Assimilation MURI Annual Meeting, virtual.]{.talk-meta} [Video](https://youtu.be/vwaR5C1GRiE){.talk-resource aria-label="Video for Towards UQ for SAR despeckling"} [Slides](assets/slides/siamuq22.pdf){.talk-resource aria-label="Slides linked to Towards UQ for SAR despeckling"}
+
+August 2021
+: *Uncertainty quantification in high explosives equations of state*  
+  [LANL Computational Physics Summer Workshop Final Presentations, virtual.]{.talk-meta} [Slides](https://www.osti.gov/biblio/1812650){.talk-resource aria-label="Slides for Uncertainty quantification in high explosives equations of state"}
+
+March 2021
+: *A Bayesian Gaussian process model for COVID-19*  
+  [SMU Spring Research Days, virtual.]{.talk-meta}
+
+October 2020
+: *Bayesian perspectives on COVID-19 in Texas*  
+  [SMU Fall 2020 Summer Research Symposium, virtual.]{.talk-meta} [Video](https://www.youtube.com/watch?v=nRlutkzH6nA){.talk-resource aria-label="Video for Bayesian perspectives on COVID-19 in Texas"}
+
+August 2020
+: *Uncertainty quantification of ice fog events*  
+  [SMU Grand Challenges Scholars Research Symposium, Dallas, TX.]{.talk-meta}
+
+August 2020
+: *Uncertainty quantification of ice fog events*  
+  [Dartmouth ICE REU, virtual.]{.talk-meta}
+
+:::

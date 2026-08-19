@@ -1,0 +1,32 @@
+# Internal structured record of research visits and workshop participation.
+# This file is not rendered or copied into the published website.
+
+research_visits:
+  - institution: "Linköping University"
+    location:
+      city: "Linköping"
+      country: "Sweden"
+      country_code: "SE"
+      coordinates: [58.4108, 15.6214]
+    date: "July 2026"
+    related_activity: "Linköping University Computational Math Group Meeting"
+
+  - institution: "Linköping University"
+    location:
+      city: "Linköping"
+      country: "Sweden"
+      country_code: "SE"
+      coordinates: [58.4108, 15.6214]
+    date: "August 2025"
+
+workshop_participation:
+  - name: "ICERM workshop on Bayesian inverse problems and UQ"
+    host: "Institute for Computational and Experimental Research in Mathematics (ICERM)"
+    location:
+      city: "Providence"
+      region: "Rhode Island"
+      country: "United States"
+      country_code: "US"
+      coordinates: [41.8240, -71.4128]
+    date: "March 2026"
+    url: "https://icerm.brown.edu/program/semester_program_workshop/sp-s26-w2"
