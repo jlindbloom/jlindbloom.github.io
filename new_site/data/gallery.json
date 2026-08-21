@@ -1,0 +1,349 @@
+[
+  {
+    "id": "math56",
+    "title": "NLA",
+    "groups": [
+      {
+        "title": "Singular values, norms, and conditioning",
+        "open": true,
+        "items": [
+          { "title": "Truncated SVD of a color image", "file": "truncated_svd_color_square.mp4", "type": "video" },
+          { "title": "Unit balls for different p-norms", "file": "pnorm_unit_balls.png", "type": "image" },
+          { "title": "Max–min characterization of singular values", "file": "maxmin_theorem_2d_svals.png", "type": "image" },
+          { "title": "Sensitivity of the Wilkinson polynomial", "file": "wilkinson_polynomial.png", "type": "image" }
+        ]
+      },
+      {
+        "title": "Matrix factorizations and sparse structure",
+        "items": [
+          { "title": "LU decomposition", "file": "lu_decomposition_animation.mp4", "type": "video", "wide": true },
+          { "title": "Growth factor and factorization error", "file": "gfac_vs_error.png", "type": "image" },
+          { "title": "Cholesky decomposition", "file": "cholesky_decomposition_animation.mp4", "type": "video", "wide": true },
+          { "title": "Banded Cholesky decomposition", "file": "banded_cholesky_decomposition_animation.mp4", "type": "video", "wide": true },
+          { "title": "Reverse Cuthill–McKee reordering", "file": "rcm_vis.mp4", "type": "video" }
+        ]
+      },
+      {
+        "title": "Least squares and orthogonalization",
+        "items": [
+          { "title": "Quarter-meridian data fitting", "file": "quarter_meridian.png", "type": "image" },
+          { "title": "Least-squares quadratic form I", "file": "least_squares_quadform1.png", "type": "image" },
+          { "title": "Least-squares quadratic form II", "file": "least_squares_quadform2.png", "type": "image" },
+          { "title": "Polynomial least squares", "file": "polynomial_least_squares.png", "type": "image" },
+          { "title": "Classical versus modified Gram–Schmidt", "file": "cgs_vs_mgs.png", "type": "image" },
+          { "title": "Modified Gram–Schmidt and Householder QR on Hilbert matrices", "file": "mgs_householder_for_hilbert.png", "type": "image" },
+          { "title": "Least-squares solver comparison", "file": "least_squares_comparison.png", "type": "image" },
+          { "title": "Householder zeroing", "file": "householder_zeroing.mp4", "type": "video" },
+          { "title": "Givens zeroing", "file": "givens_zeroing.mp4", "type": "video" },
+          { "title": "Householder bidiagonalization of an SPD matrix", "file": "spd_householder_bidiag.mp4", "type": "video" },
+          { "title": "When diagonalization becomes numerically unstable", "file": "spd_diagonalization_failure.mp4", "type": "video" }
+        ]
+      },
+      {
+        "title": "Structured matrices",
+        "items": [
+          { "title": "Special matrix structures", "file": "special_matrices.png", "type": "image", "wide": true },
+          { "title": "Block matrix structures", "file": "block_special_matrices.png", "type": "image", "wide": true }
+        ]
+      },
+      {
+        "title": "Krylov methods",
+        "items": [
+          { "title": "Krylov approximation of a truncated SVD", "file": "krylov_approximates_tsvd.png", "type": "image", "wide": true },
+          { "title": "Why the Arnoldi process works", "file": "why_arnoldi.png", "type": "image", "wide": true },
+          { "title": "Arnoldi iteration", "file": "arnoldi.mp4", "type": "video", "wide": true },
+          { "title": "Lanczos iteration", "file": "lanczos.mp4", "type": "video", "wide": true },
+          { "title": "Conjugate-gradient convergence", "file": "cg_convergence.mp4", "type": "video", "wide": true },
+          { "title": "Steepest descent versus an oracle method", "file": "steepest_vs_oracle.png", "type": "image" },
+          { "title": "Steepest descent versus conjugate gradients", "file": "steepest_vs_conjugate_gradients.png", "type": "image" }
+        ]
+      },
+      {
+        "title": "Optimization",
+        "items": [
+          { "title": "Gradient descent on a quadratic", "file": "gradient_descent_quadratic.mp4", "type": "video", "wide": true },
+          { "title": "Adaptive steepest descent on a quadratic", "file": "steepest_descent_quadratic_adaptive.mp4", "type": "video", "wide": true },
+          { "title": "Conjugate gradients on a quadratic", "file": "conjugate_gradient_quadratic.mp4", "type": "video", "wide": true },
+          { "title": "Gradient descent on the Rastrigin function", "file": "gradient_descent_rastrigin.mp4", "type": "video", "wide": true },
+          { "title": "Rastrigin descent with a small step size", "file": "gradient_descent_rastrigin_small_stepsize.mp4", "type": "video", "wide": true },
+          { "title": "Langevin dynamics on the Rastrigin function", "file": "gradient_descent_rastrigin_langevin.mp4", "type": "video", "wide": true }
+        ]
+      },
+      {
+        "title": "Eigenvalues",
+        "items": [
+          { "title": "Gershgorin disks", "file": "gershgorin.png", "type": "image", "wide": true },
+          { "title": "Sturm sequence polynomials", "file": "sturm_sequence_polynomials.png", "type": "image" },
+          { "title": "Cauchy interlacing", "file": "cauchy_interlacing.png", "type": "image" },
+          { "title": "QR algorithm for an SPD matrix", "file": "qr_algorithm_animation_spd_matrix.mp4", "type": "video" },
+          { "title": "QR algorithm for a tridiagonal matrix", "file": "qr_algorithm_animation_tridiagonal.mp4", "type": "video" },
+          { "title": "Rayleigh quotient on the unit sphere", "file": "rayleigh_sphere.html", "type": "interactive", "wide": true }
+        ]
+      },
+      {
+        "title": "Pseudospectra and numerical range",
+        "examples": [
+          {
+            "label": "Square matrix",
+            "media": [
+              { "file": "pseudospectra/example1/ex1_square_overlay_pseudospectra_wide.mp4", "type": "video", "accessibleLabel": "Square matrix: pseudospectrum animation" },
+              { "file": "pseudospectra/example1/ex1_square_resolvent_surfaces_wide.png", "type": "image", "accessibleLabel": "Square matrix: 3D resolvent surfaces" },
+              { "file": "pseudospectra/example1/ex1_square_epsilon_contours_wide.png", "type": "image", "accessibleLabel": "Square matrix: pseudospectrum contours" },
+              { "file": "pseudospectra/example1/ex1_square_numerical_range_overlay_wide.png", "type": "image", "accessibleLabel": "Square matrix: numerical range" }
+            ]
+          },
+          {
+            "label": "Grcar matrix",
+            "media": [
+              { "file": "pseudospectra/example2_grcar/ex2_grcar_overlay_pseudospectra_wide.mp4", "type": "video", "accessibleLabel": "Grcar matrix: pseudospectrum animation" },
+              { "file": "pseudospectra/example2_grcar/ex2_grcar_resolvent_surfaces_wide.png", "type": "image", "accessibleLabel": "Grcar matrix: 3D resolvent surfaces" },
+              { "file": "pseudospectra/example2_grcar/ex2_grcar_epsilon_contours_wide.png", "type": "image", "accessibleLabel": "Grcar matrix: pseudospectrum contours" },
+              { "file": "pseudospectra/example2_grcar/ex2_grcar_numerical_range_overlay_wide.png", "type": "image", "accessibleLabel": "Grcar matrix: numerical range" }
+            ]
+          },
+          {
+            "label": "Limacon Toeplitz matrix",
+            "media": [
+              { "file": "pseudospectra/example3_limacon/ex3_limacon_overlay_pseudospectra_wide.mp4", "type": "video", "accessibleLabel": "Limacon Toeplitz matrix: pseudospectrum animation" },
+              { "file": "pseudospectra/example3_limacon/ex3_limacon_resolvent_surfaces_wide.png", "type": "image", "accessibleLabel": "Limacon Toeplitz matrix: 3D resolvent surfaces" },
+              { "file": "pseudospectra/example3_limacon/ex3_limacon_epsilon_contours_wide.png", "type": "image", "accessibleLabel": "Limacon Toeplitz matrix: pseudospectrum contours" },
+              { "file": "pseudospectra/example3_limacon/ex3_limacon_numerical_range_overlay_wide.png", "type": "image", "accessibleLabel": "Limacon Toeplitz matrix: numerical range" }
+            ]
+          },
+          {
+            "label": "Bull's head Toeplitz matrix",
+            "media": [
+              { "file": "pseudospectra/example4_bulls_head/ex4_bulls_head_overlay_pseudospectra_wide.mp4", "type": "video", "accessibleLabel": "Bull's head Toeplitz matrix: pseudospectrum animation" },
+              { "file": "pseudospectra/example4_bulls_head/ex4_bulls_head_resolvent_surfaces_wide.png", "type": "image", "accessibleLabel": "Bull's head Toeplitz matrix: 3D resolvent surfaces" },
+              { "file": "pseudospectra/example4_bulls_head/ex4_bulls_head_epsilon_contours_wide.png", "type": "image", "accessibleLabel": "Bull's head Toeplitz matrix: pseudospectrum contours" },
+              { "file": "pseudospectra/example4_bulls_head/ex4_bulls_head_numerical_range_overlay_wide.png", "type": "image", "accessibleLabel": "Bull's head Toeplitz matrix: numerical range" }
+            ]
+          },
+          {
+            "label": "Demmel's matrix",
+            "media": [
+              { "file": "pseudospectra/example5_demmel/ex5_demmel_overlay_pseudospectra_wide.mp4", "type": "video", "accessibleLabel": "Demmel's matrix: pseudospectrum animation" },
+              { "file": "pseudospectra/example5_demmel/ex5_demmel_resolvent_surfaces_wide.png", "type": "image", "accessibleLabel": "Demmel's matrix: 3D resolvent surfaces" },
+              { "file": "pseudospectra/example5_demmel/ex5_demmel_epsilon_contours_wide.png", "type": "image", "accessibleLabel": "Demmel's matrix: pseudospectrum contours" },
+              { "file": "pseudospectra/example5_demmel/ex5_demmel_numerical_range_overlay_wide.png", "type": "image", "accessibleLabel": "Demmel's matrix: numerical range" }
+            ]
+          },
+          {
+            "label": "Whale Toeplitz matrix",
+            "media": [
+              { "file": "pseudospectra/example6_whale/ex6_whale_overlay_pseudospectra_wide.mp4", "type": "video", "accessibleLabel": "Whale Toeplitz matrix: pseudospectrum animation" },
+              { "file": "pseudospectra/example6_whale/ex6_whale_resolvent_surfaces_wide.png", "type": "image", "accessibleLabel": "Whale Toeplitz matrix: 3D resolvent surfaces" },
+              { "file": "pseudospectra/example6_whale/ex6_whale_epsilon_contours_wide.png", "type": "image", "accessibleLabel": "Whale Toeplitz matrix: pseudospectrum contours" },
+              { "file": "pseudospectra/example6_whale/ex6_whale_numerical_range_overlay_wide.png", "type": "image", "accessibleLabel": "Whale Toeplitz matrix: numerical range" }
+            ]
+          },
+          {
+            "label": "Butterfly Toeplitz matrix",
+            "media": [
+              { "file": "pseudospectra/example7_butterfly/ex7_butterfly_overlay_pseudospectra_wide.mp4", "type": "video", "accessibleLabel": "Butterfly Toeplitz matrix: pseudospectrum animation" },
+              { "file": "pseudospectra/example7_butterfly/ex7_butterfly_resolvent_surfaces_wide.png", "type": "image", "accessibleLabel": "Butterfly Toeplitz matrix: 3D resolvent surfaces" },
+              { "file": "pseudospectra/example7_butterfly/ex7_butterfly_epsilon_contours_wide.png", "type": "image", "accessibleLabel": "Butterfly Toeplitz matrix: pseudospectrum contours" },
+              { "file": "pseudospectra/example7_butterfly/ex7_butterfly_numerical_range_overlay_wide.png", "type": "image", "accessibleLabel": "Butterfly Toeplitz matrix: numerical range" }
+            ]
+          },
+          {
+            "label": "Wilkinson companion matrix",
+            "media": [
+              { "file": "pseudospectra/example9_wilkinson/ex9_wilkinson_overlay_pseudospectra_wide.mp4", "type": "video", "accessibleLabel": "Wilkinson companion matrix: pseudospectrum animation" },
+              { "file": "pseudospectra/example9_wilkinson/ex9_wilkinson_resolvent_surfaces_wide.png", "type": "image", "accessibleLabel": "Wilkinson companion matrix: 3D resolvent surfaces" },
+              { "file": "pseudospectra/example9_wilkinson/ex9_wilkinson_epsilon_contours_wide.png", "type": "image", "accessibleLabel": "Wilkinson companion matrix: pseudospectrum contours" },
+              { "file": "pseudospectra/example9_wilkinson/ex9_wilkinson_numerical_range_overlay_wide.png", "type": "image", "accessibleLabel": "Wilkinson companion matrix: numerical range" }
+            ]
+          },
+          {
+            "label": "Elliptic Toeplitz",
+            "media": [
+              { "file": "pseudospectra/example10_elliptic_toeplitz/ex10_elliptic_toeplitz_overlay_pseudospectra_wide.mp4", "type": "video", "accessibleLabel": "Elliptic Toeplitz: pseudospectrum animation" },
+              { "file": "pseudospectra/example10_elliptic_toeplitz/ex10_elliptic_toeplitz_resolvent_surfaces_wide.png", "type": "image", "accessibleLabel": "Elliptic Toeplitz: 3D resolvent surfaces" },
+              { "file": "pseudospectra/example10_elliptic_toeplitz/ex10_elliptic_toeplitz_epsilon_contours_wide.png", "type": "image", "accessibleLabel": "Elliptic Toeplitz: pseudospectrum contours" },
+              { "file": "pseudospectra/example10_elliptic_toeplitz/ex10_elliptic_toeplitz_numerical_range_overlay_wide.png", "type": "image", "accessibleLabel": "Elliptic Toeplitz: numerical range" }
+            ]
+          },
+          {
+            "label": "Random Nilpotent",
+            "media": [
+              { "file": "pseudospectra/example11_random_nilpotent/ex11_random_nilpotent_overlay_pseudospectra_wide.mp4", "type": "video", "accessibleLabel": "Random Nilpotent: pseudospectrum animation" },
+              { "file": "pseudospectra/example11_random_nilpotent/ex11_random_nilpotent_resolvent_surfaces_wide.png", "type": "image", "accessibleLabel": "Random Nilpotent: 3D resolvent surfaces" },
+              { "file": "pseudospectra/example11_random_nilpotent/ex11_random_nilpotent_epsilon_contours_wide.png", "type": "image", "accessibleLabel": "Random Nilpotent: pseudospectrum contours" },
+              { "file": "pseudospectra/example11_random_nilpotent/ex11_random_nilpotent_numerical_range_overlay_wide.png", "type": "image", "accessibleLabel": "Random Nilpotent: numerical range" }
+            ]
+          }
+        ],
+        "items": [
+          { "title": "Spectral, pseudospectral, and numerical quantities across the matrix examples", "file": "pseudospectra/spectral_numerical_quantities_gallery.png", "type": "image", "wide": true },
+          { "title": "Spectral, pseudospectral, and numerical quantities for normal matrices", "file": "pseudospectra/spectral_numerical_quantities_gallery_normal.png", "type": "image", "wide": true },
+          { "title": "Numerical ranges for the ten matrix examples", "file": "pseudospectra/numerical_range_gallery.png", "type": "image", "wide": true },
+          { "title": "Power norms for random Fibonacci matrices", "file": "pseudospectra/random_fibonacci_power_norms.png", "type": "image", "wide": true, "caption": "25 realizations of random Fibonacci matrices, N = 300" },
+          { "title": "Grcar matrix pseudospectrum with projection shadows", "file": "pseudospectra/numerical-range-connection/grcar_epsilon_projection_shadows.png", "type": "image", "wide": true },
+          { "title": "Grcar matrix pseudospectrum with projection shadows and supporting half-planes", "file": "pseudospectra/numerical-range-connection/grcar_epsilon_projection_shadows_halfplanes.png", "type": "image", "wide": true },
+          { "title": "Grcar matrix pseudospectrum with the half-plane intersection", "file": "pseudospectra/numerical-range-connection/grcar_epsilon1_projection_shadows_halfplanes_intersection.png", "type": "image", "wide": true },
+          { "title": "Grcar matrix half-plane intersection as epsilon varies", "file": "pseudospectra/numerical-range-connection/grcar_projection_shadows_halfplanes_intersection_varying_epsilon.mp4", "type": "video", "wide": true },
+          { "title": "Bull's head Toeplitz matrix half-plane intersection as epsilon varies", "file": "pseudospectra/numerical-range-connection/ex4_bulls_head_halfplane_intersection_varying_epsilon.mp4", "type": "video", "wide": true },
+          { "title": "Whale Toeplitz matrix half-plane intersection as epsilon varies", "file": "pseudospectra/numerical-range-connection/ex6_whale_halfplane_intersection_varying_epsilon.mp4", "type": "video", "wide": true }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "math23",
+    "title": "ODEs",
+    "groups": [
+      {
+        "title": "Planar linear systems (14 distinct configurations)",
+        "open": true,
+        "showLabels": true,
+        "items": [
+          { "title": "One positive and one negative real eigenvalue", "file": "example1_flow_expanded.mp4", "type": "video" },
+          { "title": "Two distinct negative real eigenvalues", "file": "example2_flow_expanded.mp4", "type": "video" },
+          { "title": "Two distinct positive real eigenvalues", "file": "example4_flow_expanded.mp4", "type": "video" },
+          { "title": "One zero and one negative real eigenvalue", "file": "example3_flow_expanded.mp4", "type": "video" },
+          { "title": "One zero and one positive real eigenvalue", "file": "example3.5_flow_expanded.mp4", "type": "video" },
+          { "title": "Repeated positive real eigenvalue; geometric multiplicity 1", "file": "example14_flow_expanded.mp4", "type": "video" },
+          { "title": "Repeated positive real eigenvalue; geometric multiplicity 2", "file": "example8_flow_expanded.mp4", "type": "video" },
+          { "title": "Repeated negative real eigenvalue; geometric multiplicity 1", "file": "example9_flow_expanded.mp4", "type": "video" },
+          { "title": "Repeated negative real eigenvalue; geometric multiplicity 2", "file": "example11_flow_expanded.mp4", "type": "video" },
+          { "title": "Repeated zero eigenvalue; geometric multiplicity 1", "file": "example10_flow_expanded.mp4", "type": "video" },
+          { "title": "Repeated zero eigenvalue; geometric multiplicity 2", "file": "example13_flow_expanded.mp4", "type": "video" },
+          { "title": "Complex-conjugate eigenvalues with positive real part", "file": "example5_flow_expanded.mp4", "type": "video" },
+          { "title": "Purely imaginary eigenvalues", "file": "example6_flow_expanded.mp4", "type": "video" },
+          { "title": "Complex-conjugate eigenvalues with negative real part", "file": "example7_flow_expanded.mp4", "type": "video" }
+        ]
+      },
+      {
+        "title": "Matrix exponential norms",
+        "items": [
+          { "title": "Comparing norms of matrix exponentials", "file": "exp_norm_comparison_neg_half_cases copy.mp4", "type": "video" }
+        ]
+      },
+      {
+        "title": "Three-dimensional linear systems (41 distinct configurations)",
+        "showLabels": true,
+        "series": {
+          "start": 1,
+          "end": 41,
+          "directory": "3x3_examples",
+          "filePrefix": "case",
+          "fileSuffix": "_flow_expanded.mp4",
+          "titles": [
+            "Three distinct positive eigenvalues",
+            "Three distinct real eigenvalues: two positive and one zero",
+            "Three distinct real eigenvalues: two positive and one negative",
+            "Three distinct real eigenvalues: one positive, one zero, and one negative",
+            "Three distinct real eigenvalues: one positive and two negative",
+            "Three distinct real eigenvalues: one zero and two negative",
+            "Three distinct negative eigenvalues",
+            "Repeated positive eigenvalue, geometric multiplicity 2; distinct eigenvalue positive",
+            "Repeated positive eigenvalue, geometric multiplicity 1; distinct eigenvalue positive",
+            "Repeated positive eigenvalue, geometric multiplicity 2; distinct eigenvalue zero",
+            "Repeated positive eigenvalue, geometric multiplicity 1; distinct eigenvalue zero",
+            "Repeated positive eigenvalue, geometric multiplicity 2; distinct eigenvalue negative",
+            "Repeated positive eigenvalue, geometric multiplicity 1; distinct eigenvalue negative",
+            "Repeated negative eigenvalue, geometric multiplicity 2; distinct eigenvalue positive",
+            "Repeated negative eigenvalue, geometric multiplicity 1; distinct eigenvalue positive",
+            "Repeated negative eigenvalue, geometric multiplicity 2; distinct eigenvalue zero",
+            "Repeated negative eigenvalue, geometric multiplicity 1; distinct eigenvalue zero",
+            "Repeated negative eigenvalue, geometric multiplicity 2; distinct eigenvalue negative",
+            "Repeated negative eigenvalue, geometric multiplicity 1; distinct eigenvalue negative",
+            "Repeated zero eigenvalue, geometric multiplicity 2; distinct eigenvalue positive",
+            "Repeated zero eigenvalue, geometric multiplicity 1; distinct eigenvalue positive",
+            "Repeated zero eigenvalue, geometric multiplicity 2; distinct eigenvalue negative",
+            "Repeated zero eigenvalue, geometric multiplicity 1; distinct eigenvalue negative",
+            "Triple positive eigenvalue; geometric multiplicity 3",
+            "Triple positive eigenvalue; geometric multiplicity 2",
+            "Triple positive eigenvalue; geometric multiplicity 1",
+            "Triple zero eigenvalue; geometric multiplicity 3",
+            "Triple zero eigenvalue; geometric multiplicity 2",
+            "Triple zero eigenvalue; geometric multiplicity 1",
+            "Triple negative eigenvalue; geometric multiplicity 3",
+            "Triple negative eigenvalue; geometric multiplicity 2",
+            "Triple negative eigenvalue; geometric multiplicity 1",
+            "Complex pair with negative real part; negative real eigenvalue",
+            "Complex pair with negative real part; zero real eigenvalue",
+            "Complex pair with negative real part; positive real eigenvalue",
+            "Purely imaginary pair; negative real eigenvalue",
+            "Purely imaginary pair; zero real eigenvalue",
+            "Purely imaginary pair; positive real eigenvalue",
+            "Complex pair with positive real part; negative real eigenvalue",
+            "Complex pair with positive real part; zero real eigenvalue",
+            "Complex pair with positive real part; positive real eigenvalue"
+          ]
+        }
+      },
+      {
+        "title": "Inhomogeneous linear systems",
+        "items": [
+          { "title": "Flow of an inhomogeneous planar system", "file": "example_inh_flow_expanded.mp4", "type": "video", "wide": true }
+        ]
+      },
+      {
+        "title": "Some nonlinear systems",
+        "items": [
+          { "title": "Nonlinear phase portrait I", "file": "nonlinear_example1.mp4", "type": "video" },
+          { "title": "Nonlinear phase portrait II", "file": "nonlinear_example2.mp4", "type": "video" },
+          { "title": "Nonlinear phase portrait III", "file": "nonlinear_example3.mp4", "type": "video" },
+          { "title": "Nonlinear phase portrait IV", "file": "nonlinear_example4.mp4", "type": "video" },
+          { "title": "Nonlinear phase portrait V", "file": "nonlinear_example5.mp4", "type": "video" },
+          { "title": "Nonlinear phase portrait VI", "file": "nonlinear_example6.mp4", "type": "video" },
+          { "title": "Nonlinear phase portrait VII", "file": "nonlinear_example28.mp4", "type": "video" },
+          { "title": "Nonlinear phase portrait VIII", "file": "nonlinear_example22.mp4", "type": "video" },
+          { "title": "Nonlinear phase portrait IX", "file": "nonlinear_example23.mp4", "type": "video" },
+          { "title": "Nonlinear phase portrait X", "file": "nonlinear_example24.mp4", "type": "video" },
+          { "title": "Nonlinear phase portrait XI", "file": "nonlinear_example25.mp4", "type": "video" },
+          { "title": "Nonlinear phase portrait XII", "file": "nonlinear_example26.mp4", "type": "video" },
+          { "title": "Nonlinear phase portrait XIII", "file": "nonlinear_example27.mp4", "type": "video" }
+        ]
+      },
+      {
+        "title": "Pendulum dynamics",
+        "items": [
+          { "title": "Phase portrait: small damping", "file": "pendulum_phase_small_damping.mp4", "type": "video" },
+          { "title": "Motion: small damping", "file": "pendulum_small_damping.mp4", "type": "video" },
+          { "title": "Phase portrait: large damping", "file": "pendulum_phase_large_damping.mp4", "type": "video" },
+          { "title": "Motion: large damping", "file": "pendulum_large_damping.mp4", "type": "video" },
+          { "title": "Phase portrait: balanced damping", "file": "pendulum_phase_balanced.mp4", "type": "video" },
+          { "title": "Motion: balanced damping", "file": "pendulum_balanced.mp4", "type": "video" }
+        ]
+      },
+      {
+        "title": "Chaotic attractors",
+        "items": [
+          { "title": "Chaotic attractor I", "file": "nonlinear_example7.mp4", "type": "video" },
+          { "title": "Chaotic attractor II", "file": "nonlinear_example13.mp4", "type": "video" },
+          { "title": "Chaotic attractor III", "file": "nonlinear_example21.mp4", "type": "video" },
+          { "title": "Chaotic attractor IV", "file": "nonlinear_example14.mp4", "type": "video" },
+          { "title": "Chaotic attractor V", "file": "nonlinear_example15.mp4", "type": "video" },
+          { "title": "Chaotic attractor VI", "file": "nonlinear_example16.mp4", "type": "video" },
+          { "title": "Chaotic attractor VII", "file": "nonlinear_example17.mp4", "type": "video" },
+          { "title": "Chaotic attractor VIII", "file": "nonlinear_example18.mp4", "type": "video" },
+          { "title": "Chaotic attractor IX", "file": "nonlinear_example19.mp4", "type": "video" },
+          { "title": "Chaotic attractor X", "file": "nonlinear_example20.mp4", "type": "video" }
+        ]
+      },
+      {
+        "title": "Three-body problems",
+        "items": [
+          { "title": "Three-body trajectory I", "file": "nonlinear_example9.mp4", "type": "video" },
+          { "title": "Three-body trajectory II", "file": "nonlinear_example12.mp4", "type": "video" },
+          { "title": "Three-body trajectory III", "file": "nonlinear_example11.mp4", "type": "video" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "inverse-problems",
+    "title": "Inverse problems",
+    "items": [
+      { "title": "Basis expansion compared with the truncated singular value decomposition", "file": "basis_vs_truncated_svd.mp4", "type": "video", "wide": true },
+      { "title": "Deblurring with projected TGSVD, L-curve, and curvature evolution", "file": "deblur_tgsvd_projected_lcurve_and_curvature_evolution_horizontal.mp4", "type": "video", "wide": true },
+      { "title": "One-dimensional deblurring with L1 regularization", "file": "1d_deblurring_l1.mp4", "type": "video", "wide": true },
+      { "title": "Order-four square TGSVD progression with identity weighting", "file": "order_4_square_tgsvd_progression_100_identity_titles.mp4", "type": "video", "wide": true },
+      { "title": "Order-four square TGSVD majorization-minimization progression with identity weighting", "file": "order_4_square_tgsvd_mm_eps1e3_progression_identity_titles.mp4", "type": "video", "wide": true },
+      { "title": "Deblurring comparison of nonconvex SGKS and PSGKS", "file": "ilas_deblur_nonconvex_sgks_psgks_comparison_animation.mp4", "type": "video", "wide": true }
+    ]
+  }
+]

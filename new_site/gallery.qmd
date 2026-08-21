@@ -1,3 +1,18 @@
 ---
 title: "Gallery"
+css: assets/css/gallery.css
+include-after-body:
+  - text: |
+      <script src="assets/js/gallery.js"></script>
 ---
+
+I enjoy creating visualizations that make computational mathematics more intuitive for teaching and research; here are some examples.
+
+```{=html}
+<div class="gallery-shell" id="gallery-root">
+  <p class="gallery-loading">Loading visualizations&hellip;</p>
+</div>
+<noscript>
+  <p class="gallery-error">This gallery requires JavaScript to load its locally hosted visualizations.</p>
+</noscript>
+```

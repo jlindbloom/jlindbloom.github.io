@@ -4,4 +4,655 @@ Preparing to preview
 
 Watching files for changes
 Browse at http://localhost:4317/
+GET: /index.html
+GET: /index.html
+GET: /research.html
+GET: /talks.html
+GET: /teaching.html
+GET: /talks.html
+GET: /teaching.html
+GET: /software.html
 GET: /gallery.html
+pandoc 
+  to: html
+  output-file: gallery.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  title: Gallery
+  
+GET: /gallery.html
+GET: /gallery.html
+GET: /research.html
+WARNING: connection closed before message completed
+GET: /
+GET: /
+GET: /
+pandoc 
+  to: html
+  output-file: gallery.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+    - assets/css/gallery.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  title: Gallery
+  description: Computational mathematics visualizations for teaching and research by Jonathan Lindbloom.
+  
+GET: /gallery.html
+  /assets/gallery/math56/pnorm_unit_balls.png (404: Not Found)
+  /assets/gallery/math56/maxmin_theorem_2d_svals.png (404: Not Found)
+  /assets/gallery/math56/wilkinson_polynomial.png (404: Not Found)
+  /assets/gallery/math56/truncated_svd_color_square.mp4 (404: Not Found)
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+pandoc 
+  to: html
+  output-file: gallery.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+    - assets/css/gallery.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  title: Gallery
+  description: Computational mathematics visualizations for teaching and research by Jonathan Lindbloom.
+  
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /software.html
+GET: /research.html
+GET: /teaching.html
+GET: /software.html
+GET: /
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+    - assets/css/research-map.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  pagetitle: Jonathan Lindbloom
+  
+GET: /
+GET: /
+GET: /
+GET: /gallery.html
+GET: /
+GET: /
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+    - assets/css/research-map.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  pagetitle: Jonathan Lindbloom
+  
+GET: /
+GET: /research.html
+GET: /talks.html
+GET: /
+GET: /teaching.html
+GET: /software.html
+GET: /gallery.html
+GET: /gallery.html
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+    - assets/css/research-map.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  pagetitle: Jonathan Lindbloom
+  
+GET: /
+GET: /
+GET: /gallery.html
+GET: /assets/gallery/math56/rayleigh_sphere.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /assets/gallery/math56/rayleigh_sphere.html
+GET: /gallery.html
+WARNING: File 'C:\Users\Jonathan\Github\jlindbloom.github.io\new_site\assets\gallery\math23\three-body-periodic-orbits.gif' was not found.
+GET: /gallery.html
+GET: /assets/gallery/math56/rayleigh_sphere.html
+  /assets/gallery/math23/three-body-periodic-orbits.gif (404: Not Found)
+GET: /gallery.html
+GET: /
+pandoc 
+  to: html
+  output-file: gallery.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+    - assets/css/gallery.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  title: Gallery
+  description: Computational mathematics visualizations for teaching and research by Jonathan Lindbloom.
+  
+GET: /gallery.html
+GET: /
+GET: /gallery.html
+GET: /talks.html
+pandoc 
+  to: html
+  output-file: talks.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  title: Talks
+  
+GET: /talks.html
+pandoc 
+  to: html
+  output-file: talks.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  title: Talks
+  
+GET: /talks.html
+GET: /talks.html
+pandoc 
+  to: html
+  output-file: talks.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  title: Talks
+  
+GET: /talks.html
+GET: /talks.html
+pandoc 
+  to: html
+  output-file: talks.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  title: Talks
+  
+GET: /talks.html
+GET: /talks.html
+pandoc 
+  to: html
+  output-file: talks.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  title: Talks
+  
+GET: /talks.html
+GET: /talks.html
+pandoc 
+  to: html
+  output-file: talks.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  title: Talks
+  
+GET: /talks.html
+GET: /talks.html
+pandoc 
+  to: html
+  output-file: talks.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  title: Talks
+  
+GET: /talks.html
+GET: /talks.html
+pandoc 
+  to: html
+  output-file: talks.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  title: Talks
+  
+GET: /talks.html
+GET: /talks.html
+GET: /
+GET: /research.html
+GET: /talks.html
+GET: /research.html
+pandoc 
+  to: html
+  output-file: research.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  title: Research
+  
+GET: /research.html
+GET: /research.html
+GET: /research.html
+pandoc 
+  to: html
+  output-file: research.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  title: Research
+  
+GET: /research.html
+GET: /research.html
+GET: /research.html
+GET: /research.html
+GET: /talks.html
+WARNING: connection closed before message completed
+GET: /gallery.html
+pandoc 
+  to: html
+  output-file: research.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  title: Research
+  
+GET: /research.html
+GET: /research.html
+GET: /gallery.html
+pandoc 
+  to: html
+  output-file: gallery.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+    - assets/css/gallery.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  title: Gallery
+  
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /research.html
+GET: /talks.html
+GET: /teaching.html
+GET: /software.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /research.html
+GET: /
+GET: /talks.html
+GET: /research.html
+GET: /
+GET: /teaching.html
+GET: /software.html
+GET: /gallery.html
+GET: /software.html
+GET: /
+GET: /
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /teaching.html
+GET: /gallery.html
+GET: /talks.html
+GET: /gallery.html
+GET: /software.html
+GET: /teaching.html
+GET: /talks.html
+WARNING: connection closed before message completed
+GET: /research.html
+WARNING: connection closed before message completed
+GET: /gallery.html
+GET: /research.html
+GET: /talks.html
+GET: /research.html
+GET: /talks.html
+GET: /teaching.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /gallery.html
+GET: /
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Jonathan Lindbloom
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - assets/css/styles.css
+    - assets/css/research-map.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme: cosmo
+  anchor-sections: false
+  code-copy: false
+  pagetitle: Jonathan Lindbloom
+  
+GET: /
+GET: /
+GET: /research.html
+GET: /index.html
+GET: /
+GET: /gallery.html
+GET: /
+GET: /gallery.html
+GET: /research-map.html
+GET: /research.html
+GET: /software.html
+GET: /talks.html
+GET: /teaching.html

@@ -1,6 +1,9 @@
 ---
 title: "Jonathan Lindbloom"
 image: profile3.jpeg
+format:
+  html:
+    include-in-header: _includes/home-redirect.html
 about:
   template: trestles
   image-shape: round

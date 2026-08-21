@@ -24,7 +24,7 @@ March 2025
 
 December 2024
 : *Priorconditioned generalized Krylov subspaces for sparsity-promoting inversion*  
-  [Virginia Tech Applied Numerical Analysis Seminar, Blacksburg, VA.]{.talk-meta}
+  [[Virginia Tech Applied Numerical Analysis Seminar](https://seminar.math.vt.edu/ana/), Blacksburg, VA.]{.talk-meta}
 
 March 2024
 : *Generalized sparsity-promoting solvers and uncertainty quantification for Bayesian inverse problems*  
@@ -50,7 +50,7 @@ June 2026
 
 May 2026
 : *Multigrid-accelerated sparsity-promoting projection methods for inverse problems*  
-  [27th Conference of the International Linear Algebra Society (ILAS 2026), Blacksburg, VA.]{.talk-meta}
+  [[27th Conference of the International Linear Algebra Society (ILAS 2026)](https://ilas2026.math.vt.edu/), Blacksburg, VA.]{.talk-meta}
 
 March 2026
 : *Priorconditioned sparsity-promoting projection methods for deterministic and Bayesian linear inverse problems*  
@@ -62,15 +62,15 @@ September 2025
 
 April 2025
 : *Preconditioning techniques for large-scale sparsity-promoting inverse problems*  
-  [Dartmouth Applied & Computational Mathematics Seminar, Hanover, NH.]{.talk-meta} [Slides](https://drive.google.com/file/d/1b8MRQrDKKi_CyXhaXOWeNP8HEAXlLAFT/view?usp=sharing){.talk-resource aria-label="Slides for Preconditioning techniques for large-scale sparsity-promoting inverse problems at the Dartmouth ACMS seminar"}
+  [[Dartmouth Applied & Computational Mathematics Seminar](https://mgo.syr.edu/conferences/past-conferences/2025-conference/), Hanover, NH.]{.talk-meta} [Slides](https://drive.google.com/file/d/1b8MRQrDKKi_CyXhaXOWeNP8HEAXlLAFT/view?usp=sharing){.talk-resource aria-label="Slides for Preconditioning techniques for large-scale sparsity-promoting inverse problems at the Dartmouth ACMS seminar"}
 
 April 2025
 : *Preconditioning techniques for large-scale sparsity-promoting inverse problems*  
-  [East Coast Optimization Meeting, Arlington, VA.]{.talk-meta} [Slides](https://drive.google.com/file/d/1ZbJSLORMwgCOJqAyW4Q1HKNNpWfI8yzP/view?usp=sharing){.talk-resource aria-label="Slides for Preconditioning techniques for large-scale sparsity-promoting inverse problems at the East Coast Optimization Meeting"}
+  [[East Coast Optimization Meeting](https://math.gmu.edu/~hantil/ECOM/2025/), Arlington, VA.]{.talk-meta} [Slides](https://drive.google.com/file/d/1ZbJSLORMwgCOJqAyW4Q1HKNNpWfI8yzP/view?usp=sharing){.talk-resource aria-label="Slides for Preconditioning techniques for large-scale sparsity-promoting inverse problems at the East Coast Optimization Meeting"}
 
 March 2025
 : *Preconditioning techniques for large-scale sparsity-promoting inverse problems*  
-  [50th Annual New York State Regional Graduate Mathematics Conference, Syracuse, NY.]{.talk-meta}
+  [[50th Annual New York State Regional Graduate Mathematics Conference](https://mgo.syr.edu/conferences/past-conferences/2025-conference/), Syracuse, NY.]{.talk-meta}
 
 January 2025
 : *Cauchy interlacing and generalized Ostrowski theorems*  
@@ -135,5 +135,15 @@ August 2020
 August 2020
 : *Uncertainty quantification of ice fog events*  
   [Dartmouth ICE REU, virtual.]{.talk-meta}
+
+:::
+
+## Minisymposium organization
+
+::: {.talk-list}
+
+May 2026
+: *Inverse Problems and Uncertainty Quantification through the Lens of Numerical Linear Algebra*  
+  [[27th Conference of the International Linear Algebra Society (ILAS 2026)](https://ilas2026.math.vt.edu/), Blacksburg, VA. Co-organized with Toluwani Okunola and Mirjeta Pasha.]{.talk-meta}
 
 :::

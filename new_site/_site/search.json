@@ -53,14 +53,14 @@
     "href": "gallery.html",
     "title": "Gallery",
     "section": "",
-    "text": "Skip to main content"
+    "text": "Skip to main content\n\n\n\n\nI enjoy creating visualizations that make computational mathematics more intuitive for teaching and research; here are some examples.\n\n  Loading visualizations…\n\n\n  This gallery requires JavaScript to load its locally hosted visualizations."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "",
     "section": "",
-    "text": "Skip to main content\n\n\n\n\n\n\n\n\nI am a visiting assistant professor of mathematics at The Ohio State University, where I am mentored by Dongbin Xiu. I received my Ph.D. in mathematics from Dartmouth College in 2026, where I was advised by Anne Gelb. My dissertation is titled Advances in Computational Methods for Sparsity-Promoting Linear Inverse Problems. My research interests include (Bayesian) inverse problems, numerical linear algebra, SciML/scientific computing, and uncertainty quantification."
+    "text": "Skip to main content\n\n\n\n\n\n\n\n\nI am a visiting assistant professor of mathematics at The Ohio State University, where I am mentored by Dongbin Xiu. I received my Ph.D. in mathematics from Dartmouth College in 2026, where I was advised by Anne Gelb and completed my dissertation on Advances in Computational Methods for Sparsity-Promoting Linear Inverse Problems. My research interests include (Bayesian) inverse problems, numerical linear algebra, and scientific computing, including scientific machine learning.\n\n     \n\n\n\n\n\n  \n  Columbus, OH"
   },
   {
     "objectID": "research.html",
@@ -74,21 +74,21 @@
     "href": "research.html#publications",
     "title": "Research",
     "section": "Publications",
-    "text": "Publications\n\nPreprints\n\nPriorconditioned Sparsity-Promoting Projection Methods for Deterministic and Bayesian Linear Inverse Problems arXiv\nJonathan Lindbloom, Mirjeta Pasha, Jan Glaubitz, and Youssef Marzouk (2025).\n\n\n\nJournal publications\n\nEfficient sparsity-promoting MAP estimation for Bayesian linear inverse problems\nJonathan Lindbloom, Jan Glaubitz, and Anne Gelb. Inverse Problems 41(2), 025001 (2025).\nComplex-valued signal recovery using the Bayesian LASSO\nDylan Green, Jonathan Lindbloom, and Anne Gelb. SIAM/ASA Journal on Uncertainty Quantification 13(2), 831-861 (2025).\nEmpirical Bayesian inference for complex-valued signals using support-informed priors\nDylan Green, Jonathan Lindbloom, and Anne Gelb. AIMS Applied Mathematics for Modern Challenges 2(4) (2024).\n\n\n\nConference papers\n\nComplex-Valued Image Recovery from Multiple Measurements\nDylan Green, Jonathan Lindbloom, and Anne Gelb. 2024 IEEE Conference on Computational Imaging Using Synthetic Apertures (CISA) (2024)."
+    "text": "Publications\n\nPreprints\n\nPriorconditioned Sparsity-Promoting Projection Methods for Deterministic and Bayesian Linear Inverse Problems. Jonathan Lindbloom, Mirjeta Pasha, Jan Glaubitz, and Youssef Marzouk (2025). arXiv\n\n\n\nJournal publications\n\nEfficient sparsity-promoting MAP estimation for Bayesian linear inverse problems. Jonathan Lindbloom, Jan Glaubitz, and Anne Gelb. Inverse Problems 41(2), 025001 (2025).\nComplex-valued signal recovery using the Bayesian LASSO. Dylan Green, Jonathan Lindbloom, and Anne Gelb. SIAM/ASA Journal on Uncertainty Quantification 13(2), 831-861 (2025).\nEmpirical Bayesian inference for complex-valued signals using support-informed priors. Dylan Green, Jonathan Lindbloom, and Anne Gelb. AIMS Applied Mathematics for Modern Challenges 2(4) (2024).\n\n\n\nConference papers\n\nComplex-Valued Image Recovery from Multiple Measurements. Dylan Green, Jonathan Lindbloom, and Anne Gelb. 2024 IEEE Conference on Computational Imaging Using Synthetic Apertures (CISA) (2024)."
   },
   {
     "objectID": "research.html#dissertation",
     "href": "research.html#dissertation",
     "title": "Research",
     "section": "Dissertation",
-    "text": "Dissertation\n\nAdvances in Computational Methods for Sparsity-Promoting Linear Inverse Problems\nJonathan Lindbloom. Ph.D. dissertation, Dartmouth College (2026)."
+    "text": "Dissertation\n\nAdvances in Computational Methods for Sparsity-Promoting Linear Inverse Problems. Jonathan Lindbloom. Ph.D. dissertation, Dartmouth College (2026)."
   },
   {
     "objectID": "research.html#technical-articles",
     "href": "research.html#technical-articles",
     "title": "Research",
     "section": "Technical articles",
-    "text": "Technical articles\n\nFinal Reports of the 2021 Los Alamos National Laboratory Computational Physics Student Summer Workshop\nAngermeier et al. Los Alamos National Laboratory report (September 2021). OSTI record.\nA Bayesian model of records\nJaime Sevilla and Jonathan Lindbloom. Authorea (May 2022).\nModelling a Time Series of Records with PyMC3\nJaime Sevilla and Jonathan Lindbloom. Authorea (September 2021)."
+    "text": "Technical articles\n\nFinal Reports of the 2021 Los Alamos National Laboratory Computational Physics Student Summer Workshop. Angermeier et al. Los Alamos National Laboratory report (September 2021).\nA Bayesian model of records. Jaime Sevilla and Jonathan Lindbloom. Authorea (May 2022).\nModelling a Time Series of Records with PyMC3. Jaime Sevilla and Jonathan Lindbloom. Authorea (September 2021)."
   },
   {
     "objectID": "talks.html",
@@ -110,5 +110,12 @@
     "title": "Talks",
     "section": "Contributed talks",
     "text": "Contributed talks\n\n\nJune 2026\n\nPseudospectra and the picture of a matrix\nDartmouth Mathematics Graduate Student Seminar, Hanover, NH.\n\nMay 2026\n\nMultigrid-accelerated sparsity-promoting projection methods for inverse problems\n27th Conference of the International Linear Algebra Society (ILAS 2026), Blacksburg, VA.\n\nMarch 2026\n\nPriorconditioned sparsity-promoting projection methods for deterministic and Bayesian linear inverse problems\nSIAM Conference on Uncertainty Quantification (UQ26), Minneapolis, MN.\n\nSeptember 2025\n\nThe GSVD with applications to inverse problems\nDartmouth Mathematics Graduate Student Seminar, Hanover, NH. Slides\n\nApril 2025\n\nPreconditioning techniques for large-scale sparsity-promoting inverse problems\nDartmouth Applied & Computational Mathematics Seminar, Hanover, NH. Slides\n\nApril 2025\n\nPreconditioning techniques for large-scale sparsity-promoting inverse problems\nEast Coast Optimization Meeting, Arlington, VA. Slides\n\nMarch 2025\n\nPreconditioning techniques for large-scale sparsity-promoting inverse problems\n50th Annual New York State Regional Graduate Mathematics Conference, Syracuse, NY.\n\nJanuary 2025\n\nCauchy interlacing and generalized Ostrowski theorems\nDartmouth Mathematics Graduate Student Seminar, Hanover, NH.\n\nOctober 2024\n\nPriorconditioned generalized Krylov subspaces for sparsity-promoting inversion\nDartmouth Mathematics Graduate Student Seminar, Hanover, NH.\n\nMay 2024\n\nThe conjugate gradient method: a top 10 algorithm of the 20th century\nDartmouth Mathematics Graduate Student Seminar, Hanover, NH.\n\nJanuary 2024\n\nA brief introduction to matrix-free and randomized matrix computations\nDartmouth Mathematics Graduate Student Seminar, Hanover, NH.\n\nSeptember 2023\n\nOblique projections and low-rank structure in inverse problems\nDartmouth Mathematics Graduate Student Seminar, Hanover, NH. Slides\n\nJanuary 2023\n\nHierarchical Bayesian inverse problems\nDartmouth Mathematics Graduate Student Seminar, Hanover, NH. Slides\n\nNovember 2022\n\nGeneralized hybrid solvers for sparsity-promoting Bayesian inverse problems\nDartmouth Advancement Examination, Hanover, NH. Slides\n\nNovember 2022\n\nGeneralized hybrid solvers for large-scale edge-preserving inversion\nDartmouth Sea Ice Modeling and Data Assimilation MURI Annual Meeting, virtual. Video Slides\n\nAugust 2022\n\nSurrogate modeling for high explosives diameter effect calculations\nLANL Theoretical Division Lightning Talk Symposium, Los Alamos, NM.\n\nApril 2022\n\nMultiplicative denoising with uncertainty quantification for synthetic aperture radar imaging\nSIAM Conference on Uncertainty Quantification (UQ22), Atlanta, GA. Slides\n\nOctober 2021\n\nTowards UQ for SAR despeckling\nDartmouth Sea Ice Modeling and Data Assimilation MURI Annual Meeting, virtual. Video Slides\n\nAugust 2021\n\nUncertainty quantification in high explosives equations of state\nLANL Computational Physics Summer Workshop Final Presentations, virtual. Slides\n\nMarch 2021\n\nA Bayesian Gaussian process model for COVID-19\nSMU Spring Research Days, virtual.\n\nOctober 2020\n\nBayesian perspectives on COVID-19 in Texas\nSMU Fall 2020 Summer Research Symposium, virtual. Video\n\nAugust 2020\n\nUncertainty quantification of ice fog events\nSMU Grand Challenges Scholars Research Symposium, Dallas, TX.\n\nAugust 2020\n\nUncertainty quantification of ice fog events\nDartmouth ICE REU, virtual."
+  },
+  {
+    "objectID": "talks.html#minisymposium-organization",
+    "href": "talks.html#minisymposium-organization",
+    "title": "Talks",
+    "section": "Minisymposium organization",
+    "text": "Minisymposium organization\n\n\nMay 2026\n\nInverse Problems and Uncertainty Quantification through the Lens of Numerical Linear Algebra\n27th Conference of the International Linear Algebra Society (ILAS 2026), Blacksburg, VA. Co-organized with Toluwani Okunola and Mirjeta Pasha."
   }
 ]

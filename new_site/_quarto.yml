@@ -9,6 +9,7 @@ project:
     - assets/posters/**
     - assets/slides/**
     - assets/js/**
+    - assets/gallery/**
     - data/**
 
 website:

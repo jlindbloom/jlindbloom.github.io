@@ -11,7 +11,7 @@ include-after-body:
 
 :::: {.home-intro}
 ::: {.home-copy}
-I am a visiting assistant professor of mathematics at [The Ohio State University](https://math.osu.edu/), where I am mentored by [Dongbin Xiu](https://sites.google.com/view/dongbin-xiu/home). I received my Ph.D. in mathematics from Dartmouth College in 2026, where I was advised by [Anne Gelb](https://math.dartmouth.edu/~annegelb/). My dissertation is titled [*Advances in Computational Methods for Sparsity-Promoting Linear Inverse Problems*](https://digitalcommons.dartmouth.edu/dissertations/520/). My research interests include (Bayesian) inverse problems, numerical linear algebra, SciML/scientific computing, and uncertainty quantification.
+I am a visiting assistant professor of mathematics at [The Ohio State University](https://math.osu.edu/), where I am mentored by [Dongbin Xiu](https://sites.google.com/view/dongbin-xiu/home). I received my Ph.D. in mathematics from Dartmouth College in 2026, where I was advised by [Anne Gelb](https://math.dartmouth.edu/~annegelb/) and completed my dissertation on [*Advances in Computational Methods for Sparsity-Promoting Linear Inverse Problems*](https://digitalcommons.dartmouth.edu/dissertations/520/). My research interests include (Bayesian) inverse problems, numerical linear algebra, and scientific computing, including scientific machine learning.
 
 ::: {.profile-icons role="navigation" aria-label="Professional profiles"}
 [{{< iconify clarity email-line size=large label="Email" title="Email" >}}](mailto:lindbloom.1@osu.edu){.profile-icon-link aria-label="Email" title="Email"}
@@ -25,6 +25,13 @@ I am a visiting assistant professor of mathematics at [The Ohio State University
 
 ::: {.home-photo}
 ![](assets/images/profile.jpeg){.profile-photo fig-alt="Portrait of Jonathan Lindbloom"}
+
+```{=html}
+<div class="profile-location">
+  <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+  <span>Columbus, OH</span>
+</div>
+```
 :::
 ::::
 
